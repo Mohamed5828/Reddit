@@ -21,7 +21,7 @@ export default function Community(props) {
         className={isJoined ? "joined-btn" : "join-btn"}
         onClick={changeButton}
       >
-        {isJoined ? "Joined" : "Join"}
+        <span>{isJoined ? "Joined" : "Join"}</span>
       </button>
     </div>
   );

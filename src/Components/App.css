@@ -137,12 +137,30 @@ body {
   border: none;
   color: white;
   background-color: #0079d3;
+  cursor: pointer;
 }
 
 .join-btn:hover {
   background-color: #3293db;
 }
-
+.joined-btn {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  width: 60px;
+  padding: 6px;
+  border-radius: 200px;
+  border: 1px solid #0079d3;
+  background-color: white;
+  color: #0079d3;
+  cursor: pointer;
+}
+.joined-btn:hover span {
+  display: none;
+}
+.joined-btn:hover:before {
+  content: "Leave";
+}
 /* end of middle section */
 .all-categories {
   width: 192px;
