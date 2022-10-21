@@ -6,12 +6,36 @@ export default function Categories() {
       </div>
       <div className="categories">
         <ol>
-          <li className="category">All Communities</li>
-          <li className="category">Near You</li>
-          <li className="category">Sports</li>
-          <li className="category">Gaming</li>
-          <li className="category">News</li>
-          <li className="category">TV</li>
+          <li>
+            <a 
+            className="category" 
+            href = "#">All Communities</a>
+          </li>
+          <li>
+            <a 
+            className="category" 
+            href = "#">Near You</a>
+          </li>
+          <li>
+            <a 
+            className="category" 
+            href = "#">Gaming</a>
+          </li>
+          <li>
+            <a 
+            className="category" 
+            href = "#">Sports</a>
+          </li>
+          <li>
+            <a 
+            className="category" 
+            href = "#">News</a>
+          </li>
+          <li>
+            <a 
+            className="category" 
+            href = "#">TV</a>
+          </li>
         </ol>
       </div>
     </div>

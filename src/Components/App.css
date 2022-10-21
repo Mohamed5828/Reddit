@@ -106,6 +106,8 @@ body {
   line-height: 20px;
 }
 
+.community::before
+
 .community a {
   display: flex;
   align-items: center;
@@ -186,4 +188,17 @@ body {
   position: relative;
   text-decoration: none;
   text-transform: capitalize;
+}
+
+.category:hover {
+  background-color: #f6f7f8;
+}
+
+.category:focus::before {
+  background-color: #0079d3;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 5px;
 }
