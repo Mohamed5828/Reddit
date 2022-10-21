@@ -16,6 +16,11 @@ export default function Community(props) {
           alt="logo"
         />
         <p className="community--title">{props.title}</p>
+        <div className="community--card">Such And Such
+        <br />
+        <br />
+        <br />
+        ssadsdsadsads </div>
       </a>
       <button
         className={isJoined ? "joined-btn" : "join-btn"}
