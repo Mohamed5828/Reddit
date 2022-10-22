@@ -1,5 +1,12 @@
 import Community from "./Community";
 import data from "./data";
+import {
+  CommunityContainer,
+  AllCommunities,
+  CommunityHeader,
+  CommunityH3,
+  CommunityOl,
+} from "./CommunitiesContainerStyle";
 
 export default function Container() {
   const communities = data.map((community) => {
@@ -10,18 +17,20 @@ export default function Container() {
           img={community.coverImg}
           title={community.title}
           isJoined={community.isJoined}
+          stats={community.stats}
+          description={community.description}
         />
       </li>
     );
   });
   return (
-    <div className="community-container">
-      <div className="all-communities">
-        <div className="community-header">
-          <h3>Today's Top Growing Communities</h3>
-        </div>
-        <ol>{communities}</ol>
-      </div>
-    </div>
+    <CommunityContainer>
+      <AllCommunities>
+        <CommunityHeader>
+          <CommunityH3> Today's Top Growing Communities</CommunityH3>
+        </CommunityHeader>
+        <CommunityOl>{communities}</CommunityOl>
+      </AllCommunities>
+    </CommunityContainer>
   );
 }

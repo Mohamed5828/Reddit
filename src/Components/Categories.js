@@ -1,43 +1,41 @@
+import {
+  AllCategories,
+  CategoryH3,
+  CategoryOl,
+  Category,
+  CategoryHeader,
+} from "./CategoriesStyle";
+
 export default function Categories() {
   return (
-    <div className="all-categories">
-      <div className="category-header">
-        <h3>Categories</h3>
-      </div>
+    <AllCategories>
+      <CategoryHeader>
+        <CategoryH3>Categories</CategoryH3>
+      </CategoryHeader>
       <div className="categories">
-        <ol>
+        <CategoryOl>
           <li>
-            <a 
-            className="category" 
-            href = "#">All Communities</a>
+            <Category href="#">All Communities</Category>
           </li>
           <li>
-            <a 
-            className="category" 
-            href = "#">Near You</a>
+            <Category href="#">Near You</Category>
           </li>
           <li>
-            <a 
-            className="category" 
-            href = "#">Gaming</a>
+            <Category href="#">Gaming</Category>
           </li>
           <li>
-            <a 
-            className="category" 
-            href = "#">Sports</a>
+            <Category href="#">Sports</Category>
           </li>
           <li>
-            <a 
-            className="category" 
-            href = "#">News</a>
+            <Category className="category" href="#">
+              News
+            </Category>
           </li>
           <li>
-            <a 
-            className="category" 
-            href = "#">TV</a>
+            <Category href="#">TV</Category>
           </li>
-        </ol>
+        </CategoryOl>
       </div>
-    </div>
+    </AllCategories>
   );
 }
