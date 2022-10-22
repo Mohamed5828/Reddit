@@ -20,7 +20,7 @@ export const CommunityContainer = styled.div`
 
 export const AllCommunities = styled.div`
   background-color: white;
-  margin: 24px;
+  margin: 12px 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 100%;
