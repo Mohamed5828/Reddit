@@ -27,9 +27,7 @@ export default function Categories() {
             <Category href="#">Sports</Category>
           </li>
           <li>
-            <Category className="category" href="#">
-              News
-            </Category>
+            <Category href="#">News</Category>
           </li>
           <li>
             <Category href="#">TV</Category>

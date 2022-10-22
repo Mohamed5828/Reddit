@@ -6,6 +6,7 @@ export const CommunityContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
 `;
+
 export const AllCommunities = styled.div`
   background-color: white;
   margin: 24px;
@@ -13,6 +14,7 @@ export const AllCommunities = styled.div`
   border-top-right-radius: 4px;
   width: 40em;
 `;
+
 export const CommunityHeader = styled.div`
   -ms-flex-align: center;
   align-items: center;

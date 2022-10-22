@@ -12,6 +12,7 @@ export const AllCategories = styled(AllCommunities)`
 export const CategoryHeader = CommunityHeader;
 export const CategoryH3 = CommunityH3;
 export const CategoryOl = CommunityOl;
+
 export const Category = styled.a`
   background-color: white;
   font-size: 12px;
@@ -27,4 +28,18 @@ export const Category = styled.a`
   position: relative;
   text-decoration: none;
   text-transform: capitalize;
+
+
+  &:hover {
+    background-color: #f6f7f8;
+  }
+  
+  &:focus::before {
+    background-color: #0079d3;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 5px;
+  }
 `;

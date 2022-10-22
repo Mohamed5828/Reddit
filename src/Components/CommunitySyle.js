@@ -37,9 +37,16 @@ export const CommunityImg = styled.img`
   width: 32px;
 `;
 
+export const TitleParagraph = styled.p` 
+
+  &:hover + div {
+    display: inline-block;
+  }
+`
+
 export const CommunityCard = styled.div`
   display: none;
-  position: relative;
+  position: absolute;
   min-width: 410px;
   padding: 5px;
   border-color: #f0f0f0;
@@ -49,6 +56,12 @@ export const CommunityCard = styled.div`
   line-height: 16px;
   background-color: white;
   z-index: 1;
+  left: 70px;
+  top: 42px;
+  
+  &:hover {
+    display: inline-block;
+  }
 `;
 
 export const ForPadding = styled.div`

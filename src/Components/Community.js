@@ -18,6 +18,7 @@ import {
   HoverH4,
   HoverP,
   HoverButton,
+  TitleParagraph,
 } from "./CommunitySyle";
 
 export default function Community(props) {
@@ -34,8 +35,8 @@ export default function Community(props) {
           src={`./assets/images/${props.img}`}
           alt="logo"
         ></CommunityImg>
-        <p className="community--title">{props.title}</p>
-        <div className="community--card">
+        <TitleParagraph>{props.title}</TitleParagraph>
+        <CommunityCard>
           <ForPadding>
             <HoverItem>
               <ImgTitle>
@@ -56,7 +57,7 @@ export default function Community(props) {
               <HoverButton>View Community</HoverButton>
             </HoverItem>
           </ForPadding>
-        </div>
+        </CommunityCard>
       </CommunityA>
       <button
         className={isJoined ? "joined-btn" : "join-btn"}
