@@ -4,11 +4,9 @@ export const CommunityItem = styled.div`
   text-decoration: none;
   position: relative;
   height: 64px;
-  min-width: 407px;
   padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: spa;
   border-bottom: 1px solid #edeff1;
   font-size: 16px;
   font-weight: 300;
@@ -37,12 +35,11 @@ export const CommunityImg = styled.img`
   width: 32px;
 `;
 
-export const TitleParagraph = styled.p` 
-
+export const TitleParagraph = styled.p`
   &:hover + div {
     display: inline-block;
   }
-`
+`;
 
 export const CommunityCard = styled.div`
   display: none;
@@ -58,7 +55,7 @@ export const CommunityCard = styled.div`
   z-index: 1;
   left: 70px;
   top: 42px;
-  
+
   &:hover {
     display: inline-block;
   }

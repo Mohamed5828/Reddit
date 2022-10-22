@@ -1,10 +1,21 @@
 import styled from "styled-components";
 
+export const MainPadding = styled.div`
+  padding: 20px 24px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  @media screen and (max-width: 640px) {
+    padding: 0;
+  }
+`;
+
 export const CommunityContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 100%;
 `;
 
 export const AllCommunities = styled.div`
@@ -12,7 +23,10 @@ export const AllCommunities = styled.div`
   margin: 24px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  width: 40em;
+  width: 100%;
+  @media screen and (max-width: 640px) {
+    margin: 0;
+  }
 `;
 
 export const CommunityHeader = styled.div`
@@ -25,10 +39,11 @@ export const CommunityHeader = styled.div`
   display: -ms-flexbox;
   display: flex;
   height: 40px;
+  position: sticky;
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0 16px;
-  top: 48px;
+  top: 0px;
   z-index: 3;
 `;
 

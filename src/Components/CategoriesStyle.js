@@ -7,9 +7,17 @@ import {
 } from "./CommunitiesContainerStyle";
 
 export const AllCategories = styled(AllCommunities)`
-  width: 192px;
+  min-width: 192px;
+  max-width: 192px;
+  background-color: inherit;
+
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
 `;
-export const CategoryHeader = CommunityHeader;
+export const CategoryHeader = styled(CommunityHeader)`
+  position: static;
+`;
 export const CategoryH3 = CommunityH3;
 export const CategoryOl = CommunityOl;
 
@@ -29,11 +37,10 @@ export const Category = styled.a`
   text-decoration: none;
   text-transform: capitalize;
 
-
   &:hover {
     background-color: #f6f7f8;
   }
-  
+
   &:focus::before {
     background-color: #0079d3;
     content: "";
