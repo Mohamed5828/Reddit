@@ -9,6 +9,7 @@ export default [
       online: 6,
     },
     isJoined: false,
+    rankChange: 2,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export default [
       online: 60,
     },
     isJoined: true,
+    rankChange: 1,
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ export default [
       online: 63,
     },
     isJoined: false,
+    rankChange: 7,
   },
   {
     id: 1,
@@ -42,6 +45,7 @@ export default [
       online: 6,
     },
     isJoined: false,
+    rankChange: 15,
   },
   {
     id: 2,
@@ -53,6 +57,7 @@ export default [
       online: 60,
     },
     isJoined: true,
+    rankChange: 70,
   },
   {
     id: 3,
@@ -64,6 +69,7 @@ export default [
       online: 63,
     },
     isJoined: false,
+    rankChange: 17,
   },
   {
     id: 1,
@@ -75,6 +81,7 @@ export default [
       online: 6,
     },
     isJoined: false,
+    rankChange: 5,
   },
   {
     id: 2,
@@ -86,6 +93,7 @@ export default [
       online: 60,
     },
     isJoined: true,
+    rankChange: 26,
   },
   {
     id: 3,
@@ -97,6 +105,7 @@ export default [
       online: 63,
     },
     isJoined: false,
+    rankChange: 20,
   },
   {
     id: 1,
@@ -108,6 +117,7 @@ export default [
       online: 6,
     },
     isJoined: false,
+    rankChange: 14,
   },
   {
     id: 2,
@@ -119,6 +129,7 @@ export default [
       online: 60,
     },
     isJoined: true,
+    rankChange: 23,
   },
   {
     id: 3,
@@ -130,6 +141,7 @@ export default [
       online: 63,
     },
     isJoined: false,
+    rankChange: 55,
   },
   {
     id: 1,
@@ -141,6 +153,7 @@ export default [
       online: 6,
     },
     isJoined: false,
+    rankChange: 2,
   },
   {
     id: 2,
@@ -152,6 +165,7 @@ export default [
       online: 60,
     },
     isJoined: true,
+    rankChange: 12,
   },
   {
     id: 3,
@@ -163,5 +177,6 @@ export default [
       online: 63,
     },
     isJoined: false,
+    rankChange: 33,
   },
 ];

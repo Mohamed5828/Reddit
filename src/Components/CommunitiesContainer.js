@@ -5,6 +5,7 @@ import {
   AllCommunities,
   CommunityHeader,
   CommunityH3,
+  CommunityHeaderSpan,
   CommunityOl,
 } from "./CommunitiesContainerStyle";
 
@@ -13,12 +14,14 @@ export default function Container() {
     return (
       <li>
         <Community
-          key={community.id}
+          key={community.id.toString()}
+          index = {community.id}
           img={community.coverImg}
           title={community.title}
           isJoined={community.isJoined}
           stats={community.stats}
           description={community.description}
+          rankChange = {community.rankChange}
         />
       </li>
     );
@@ -28,6 +31,7 @@ export default function Container() {
       <AllCommunities>
         <CommunityHeader>
           <CommunityH3> Today's Top Growing Communities</CommunityH3>
+          <CommunityHeaderSpan>Rank Change</CommunityHeaderSpan>
         </CommunityHeader>
         <CommunityOl>{communities}</CommunityOl>
       </AllCommunities>

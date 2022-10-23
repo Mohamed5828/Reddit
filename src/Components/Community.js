@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {
   CommunityItem,
-  CommunityTitle,
   CommunityA,
+  CommunityIndex,
   CommunityImg,
+  TitleParagraph,
   CommunityCard,
   ForPadding,
   HoverItem,
@@ -18,7 +19,7 @@ import {
   HoverH4,
   HoverP,
   HoverButton,
-  TitleParagraph,
+  CommunityRankChange,
 } from "./CommunitySyle";
 
 export default function Community(props) {
@@ -31,6 +32,7 @@ export default function Community(props) {
   return (
     <CommunityItem>
       <CommunityA href={`/${props.title}`}>
+        <CommunityIndex>{props.index}</CommunityIndex>
         <CommunityImg
           src={`./assets/images/${props.img}`}
           alt="logo"
@@ -41,7 +43,7 @@ export default function Community(props) {
             <HoverItem>
               <ImgTitle>
                 <HoverImg src={`./assets/images/${props.img}`} />
-                <HoverTitle className="hover-title">{props.title}</HoverTitle>
+                <HoverTitle>{props.title}</HoverTitle>
               </ImgTitle>
               <MembersOnline>
                 <Members>
@@ -65,6 +67,7 @@ export default function Community(props) {
       >
         <span>{isJoined ? "Joined" : "Join"}</span>
       </button>
+      <CommunityRankChange>{props.rankChange}</CommunityRankChange>
     </CommunityItem>
   );
 }

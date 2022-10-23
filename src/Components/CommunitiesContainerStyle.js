@@ -43,7 +43,7 @@ export const CommunityHeader = styled.div`
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0 16px;
-  top: 0px;
+  top: 0;
   z-index: 3;
 `;
 
@@ -52,6 +52,13 @@ export const CommunityH3 = styled.h3`
   font-weight: 500;
   line-height: 20px;
   color: #1c1c1c;
+`;
+
+export const CommunityHeaderSpan = styled.span`
+  color: #7c7c7c;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
 `;
 
 export const CommunityOl = styled.ol`

@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'IBMPlexSans';
+  font-weight: normal;
+  font-style: normal;
+  src: url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-ibmplexsans-regular-39e1a74bab.woff2') format('woff2'), url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-ibmplexsans-regular-5a469cfacd.woff') format('woff');
+}
+@font-face {
+  font-family: 'IBMPlexSans';
+  font-weight: 500;
+  font-style: normal;
+  src: url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-ibmplexsans-medium-93cde5cb70.woff2') format('woff2'), url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-ibmplexsans-medium-926e6b23b6.woff') format('woff');
+}
+@font-face {
+  font-family: 'IBMPlexSans';
+  font-weight: bold;
+  font-style: normal;
+  src: url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-ibmplexsans-bold-47d0880913.woff2') format('woff2'), url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-ibmplexsans-bold-736188bb57.woff') format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-notosans-notosans-923ab93982.woff2') format('woff2'), url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-notosans-notosans-49dd5c1e17.woff') format('woff'), url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-notosans-notosans-d29e1ec47e.ttf') format('truetype'), url('https://www.redditstatic.com/crypto-assets/v2/-core-styles-fonts-notosans-notosans-0c237dfb54.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

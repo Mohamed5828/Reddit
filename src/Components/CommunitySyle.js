@@ -7,17 +7,29 @@ export const CommunityItem = styled.div`
   padding: 0 24px;
   display: flex;
   align-items: center;
+
+  /*Can be put in another container to fix media queries for this part*/
+  justify-content: space-between;
   border-bottom: 1px solid #edeff1;
   font-size: 16px;
   font-weight: 300;
   line-height: 20px;
 `;
-export const CommunityTitle = styled.div``;
+
 
 export const CommunityA = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
+`;
+
+export const CommunityIndex = styled.span`
+  color: #1c1c1c;
+  text-align: right;
+  min-width: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
 `;
 
 export const CommunityImg = styled.img`
@@ -35,10 +47,21 @@ export const CommunityImg = styled.img`
   width: 32px;
 `;
 
-export const TitleParagraph = styled.p`
+export const TitleParagraph = styled.p` 
+  color: #1c1c1c;
+  font-weight: 500;
+
+  
   &:hover + div {
     display: inline-block;
   }
+`;
+
+export const CommunityRankChange = styled.span`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #1c1c1c;
 `;
 
 export const CommunityCard = styled.div`
