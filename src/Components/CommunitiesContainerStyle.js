@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const MainPadding = styled.div`
   padding: 20px 24px;
   width: 100%;
+  max-width: 1248px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: nowrap;
   @media screen and (max-width: 640px) {

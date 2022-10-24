@@ -1,17 +1,13 @@
 import styled from "styled-components";
+import { FaAngleUp } from "react-icons/fa";
 
-export const ArrowUp = {
-  color: "rgb(70, 209, 96)",
-  position: "absolute",
-  left: "52px",
-};
 
-export const ArrowDown = {
-  color: "rgb(234, 0, 39)",
-  position: "absolute",
-  left: "52px",
-  transform: "rotate(180deg)",
-};
+export const Arrow = styled(FaAngleUp)`
+  position: absolute;
+  left: 52px;
+  color: ${({up}) => up ? "#46D160" : "#EA2700"};
+  transform: ${({up}) => up? "none" : "rotate(180deg)"};
+`;
 
 export const CommunityItem = styled.div`
   text-decoration: none;

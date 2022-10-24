@@ -58,7 +58,7 @@ export const Browse = styled.div`
   overflow: visible;
   overflow-wrap: break-word;
   margin-top: 16px;
-  padding: 12px;
+  padding: 0;
 `;
 
 export const BrowseH3 = styled.h3`
@@ -67,6 +67,11 @@ export const BrowseH3 = styled.h3`
   line-height: 18px;
   text-transform: capitalize;
   padding: 12px 12px 0;
+  margin: 0;
+`;
+
+export const LettersContainer = styled.div`
+  padding: 12px;
 `;
 
 export const Letters = styled.a`

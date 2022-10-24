@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+
 import {
   CommunityItem,
   CommunityA,
@@ -22,8 +20,7 @@ import {
   HoverP,
   HoverButton,
   CommunityRankChange,
-  ArrowUp,
-  ArrowDown,
+  Arrow,
 } from "./CommunitySyle";
 
 export default function Community(props) {
@@ -37,10 +34,7 @@ export default function Community(props) {
     <CommunityItem>
       <CommunityA href={`/${props.title}`}>
         <CommunityIndex>{props.index}</CommunityIndex>
-        <FontAwesomeIcon
-          icon={faAngleUp}
-          style={isRising ? ArrowUp : ArrowDown}
-        />
+        <Arrow  up={isRising}></Arrow>
         <CommunityImg
           src={`./assets/images/${props.img}`}
           alt="logo"

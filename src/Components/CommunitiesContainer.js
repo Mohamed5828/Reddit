@@ -10,12 +10,12 @@ import {
 } from "./CommunitiesContainerStyle";
 
 export default function Container() {
-  const communities = data.map((community) => {
+  const communities = data.map((community, index) => {
     return (
       <li>
         <Community
           key={community.id.toString()}
-          index = {community.id}
+          index = {index+1}
           img={community.coverImg}
           title={community.title}
           isJoined={community.isJoined}
