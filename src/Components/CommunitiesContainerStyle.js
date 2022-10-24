@@ -23,6 +23,7 @@ export const CommunityContainer = styled.div`
 export const AllCommunities = styled.div`
   background-color: white;
   margin: 12px 0;
+  margin-top: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 100%;
@@ -51,6 +52,7 @@ export const CommunityH3 = styled.h3`
   font-weight: 500;
   line-height: 20px;
   color: #1c1c1c;
+  margin = 0;
 `;
 
 export const CommunityHeaderSpan = styled.span`

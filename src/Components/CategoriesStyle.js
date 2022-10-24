@@ -11,6 +11,7 @@ export const AllCategories = styled(AllCommunities)`
   max-width: 192px;
   background-color: inherit;
   margin-right: 24px;
+  margin-top: 0;
   @media screen and (max-width: 700px) {
     display: none;
   }

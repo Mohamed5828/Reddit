@@ -1,13 +1,16 @@
-import { HeaderDiv, HeaderH3, HeaderP } from "./HeaderStyle";
+import { HeaderMarginDiv, HeaderDiv, HeaderH3, HeaderP } from "./HeaderStyle";
 
 export default function Header() {
   return (
-    <HeaderDiv>
-      <HeaderH3>Today's Top Growing Communities</HeaderH3>
-      <HeaderP>
-        Browse Reddit's top growing communities. Find the top communities in
-        your favorite category.
-      </HeaderP>
-    </HeaderDiv>
+
+    <HeaderMarginDiv>
+      <HeaderDiv>
+        <HeaderH3>Today's Top Growing Communities</HeaderH3>
+        <HeaderP>
+          Browse Reddit's top growing communities. Find the top communities in
+          your favorite category.
+        </HeaderP>
+      </HeaderDiv>
+    </HeaderMarginDiv>
   );
 }

@@ -4,6 +4,7 @@ export const RightSectionContainer = styled.div`
   display: none;
   flex: 0 0 312px;
   margin-left: 24px;
+  marign-top: 0;
   width: 312px;
   @media screen and (min-width: 1050px) {
     display: block;
