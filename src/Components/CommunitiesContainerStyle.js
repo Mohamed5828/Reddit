@@ -30,17 +30,14 @@ export const AllCommunities = styled.div`
 `;
 
 export const CommunityHeader = styled.div`
-  -ms-flex-align: center;
   align-items: center;
   background-color: #f6f7f8;
   border-bottom: thin solid #f6f7f8;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  display: -ms-flexbox;
   display: flex;
   height: 40px;
   position: sticky;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0 16px;
   top: 0;

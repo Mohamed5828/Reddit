@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const ArrowUp = {
+  color: "rgb(70, 209, 96)",
+  position: "absolute",
+  left: "52px",
+};
+
+export const ArrowDown = {
+  color: "rgb(234, 0, 39)",
+  position: "absolute",
+  left: "52px",
+  transform: "rotate(180deg)",
+};
+
 export const CommunityItem = styled.div`
   text-decoration: none;
   position: relative;
@@ -15,7 +28,6 @@ export const CommunityItem = styled.div`
   font-weight: 300;
   line-height: 20px;
 `;
-
 
 export const CommunityA = styled.a`
   display: flex;
@@ -38,20 +50,19 @@ export const CommunityImg = styled.img`
   background-size: 100%;
   border-radius: 24px;
   box-sizing: border-box;
-  -ms-flex: none;
+
   flex: none;
   font-size: 32px;
   height: 32px;
   line-height: 32px;
-  margin: 0 8px;
+  margin: 0 8px 0 30px;
   width: 32px;
 `;
 
-export const TitleParagraph = styled.p` 
+export const TitleParagraph = styled.p`
   color: #1c1c1c;
   font-weight: 500;
 
-  
   &:hover + div {
     display: inline-block;
   }
@@ -67,7 +78,8 @@ export const CommunityRankChange = styled.span`
 export const CommunityCard = styled.div`
   display: none;
   position: absolute;
-  min-width: 410px;
+  max-width: 380px;
+  min-width: 240px;
   padding: 5px;
   border-color: #f0f0f0;
   border-radius: 4px;
@@ -91,7 +103,6 @@ export const ForPadding = styled.div`
 export const HoverItem = styled.div`
   width: 100%;
   box-sizing: border-box;
-  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -100,12 +111,10 @@ export const HoverItem = styled.div`
 export const ImgTitle = styled.div`
   width: 100%;
   box-sizing: border-box;
-  display: -ms-flexbox;
   display: flex;
 `;
 
 export const HoverImg = styled.img`
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   height: 32px;
   margin-right: 8px;
@@ -116,10 +125,8 @@ export const HoverTitle = styled.a`
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  -ms-flex-align: center;
   align-items: center;
   color: #1c1c1c;
-  display: -ms-flexbox;
   display: flex;
 `;
 

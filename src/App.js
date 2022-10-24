@@ -3,6 +3,7 @@ import Container from "./Components/CommunitiesContainer";
 import Categories from "./Components/Categories";
 import Header from "./Components/Header";
 import { MainPadding } from "./Components/CommunitiesContainerStyle";
+import RightSection from "./Components/RightSection";
 function App() {
   return (
     <div className="App">
@@ -11,6 +12,7 @@ function App() {
         <MainPadding>
           <Categories />
           <Container />
+          <RightSection />
         </MainPadding>
       </div>
     </div>
