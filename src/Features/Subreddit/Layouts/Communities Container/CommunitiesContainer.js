@@ -1,5 +1,5 @@
-import Community from "./Community";
-import data from "./data";
+import Community from "../../Components/Community/Community";
+import data from "../../Services/data";
 import {
   CommunityContainer,
   AllCommunities,

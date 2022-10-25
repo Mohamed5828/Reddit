@@ -36,7 +36,7 @@ export default function Community(props) {
         <CommunityIndex>{props.index}</CommunityIndex>
         <Arrow  up={isRising}></Arrow>
         <CommunityImg
-          src={`./assets/images/${props.img}`}
+          src={`../../Assets/images/${props.img}`}
           alt="logo"
         ></CommunityImg>
         <TitleParagraph>{props.title}</TitleParagraph>
@@ -44,7 +44,7 @@ export default function Community(props) {
           <ForPadding>
             <HoverItem>
               <ImgTitle>
-                <HoverImg src={`./assets/images/${props.img}`} />
+                <HoverImg src={`../../Assets/images/${props.img}`} />
                 <HoverTitle>{props.title}</HoverTitle>
               </ImgTitle>
               <MembersOnline>

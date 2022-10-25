@@ -14,6 +14,7 @@ import {
   BackTopBtn,
   LettersContainer,
 } from "./RightSectionStyle";
+
 export default function RightSection() {
   return (
     <RightSectionContainer>
