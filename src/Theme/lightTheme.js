@@ -34,6 +34,11 @@ const lightTheme = {
   lineColor: {
     primary: "#edeff1",
   },
+  // The colors of the arrows in the leadboard
+  arrowColor: {
+    up: "#46D160",
+    down: "#EA2700",
+  },
 };
 
 export default lightTheme;

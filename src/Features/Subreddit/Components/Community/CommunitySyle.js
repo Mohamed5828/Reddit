@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { FaAngleUp } from "react-icons/fa";
-
+import lightTheme from "Theme/lightTheme";
 
 export const Arrow = styled(FaAngleUp)`
   position: absolute;
   left: 52px;
-  color: ${({up}) => up ? "#46D160" : "#EA2700"};
-  transform: ${({up}) => up? "none" : "rotate(180deg)"};
+  color: ${({ up }) =>
+    up ? lightTheme.arrowColor.up : lightTheme.arrowColor.down};
+  transform: ${({ up }) => (up ? "none" : "rotate(180deg)")};
 `;
 
 export const CommunityItem = styled.div`
@@ -128,8 +129,9 @@ export const HoverTitle = styled.a`
 
 export const MembersOnline = styled.div`
   display: flex;
-  padding: 8px 0;
+  padding: 12px 0;
   width: 100%;
+  align-content: center;
 `;
 
 export const Members = styled.div`
@@ -156,14 +158,14 @@ export const HoverDescription = styled.div`
 export const HoverH4 = styled.h4`
   font-size: 16px;
   font-weight: 500;
-  line-height: 2px;
+  line-height: 20px;
   color: #1c1c1c;
 `;
 
 export const HoverP = styled.p`
   font-size: 12px;
   font-weight: 400;
-  line-height: 2px;
+  line-height: 20px;
   color: #7c7c7c;
 `;
 
