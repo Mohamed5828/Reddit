@@ -16,20 +16,22 @@ export const AllCategories = styled(AllCommunities)`
     display: none;
   }
 `;
+
 export const CategoryHeader = styled(CommunityHeader)`
   position: static;
 `;
+
 export const CategoryH3 = CommunityH3;
 export const CategoryOl = CommunityOl;
 
 export const Category = styled.a`
-  background-color: white;
+  background-color: ${({theme})=>theme.background.primary};
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
   -ms-flex-align: center;
   align-items: center;
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
   display: -ms-flexbox;
   display: flex;
   height: 36px;
@@ -43,7 +45,7 @@ export const Category = styled.a`
   }
 
   &:focus::before {
-    background-color: #0079d3;
+    background-color: ${({theme})=>theme.color.secondary};
     content: "";
     height: 100%;
     left: 0;

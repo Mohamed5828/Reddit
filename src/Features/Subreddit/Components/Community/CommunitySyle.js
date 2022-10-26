@@ -5,8 +5,21 @@ import { FaAngleUp } from "react-icons/fa";
 export const Arrow = styled(FaAngleUp)`
   position: absolute;
   left: 52px;
-  color: ${({up}) => up ? "#46D160" : "#EA2700"};
+  color: ${({up}) => up ? "#46D160": "#EA2700"};
   transform: ${({up}) => up? "none" : "rotate(180deg)"};
+`;
+
+export const ArrowUP = styled(FaAngleUp)`
+  position: absolute;
+  left: 52px;
+  color: ${({theme})=>theme.arrow.up};
+`;
+
+export const ArrowDown = styled(FaAngleUp)`
+  position: absolute;
+  left: 52px;
+  color: ${({theme})=>theme.arrow.up};
+  transform: rotate(180deg);
 `;
 
 export const CommunityItem = styled.div`
@@ -19,10 +32,48 @@ export const CommunityItem = styled.div`
 
   /*Can be put in another container to fix media queries for this part*/
   justify-content: space-between;
-  border-bottom: 1px solid #edeff1;
+  border-bottom: 1px solid ${({theme})=>theme.lineColor.primary};
   font-size: 16px;
   font-weight: 300;
   line-height: 20px;
+
+  .join-btn {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 60px;
+    padding: 6px;
+    border-radius: 200px;
+    border: none;
+    color: white;
+    background-color: ${({theme})=>theme.color.secondary};
+    cursor: pointer;
+  }
+  
+  .join-btn:hover {
+    background-color: ${({theme})=>theme.color.btnHover};
+  }
+  
+  .joined-btn {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 60px;
+    padding: 6px;
+    border-radius: 200px;
+    border: 1px solid ${({theme})=>theme.color.secondary};
+    background-color: white;
+    color: ${({theme})=>theme.color.secondary};
+    cursor: pointer;
+  }
+  
+  .joined-btn:hover span {
+    display: none;
+  }
+  
+  .joined-btn:hover:before {
+    content: "Leave";
+  }
 `;
 
 export const CommunityA = styled.a`
@@ -32,7 +83,7 @@ export const CommunityA = styled.a`
 `;
 
 export const CommunityIndex = styled.span`
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
   text-align: right;
   min-width: 20px;
   font-size: 14px;
@@ -56,7 +107,7 @@ export const CommunityImg = styled.img`
 `;
 
 export const TitleParagraph = styled.p`
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
   font-weight: 500;
 
   &:hover + div {
@@ -68,7 +119,7 @@ export const CommunityRankChange = styled.span`
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
 `;
 
 export const CommunityCard = styled.div`
@@ -77,12 +128,12 @@ export const CommunityCard = styled.div`
   max-width: 380px;
   min-width: 240px;
   padding: 5px;
-  border-color: #f0f0f0;
+  border-color: ${({theme})=>theme.lineColor.secondary};
   border-radius: 4px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   font-size: 11px;
   line-height: 16px;
-  background-color: white;
+  background-color: ${({theme})=>theme.background.primary};
   z-index: 1;
   left: 70px;
   top: 42px;
@@ -122,7 +173,7 @@ export const HoverTitle = styled.a`
   font-weight: 500;
   line-height: 20px;
   align-items: center;
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
   display: flex;
 `;
 
@@ -134,7 +185,7 @@ export const MembersOnline = styled.div`
 
 export const Members = styled.div`
   flex: 1 0 auto;
-  border-right: 1px solid #edeff1;
+  border-right: 1px solid ${({theme})=>theme.lineColor.primary};
 `;
 
 export const Online = styled.div`
@@ -147,7 +198,7 @@ export const HoverDescription = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: 20px;
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
   overflow-wrap: break-word;
   padding: 8px 0;
   width: 100%;
@@ -157,22 +208,22 @@ export const HoverH4 = styled.h4`
   font-size: 16px;
   font-weight: 500;
   line-height: 2px;
-  color: #1c1c1c;
+  color: ${({theme})=>theme.color.primary};
 `;
 
 export const HoverP = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 2px;
-  color: #7c7c7c;
+  color: ${({theme})=>theme.color.muted};
 `;
 
 export const HoverButton = styled.button`
   position: relative;
-  background-color: #0079d3;
+  background-color: ${({theme})=>theme.color.secondary};
   border: none;
-  color: #ffffff;
-  fill: #ffffff;
+  color: ${({theme})=>theme.background.primary};
+  fill: ${({theme})=>theme.background.primary};
   font-family: Noto Sans, Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;

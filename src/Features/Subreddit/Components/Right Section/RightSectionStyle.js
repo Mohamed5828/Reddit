@@ -18,10 +18,10 @@ export const RightSectionStylingDiv = styled.div`
 `;
 
 export const FirstBlock = styled.div`
-  background-color: #ffffff;
-  color: #1a1a1b;
-  fill: #1a1a1b;
-  border: 1px solid #ccc;
+  background-color: ${({theme})=>theme.background.primary};
+  color:  ${({theme})=>theme.color.primary};
+  fill:  ${({theme})=>theme.color.primary};
+  border: 1px solid ${({theme})=>theme.linecolor.sideBorder};
   border-radius: 4px;
   overflow: visible;
   overflow-wrap: break-word;
@@ -40,10 +40,10 @@ export const SecondBlockWithBrowse = styled.div`
 `;
 
 export const SecondBlock = styled.div`
-  background-color: #ffffff;
-  color: #1a1a1b;
-  fill: #1a1a1b;
-  border: 1px solid #ccc;
+  background-color: ${({theme})=>theme.background.primary};
+  color: ${({theme})=>theme.color.primary};
+  fill:  ${({theme})=>theme.color.primary};
+  border: 1px solid ${({theme})=>theme.linecolor.gray};
   border-radius: 4px;
   overflow: visible;
   overflow-wrap: break-word;
@@ -51,10 +51,10 @@ export const SecondBlock = styled.div`
 `;
 
 export const Browse = styled.div`
-  background-color: #ffffff;
-  color: #1a1a1b;
-  fill: #1a1a1b;
-  border: 1px solid #ccc;
+  background-color: ${({theme})=>theme.background.primary};
+  color:  ${({theme})=>theme.color.primary};
+  fill:  ${({theme})=>theme.color.primary};
+  border: 1px solid ${({theme})=>theme.linecolor.gray};
   border-radius: 4px;
   overflow: visible;
   overflow-wrap: break-word;
@@ -76,7 +76,7 @@ export const LettersContainer = styled.div`
 `;
 
 export const Letters = styled.a`
-  color: #0079d3;
+  color: ${({theme})=>theme.color.secondary};
   display: inline-block;
   margin-right: 8px;
   text-decoration: none;
@@ -107,9 +107,9 @@ export const RightSectionBtns = styled.a`
 
 export const BackTopBtn = styled(RightSectionBtns)`
   border-radius: 200px;
-  border: 1px solid #0079d3;
-  color: white;
-  background-color: #0079d3;
+  border: 1px solid ${({theme})=>theme.color.secondary};
+  color: ${({theme})=>theme.background.primary};
+  background-color: ${({theme})=>theme.color.secondary};
   cursor: pointer;
   text-decoration: none;
   scroll-behavior: smooth;

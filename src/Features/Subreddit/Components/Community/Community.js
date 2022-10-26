@@ -34,9 +34,14 @@ export default function Community(props) {
     <CommunityItem>
       <CommunityA href={`/${props.title}`}>
         <CommunityIndex>{props.index}</CommunityIndex>
-        <Arrow  up={isRising}></Arrow>
+        <Arrow  
+        up={isRising}
+        theme = {
+          {up :`${({theme})=>theme.background.primary}`,
+          down :`${({theme})=>theme.background.down}`}
+        }></Arrow>
         <CommunityImg
-          src={`../../Assets/images/${props.img}`}
+          src={require(`../../Assets/images/${props.img}`)}
           alt="logo"
         ></CommunityImg>
         <TitleParagraph>{props.title}</TitleParagraph>
@@ -44,7 +49,7 @@ export default function Community(props) {
           <ForPadding>
             <HoverItem>
               <ImgTitle>
-                <HoverImg src={`../../Assets/images/${props.img}`} />
+                <HoverImg src={require(`../../Assets/images/${props.img}`)} />
                 <HoverTitle>{props.title}</HoverTitle>
               </ImgTitle>
               <MembersOnline>
