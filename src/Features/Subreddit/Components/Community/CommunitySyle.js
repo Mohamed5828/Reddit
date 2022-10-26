@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { FaAngleUp } from "react-icons/fa";
 
-
 export const Arrow = styled(FaAngleUp)`
   position: absolute;
   left: 52px;
@@ -179,8 +178,9 @@ export const HoverTitle = styled.a`
 
 export const MembersOnline = styled.div`
   display: flex;
-  padding: 8px 0;
+  padding: 12px 0;
   width: 100%;
+  align-content: center;
 `;
 
 export const Members = styled.div`
@@ -208,14 +208,14 @@ export const HoverH4 = styled.h4`
   font-size: 16px;
   font-weight: 500;
   line-height: 2px;
-  color: ${({theme})=>theme.color.primary};
+  color: #1c1c1c;
 `;
 
 export const HoverP = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 2px;
-  color: ${({theme})=>theme.color.muted};
+  color: #7c7c7c;
 `;
 
 export const HoverButton = styled.button`

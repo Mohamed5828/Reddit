@@ -40,6 +40,11 @@ const lightTheme = {
     //The border color of hover card
     secondary: "#f0f0f0",
   },
+  // The colors of the arrows in the leadboard
+  arrowColor: {
+    up: "#46D160",
+    down: "#EA2700",
+  },
 };
 
 export default lightTheme;
