@@ -21,7 +21,7 @@ export const CommunityContainer = styled.div`
 `;
 
 export const AllCommunities = styled.div`
-  background-color: ${({theme})=>theme.background.primary};
+  background-color: ${({ theme }) => theme.background.primary};
   margin: 12px 0;
   margin-top: 0;
   border-top-left-radius: 4px;
@@ -34,8 +34,8 @@ export const AllCommunities = styled.div`
 
 export const CommunityHeader = styled.div`
   align-items: center;
-  background-color: ${({theme})=>theme.background.header};
-  border-bottom: thin solid ${({theme})=>theme.background.header};
+  background-color: ${({ theme }) => theme.background.header};
+  border-bottom: thin solid ${({ theme }) => theme.background.header};
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   display: flex;
@@ -51,12 +51,11 @@ export const CommunityH3 = styled.h3`
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  color: ${({theme})=>theme.color.primary};
-  margin = 0;
+  color: ${({ theme }) => theme.color.primary};
 `;
 
 export const CommunityHeaderSpan = styled.span`
-  color: ${({theme})=>theme.color.muted};
+  color: ${({ theme }) => theme.color.muted};
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;

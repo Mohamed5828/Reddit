@@ -45,6 +45,16 @@ const lightTheme = {
     up: "#46D160",
     down: "#EA2700",
   },
+  btnColor: {
+    primary: "#0079d3",
+    secondary: "#0079d3",
+    backColor: "#fff",
+    text: "#fff",
+  },
+  categoryColor: {
+    text: "#1c1c1c",
+    hover: "#f6f7f8",
+  },
 };
 
 export default lightTheme;

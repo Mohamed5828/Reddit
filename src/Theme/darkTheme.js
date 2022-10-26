@@ -40,6 +40,16 @@ const darkTheme = {
     //The border color of hover card
     secondary: "#484848",
   },
+  btnColor: {
+    primary: "#d7dadc",
+    secondary: "#d7dadc",
+    backColor: "transparent",
+    text: "1a1a1b",
+  },
+  categoryColor: {
+    text: "#d7dadc",
+    hover: "#272729",
+  },
 };
 
 export default darkTheme;

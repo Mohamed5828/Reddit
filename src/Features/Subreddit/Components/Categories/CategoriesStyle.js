@@ -25,14 +25,12 @@ export const CategoryH3 = CommunityH3;
 export const CategoryOl = CommunityOl;
 
 export const Category = styled.a`
-  background-color: ${({theme})=>theme.background.primary};
+  background-color: ${({ theme }) => theme.background.primary};
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
-  -ms-flex-align: center;
   align-items: center;
-  color: ${({theme})=>theme.color.primary};
-  display: -ms-flexbox;
+  color: ${({ theme }) => theme.categoryColor.text};
   display: flex;
   height: 36px;
   padding-left: 16px;
@@ -41,11 +39,17 @@ export const Category = styled.a`
   text-transform: capitalize;
 
   &:hover {
-    background-color: #f6f7f8;
+    background-color: ${({ theme }) => theme.categoryColor.hover};
+    color: ${({ theme }) => theme.categoryColor.text};
+  }
+  //focus is not valid need to be fixed
+  &:focus {
+    background-color: ${({ theme }) => theme.categoryColor.hover};
+    color: ${({ theme }) => theme.categoryColor.text};
   }
 
   &:focus::before {
-    background-color: ${({theme})=>theme.color.secondary};
+    background-color: ${({ theme }) => theme.color.secondary};
     content: "";
     height: 100%;
     left: 0;
