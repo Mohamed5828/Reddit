@@ -23,7 +23,33 @@ export const CategoryHeader = styled(CommunityHeader)`
 
 export const CategoryH3 = CommunityH3;
 export const CategoryOl = CommunityOl;
-
+export const ShowMoreBtn = styled.button`
+  background-color: ${({ theme }) => theme.background.primary};
+  color: ${({ theme }) => theme.color.link};
+  width: 100%;
+  position: relative;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  border: 1px solid transparent;
+  &:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: ${({ theme }) => theme.color.primary};
+    opacity: 0.08;
+  }
+`;
 export const Category = styled.a`
   background-color: ${({ theme }) => theme.background.primary};
   font-size: 12px;
@@ -37,18 +63,15 @@ export const Category = styled.a`
   position: relative;
   text-decoration: none;
   text-transform: capitalize;
-
   &:hover {
     background-color: ${({ theme }) => theme.categoryColor.hover};
     color: ${({ theme }) => theme.categoryColor.text};
   }
-  //focus is not valid need to be fixed
-  &:focus {
-    background-color: ${({ theme }) => theme.categoryColor.hover};
-    color: ${({ theme }) => theme.categoryColor.text};
-  }
-
-  &:focus::before {
+`;
+export const CategorySelected = styled(Category)`
+  background-color: ${({ theme }) => theme.categoryColor.hover};
+  color: ${({ theme }) => theme.categoryColor.text};
+  &::before {
     background-color: ${({ theme }) => theme.color.secondary};
     content: "";
     height: 100%;
