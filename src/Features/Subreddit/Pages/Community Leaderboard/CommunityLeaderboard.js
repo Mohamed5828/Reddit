@@ -9,7 +9,6 @@ import {LeaderBoardContainer, LeaderBoardPage} from "./CommunityLeaderboardStyle
 /**
  * Component that contains the whole community leaderboard page
  *
- * @Component
  * @returns {React.Component}
  */
 function LeaderBoard() {

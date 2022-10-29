@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Features/Subreddit/Components/Header/Header.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,40 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Features/Subreddit/Components/Header/Header.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { HeaderMarginDiv, HeaderDiv, HeaderH3, HeaderP } from "./HeaderStyle";
 
 
-    <h3> </h3>
+/**
+ * Component that contains the header of the community leaderboard page
+ *
+ * @returns {React.Component}
+ */
+export default function Header() {
+  return (
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    &lt;HeaderMarginDiv>
+      &lt;HeaderDiv>
+        &lt;HeaderH3>Today's Top Growing Communities&lt;/HeaderH3>
+        &lt;HeaderP>
+          Browse Reddit's top growing communities. Find the top communities in
+          your favorite category.
+        &lt;/HeaderP>
+      &lt;/HeaderDiv>
+    &lt;/HeaderMarginDiv>
+  );
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

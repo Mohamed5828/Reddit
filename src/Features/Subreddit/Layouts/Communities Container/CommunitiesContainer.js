@@ -13,7 +13,6 @@ import {
 /**
  * Component acts as a container for all communities of the community leaderboard page
  *
- * @Component
  * @returns {React.Component}
  */
 export default function Container() {

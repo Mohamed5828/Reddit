@@ -20,7 +20,6 @@ import {
 /**
  * Component that contains the right section of the community leaderboard page
  *
- * @Component
  * @returns {React.Component}
  */
 export default function RightSection() {

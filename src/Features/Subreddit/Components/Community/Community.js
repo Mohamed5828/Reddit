@@ -23,10 +23,9 @@ import {
   Arrow,
 } from "./CommunitySyle";
 
-/**
+/** 
  * Component that contains the header of the community leaderboard page
  *
- * @Component
  * @param {Object} props - Community Data
  * @param {boolean} props.isJoined - Boolean showing whether the user joined that community or not
  * @param {string} props.img - Subreddit Image

@@ -36,7 +36,7 @@ export default [
     rankChange: 7,
   },
   {
-    id: 1,
+    id: 4,
     title: "r/mildlyinteresting",
     description: "blah blah",
     coverImg: "logo.svg",
@@ -48,7 +48,7 @@ export default [
     rankChange: 15,
   },
   {
-    id: 2,
+    id: 5,
     title: "r/funny",
     description: "blah blah haha",
     coverImg: "funny.png",
@@ -60,7 +60,7 @@ export default [
     rankChange: 70,
   },
   {
-    id: 3,
+    id: 6,
     title: "r/space",
     description: "blah blah space",
     coverImg: "logo.svg",
@@ -72,7 +72,7 @@ export default [
     rankChange: 17,
   },
   {
-    id: 1,
+    id: 7,
     title: "r/mildlyinteresting",
     description: "blah blah",
     coverImg: "logo.svg",
@@ -84,7 +84,7 @@ export default [
     rankChange: 5,
   },
   {
-    id: 2,
+    id: 8,
     title: "r/funny",
     description: "blah blah haha",
     coverImg: "funny.png",
@@ -96,7 +96,7 @@ export default [
     rankChange: 26,
   },
   {
-    id: 3,
+    id: 9,
     title: "r/space",
     description: "blah blah space",
     coverImg: "logo.svg",
@@ -108,7 +108,7 @@ export default [
     rankChange: 20,
   },
   {
-    id: 1,
+    id: 10,
     title: "r/mildlyinteresting",
     description: "blah blah",
     coverImg: "logo.svg",
@@ -120,7 +120,7 @@ export default [
     rankChange: 14,
   },
   {
-    id: 2,
+    id: 11,
     title: "r/funny",
     description: "blah blah haha",
     coverImg: "funny.png",
@@ -132,7 +132,7 @@ export default [
     rankChange: 23,
   },
   {
-    id: 3,
+    id: 12,
     title: "r/space",
     description: "blah blah space",
     coverImg: "logo.svg",
@@ -144,7 +144,7 @@ export default [
     rankChange: 55,
   },
   {
-    id: 1,
+    id: 13,
     title: "r/mildlyinteresting",
     description: "blah blah",
     coverImg: "logo.svg",
@@ -156,7 +156,7 @@ export default [
     rankChange: 2,
   },
   {
-    id: 2,
+    id: 14,
     title: "r/funny",
     description: "blah blah haha",
     coverImg: "funny.png",
@@ -168,7 +168,7 @@ export default [
     rankChange: 12,
   },
   {
-    id: 3,
+    id: 15,
     title: "r/space",
     description: "blah blah space",
     coverImg: "logo.svg",
