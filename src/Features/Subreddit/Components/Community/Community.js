@@ -40,7 +40,6 @@ import {
  */
 export default function Community(props) {
   const [isJoined, setIsJoined] = useState(props.isJoined);
-
   function changeButton() {
     setIsJoined((prevJoined) => !prevJoined);
   }
