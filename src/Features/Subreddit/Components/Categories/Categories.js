@@ -4,10 +4,8 @@ import {
   AllCategories,
   CategoryH3,
   CategoryOl,
-  Category,
   CategoryHeader,
   ShowMoreBtn,
-  CategorySelected,
 } from "./CategoriesStyle";
 
 /**
@@ -25,27 +23,27 @@ export default function Categories() {
     { title: "News", selected: false, url: "#", id: 5 },
     { title: "Tv", selected: false, url: "#", id: 6 },
   ];
-  const [active, setActive] = React.useState(1);
+  const [currentCategory, setCurrentCategory] = React.useState(1);
   function selectCategory(id) {
     CategoryData.map((item) => {
       item.id === id ? (item.selected = true) : (item.selected = false);
     });
   }
   function handleChange(id) {
-    setActive(id);
     selectCategory(id);
     console.log(CategoryData);
   }
   let CatergoryElement = CategoryData.map((element) => {
     return (
       <li>
-        <Category
+        <a
+          className={element.selected ? "current-cat" : "cat"}
           href={element.url}
           isSelected={element.selected}
           onClick={() => handleChange(element.id)}
         >
           {element.title}
-        </Category>
+        </a>
       </li>
     );
   });
