@@ -113,4 +113,8 @@ export const BackTopBtn = styled(RightSectionBtns)`
   cursor: pointer;
   text-decoration: none;
   scroll-behavior: smooth;
+
+  &:hover {
+    color: ${({theme})=>theme.background.primary};
+  }
 `;
