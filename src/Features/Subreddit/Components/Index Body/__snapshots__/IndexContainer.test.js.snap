@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
 exports[`Community Leaderboard Community Container this is a test for Community Container 1`] = `ShallowWrapper {}`;
+=======
+exports[`Community Indexing Page Container this is a test for Index Container 1`] = `ShallowWrapper {}`;
+>>>>>>> 250dab69ab1f67e12525e9652749864fe42af6fc

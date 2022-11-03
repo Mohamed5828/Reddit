@@ -30,21 +30,21 @@ export const LettersContainer = styled.div`
   cursor: default;
   margin: 8px 0 4px;
 
-  a active {
-    color: ${({theme})=>theme.color.primary};
-    display: inline-block;
-    margin-right: 8px;
-    text-decoration: none;
-    text-transform: capitalize;
-  }
+  // a active {
+  //   color: ${({theme})=>theme.color.primary};
+  //   display: inline-block;
+  //   margin-right: 8px;
+  //   text-decoration: none;
+  //   text-transform: capitalize;
+  // }
 
-  a single {
-    color: ${({theme})=>theme.color.secondary};
-    display: inline-block;
-    margin-right: 8px;
-    text-decoration: none;
-    text-transform: capitalize;
-  }
+  // a single {
+  //   color: ${({theme})=>theme.color.secondary};
+  //   display: inline-block;
+  //   margin-right: 8px;
+  //   text-decoration: none;
+  //   text-transform: capitalize;
+  // }
 `;
 
 export const Letters = styled.a`
@@ -62,7 +62,7 @@ export const Letters = styled.a`
     color: ${({theme})=>theme.color.btnHover};
   }
 
-  // &:focus {
-  //   color: ${({theme})=>theme.color.primary};
-  // }
+  &:focus {
+    color: ${({theme})=>theme.color.primary};
+  }
 `;

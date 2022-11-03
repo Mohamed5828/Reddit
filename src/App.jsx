@@ -45,7 +45,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Button onClick={handleToggleTheme}>Toggle theme</Button>
-      <LeaderBoard />
+      <Index />
     </ThemeProvider>
   );
 }
