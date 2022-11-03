@@ -8,26 +8,28 @@ import {
   CommunityHeaderSpan,
   CommunityOl,
 } from "./CommunitiesContainerStyle";
-
+import { useContext } from "react";
 
 /**
  * Component acts as a container for all communities of the community leaderboard page
  *
  * @returns {React.Component}
  */
+
+
 export default function Container() {
   const communities = data.map((community, index) => {
     return (
       <li>
         <Community
           key={community.id.toString()}
-          index = {index+1}
+          index={index + 1}
           img={community.coverImg}
           title={community.title}
           isJoined={community.isJoined}
           stats={community.stats}
           description={community.description}
-          rankChange = {community.rankChange}
+          rankChange={community.rankChange}
         />
       </li>
     );

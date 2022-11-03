@@ -3,8 +3,10 @@ import Categories from "../../Components/Categories/Categories";
 import Header from "../../Components/Header/Header";
 import { MainPadding } from "../../Layouts/Communities Container/CommunitiesContainerStyle";
 import RightSection from "../../Components/Right Section/RightSection";
-import {LeaderBoardContainer, LeaderBoardPage} from "./CommunityLeaderboardStyle"
-
+import {
+  LeaderBoardContainer,
+  LeaderBoardPage,
+} from "./CommunityLeaderboardStyle";
 
 /**
  * Component that contains the whole community leaderboard page

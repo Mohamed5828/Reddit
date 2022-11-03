@@ -23,7 +23,7 @@ import {
   Arrow,
 } from "./CommunitySyle";
 
-/** 
+/**
  * Component that contains the header of the community leaderboard page
  *
  * @param {Object} props - Community Data
@@ -48,7 +48,7 @@ export default function Community(props) {
     <CommunityItem>
       <CommunityA href={`/${props.title}`}>
         <CommunityIndex>{props.index}</CommunityIndex>
-        <Arrow up={isRising}></Arrow>
+        <Arrow up={isRising} />
         <CommunityImg
           src={require(`../../Assets/images/${props.img}`)}
           alt="logo"
