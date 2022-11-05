@@ -22,7 +22,7 @@
       "online": 60
     },
     "isJoined": true,
-    "category": "",
+    "category": "News",
     "rankChange": 1
   },
   {
@@ -35,7 +35,7 @@
       "online": 63
     },
     "isJoined": false,
-    "category": "",
+    "category": "News",
     "rankChange": 7
   },
   {
@@ -61,7 +61,7 @@
       "online": 60
     },
     "isJoined": true,
-    "category": "",
+    "category": "News",
     "rankChange": 70
   },
   {
@@ -74,7 +74,7 @@
       "online": 63
     },
     "isJoined": false,
-    "category": "",
+    "category": "News",
     "rankChange": 17
   },
   {
@@ -100,7 +100,7 @@
       "online": 60
     },
     "isJoined": true,
-    "category": "",
+    "category": "News",
     "rankChange": 26
   },
   {
@@ -113,7 +113,7 @@
       "online": 63
     },
     "isJoined": false,
-    "category": "",
+    "category": "News",
     "rankChange": 20
   },
   {
@@ -139,7 +139,7 @@
       "online": 60
     },
     "isJoined": true,
-    "category": "",
+    "category": "News",
     "rankChange": 23
   },
   {
@@ -152,7 +152,7 @@
       "online": 63
     },
     "isJoined": false,
-    "category": "",
+    "category": "News",
     "rankChange": 55
   },
   {
@@ -178,7 +178,7 @@
       "online": 60
     },
     "isJoined": true,
-    "category": "",
+    "category": "News",
     "rankChange": 12
   },
   {
@@ -191,7 +191,7 @@
       "online": 63
     },
     "isJoined": false,
-    "category": "",
+    "category": "News",
     "rankChange": 33
   }
 ]

@@ -7,6 +7,10 @@ import {
   LeaderBoardContainer,
   LeaderBoardPage,
 } from "./CommunityLeaderboardStyle";
+import { DataContext } from "../../Services/DataContext";
+import { useMemo, useState } from "react";
+import data from "../../Services/data.json";
+import { Route, Routes } from "react-router-dom";
 
 /**
  * Component that contains the whole community leaderboard page
@@ -14,14 +18,22 @@ import {
  * @returns {React.Component}
  */
 function LeaderBoard() {
+  const [communityData, setCommunityData] = useState(data);
+  const providedData = useMemo(
+    () => ({ communityData, setCommunityData }),
+    [communityData, setCommunityData]
+  );
+
   return (
     <LeaderBoardContainer>
       <LeaderBoardPage>
         <Header />
         <MainPadding>
-          <Categories />
-          <Container />
-          <RightSection />
+          <DataContext.Provider value={providedData}>
+            <Categories />
+            <Container />
+            <RightSection />
+          </DataContext.Provider>
         </MainPadding>
       </LeaderBoardPage>
     </LeaderBoardContainer>

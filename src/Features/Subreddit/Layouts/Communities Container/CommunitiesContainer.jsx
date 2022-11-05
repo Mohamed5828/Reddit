@@ -1,5 +1,4 @@
 import Community from "../../Components/Community/Community";
-import data from "../../Services/data";
 import {
   CommunityContainer,
   AllCommunities,
@@ -9,27 +8,35 @@ import {
   CommunityOl,
 } from "./CommunitiesContainerStyle";
 import { useContext } from "react";
+import { DataContext } from "Features/Subreddit/Services/DataContext";
 
 /**
  * Component acts as a container for all communities of the community leaderboard page
  *
  * @returns {React.Component}
  */
-
-
 export default function Container() {
-  const communities = data.map((community, index) => {
+  let { communityData, setCommunityData } = useContext(DataContext);
+  const communities = communityData.map((community, index) => {
+    const key = community.id.toString();
+    const indexs = index + 1;
+    const img = community.coverImg;
+    const title = community.title;
+    const isJoined = community.isJoined;
+    const stats = community.stats;
+    const description = community.description;
+    const rankChange = community.rankChange;
     return (
       <li>
         <Community
-          key={community.id.toString()}
-          index={index + 1}
-          img={community.coverImg}
-          title={community.title}
-          isJoined={community.isJoined}
-          stats={community.stats}
-          description={community.description}
-          rankChange={community.rankChange}
+          key={key}
+          index={indexs}
+          img={img}
+          title={title}
+          isJoined={isJoined}
+          stats={stats}
+          description={description}
+          rankChange={rankChange}
         />
       </li>
     );

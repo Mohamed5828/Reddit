@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { act } from "react-dom/test-utils";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -8,6 +8,8 @@ import {
   CategoryHeader,
   ShowMoreBtn,
 } from "./CategoriesStyle";
+
+import { DataContext } from "Features/Subreddit/Services/DataContext";
 
 /**
  * Component that contains the categories [left section] of the community leaderboard page
@@ -32,10 +34,13 @@ export default function Categories() {
   const [currentCategory, setCurrentCategory] = React.useState([]);
   const { categorytype } = useParams();
 
+  let { communityData, setCommunityData } = useContext(DataContext);
   useEffect(() => {
     setCurrentCategory(CategoryData);
+    setCommunityData((e) =>
+      e.filter((item) => item.title === "r/mildlyinteresting")
+    );
   }, []);
-
   function handleChange(id) {
     console.log(categorytype);
   }
