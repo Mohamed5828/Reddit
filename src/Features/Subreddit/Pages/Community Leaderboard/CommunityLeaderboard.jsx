@@ -30,9 +30,28 @@ function LeaderBoard() {
         <Header />
         <MainPadding>
           <DataContext.Provider value={providedData}>
-            <Categories />
-            <Container />
-            <RightSection />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Categories />
+                    <Container />
+                    <RightSection />
+                  </>
+                }
+              />
+              <Route
+                path="/category/:categoryType"
+                element={
+                  <>
+                    <Categories />
+                    <Container />
+                    <RightSection />
+                  </>
+                }
+              />
+            </Routes>
           </DataContext.Provider>
         </MainPadding>
       </LeaderBoardPage>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { act } from "react-dom/test-utils";
-import { Link, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   AllCategories,
   CategoryH3,
@@ -9,20 +9,12 @@ import {
   ShowMoreBtn,
 } from "./CategoriesStyle";
 
-import { DataContext } from "Features/Subreddit/Services/DataContext";
-
 /**
  * Component that contains the categories [left section] of the community leaderboard page
  *
  * @returns {React.Component}
  */
 export default function Categories() {
-  // function selectCategory(id) {
-  //   CategoryData.map((item) => {
-  //     item.id === id ? (item.selected = true) : (item.selected = false);
-  //   });
-  // }
-
   let CategoryData = [
     { title: "All Communititles", url: "#", id: 1 },
     { title: "Near You", url: "#", id: 2 },
@@ -31,30 +23,24 @@ export default function Categories() {
     { title: "News", url: "#", id: 5 },
     { title: "Tv", url: "#", id: 6 },
   ];
-  const [currentCategory, setCurrentCategory] = React.useState([]);
-  const { categorytype } = useParams();
+  const [currentCategory, setCurrentCategory] = useState([]);
 
-  let { communityData, setCommunityData } = useContext(DataContext);
   useEffect(() => {
     setCurrentCategory(CategoryData);
-    setCommunityData((e) =>
-      e.filter((item) => item.title === "r/mildlyinteresting")
-    );
   }, []);
-  function handleChange(id) {
-    console.log(categorytype);
-  }
+
+  function handleChange(id) {}
 
   let CatergoryElement = currentCategory.map((element) => {
     return (
       <li>
-        <Link
-          className={false ? "current-cat" : "cat"}
+        <NavLink
+          className={"cat"}
           to={`/category/${element.title}`}
           onClick={() => handleChange(element.id)}
         >
           {element.title}
-        </Link>
+        </NavLink>
       </li>
     );
   });

@@ -7,8 +7,10 @@ import {
   CommunityHeaderSpan,
   CommunityOl,
 } from "./CommunitiesContainerStyle";
-import { useContext } from "react";
+import { useParams } from "react-router-dom";
+
 import { DataContext } from "Features/Subreddit/Services/DataContext";
+import React, { useEffect, useState, useContext } from "react";
 
 /**
  * Component acts as a container for all communities of the community leaderboard page
@@ -17,6 +19,18 @@ import { DataContext } from "Features/Subreddit/Services/DataContext";
  */
 export default function Container() {
   let { communityData, setCommunityData } = useContext(DataContext);
+  const { categoryType } = useParams();
+
+  useEffect(() => {
+    if (categoryType == "All Communititles") {
+      setCommunityData((e) => e);
+    } else {
+      setCommunityData((e) =>
+        e.filter((item) => item.category == categoryType)
+      );
+    }
+    console.log(categoryType);
+  }, [categoryType]);
   const communities = communityData.map((community, index) => {
     const key = community.id.toString();
     const indexs = index + 1;
@@ -26,6 +40,7 @@ export default function Container() {
     const stats = community.stats;
     const description = community.description;
     const rankChange = community.rankChange;
+
     return (
       <li>
         <Community

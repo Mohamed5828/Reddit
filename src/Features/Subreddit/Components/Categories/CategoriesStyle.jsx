@@ -41,21 +41,11 @@ export const CategoryOl = styled(CommunityOl)`
     background-color: ${({ theme }) => theme.categoryColor.hover};
     color: ${({ theme }) => theme.categoryColor.text};
   }
-  .current-cat {
+  .active {
     background-color: ${({ theme }) => theme.categoryColor.hover};
     color: ${({ theme }) => theme.categoryColor.text};
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    align-items: center;
-    display: flex;
-    height: 36px;
-    padding-left: 16px;
-    position: relative;
-    text-decoration: none;
-    text-transform: capitalize;
   }
-  .current-cat::before {
+  .active::before {
     background-color: ${({ theme }) => theme.color.secondary};
     content: "";
     height: 100%;
