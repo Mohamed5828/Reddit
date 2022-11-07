@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { act } from "react-dom/test-utils";
+
 import { Link, useParams } from "react-router-dom";
 import {
   AllCategories,
@@ -7,6 +7,7 @@ import {
   CategoryOl,
   CategoryHeader,
   ShowMoreBtn,
+  Category,
 } from "./CategoriesStyle";
 
 /**
@@ -43,13 +44,13 @@ export default function Categories() {
   let CatergoryElement = currentCategory.map((element) => {
     return (
       <li>
-        <Link
+        <Category
           className={false ? "current-cat" : "cat"}
           to={`/category/${element.title}`}
           onClick={() => handleChange(element.id)}
         >
           {element.title}
-        </Link>
+        </Category>
       </li>
     );
   });

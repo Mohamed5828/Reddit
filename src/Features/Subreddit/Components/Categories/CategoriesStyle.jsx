@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {
   AllCommunities,
@@ -22,48 +23,7 @@ export const CategoryHeader = styled(CommunityHeader)`
 `;
 
 export const CategoryH3 = CommunityH3;
-export const CategoryOl = styled(CommunityOl)`
-  .cat {
-    background-color: ${({ theme }) => theme.background.primary};
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    align-items: center;
-    color: ${({ theme }) => theme.categoryColor.text};
-    display: flex;
-    height: 36px;
-    padding-left: 16px;
-    position: relative;
-    text-decoration: none;
-    text-transform: capitalize;
-  }
-  .cat :hover {
-    background-color: ${({ theme }) => theme.categoryColor.hover};
-    color: ${({ theme }) => theme.categoryColor.text};
-  }
-  .current-cat {
-    background-color: ${({ theme }) => theme.categoryColor.hover};
-    color: ${({ theme }) => theme.categoryColor.text};
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    align-items: center;
-    display: flex;
-    height: 36px;
-    padding-left: 16px;
-    position: relative;
-    text-decoration: none;
-    text-transform: capitalize;
-  }
-  .current-cat::before {
-    background-color: ${({ theme }) => theme.color.secondary};
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    width: 5px;
-  }
-`;
+export const CategoryOl = CommunityOl;
 
 export const ShowMoreBtn = styled.button`
   background-color: ${({ theme }) => theme.background.primary};
@@ -90,5 +50,39 @@ export const ShowMoreBtn = styled.button`
     border-radius: 9999px;
     background-color: ${({ theme }) => theme.color.primary};
     opacity: 0.08;
+  }
+`;
+
+export const Category = styled(NavLink)`
+background-color: ${({ theme }) => theme.background.primary};
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  align-items: center;
+  color: ${({ theme }) => theme.categoryColor.text};
+  display: flex;
+  height: 36px;
+  padding-left: 16px;
+  position: relative;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.categoryColor.hover};
+    color: ${({ theme }) => theme.categoryColor.text};
+  }
+
+  &.active {
+    background-color: ${({ theme }) => theme.categoryColor.hover};
+    color: ${({ theme }) => theme.categoryColor.text};
+  }
+
+  &.active::before {
+    background-color: ${({ theme }) => theme.color.secondary};
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 5px;
   }
 `;
