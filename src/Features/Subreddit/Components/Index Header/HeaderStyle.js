@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const HeaderMarginDiv = styled.div`
   background-color: ${({theme})=>theme.background.primary};
+  transition: 0.3s;
   width: 100%;
 `;
 
@@ -9,12 +10,14 @@ export const HeaderMarginDiv = styled.div`
 export const HeaderDiv = styled.div`
   max-width: 986px;
   background-color: ${({theme})=>theme.background.primary};
+  transition: 0.3s;
   margin: 0 auto;
   padding: 16px;
 `;
 
 export const HeaderH3 = styled.h3`
   color: ${({theme})=>theme.color.primary};
+  transition: 0.3s;
   padding-bottom: 6px;
   font-size: 22px;
   font-weight: 500;
@@ -49,6 +52,7 @@ export const LettersContainer = styled.div`
 
 export const Letters = styled.a`
   color: ${({theme})=>theme.color.secondary};
+  transition: 0.3s;
   display: inline-block;
   margin-right: 8px;
   text-decoration: none;
@@ -60,9 +64,11 @@ export const Letters = styled.a`
 
   &:hover {
     color: ${({theme})=>theme.color.btnHover};
+    transition: 0.3s;
   }
 
   &:focus {
     color: ${({theme})=>theme.color.primary};
+    transition: 0.3s;
   }
 `;

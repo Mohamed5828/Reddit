@@ -8,7 +8,10 @@ export const MainPadding = styled.div`
   display: flex;
   flex-wrap: nowrap;
   @media screen and (max-width: 640px) {
-    padding: 0;
+    padding: 20px 0;
+  }
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
   }
 `;
 
@@ -22,24 +25,24 @@ export const CommunityContainer = styled.div`
 
 export const AllCommunities = styled.div`
   background-color: ${({ theme }) => theme.background.primary};
+  transition: 0.3s;
   margin: 12px 0;
   margin-top: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 100%;
-  @media screen and (max-width: 640px) {
-    margin: 0;
-  }
 `;
 
 export const CommunityHeader = styled.div`
   align-items: center;
+  transition: 0.3s;
   background-color: ${({ theme }) => theme.background.header};
   border-bottom: thin solid ${({ theme }) => theme.background.header};
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   display: flex;
-  height: 40px;
+  min-height: 40px;
+  overflow-wrap: break-word;
   position: sticky;
   justify-content: space-between;
   padding: 0 16px;
@@ -53,10 +56,12 @@ export const CommunityH3 = styled.h3`
   line-height: 20px;
   margin-bottom: 0;
   color: ${({ theme }) => theme.color.primary};
+  transition: 0.3s;
 `;
 
 export const CommunityHeaderSpan = styled.span`
   color: ${({ theme }) => theme.color.muted};
+  transition: 0.3s;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Link, useParams } from "react-router-dom";
 import {
   AllCategories,
   CategoryH3,
@@ -16,12 +15,6 @@ import {
  * @returns {React.Component}
  */
 export default function Categories() {
-  // function selectCategory(id) {
-  //   CategoryData.map((item) => {
-  //     item.id === id ? (item.selected = true) : (item.selected = false);
-  //   });
-  // }
-
   let CategoryData = [
     { title: "All Communititles", url: "#", id: 1 },
     { title: "Near You", url: "#", id: 2 },
@@ -30,22 +23,19 @@ export default function Categories() {
     { title: "News", url: "#", id: 5 },
     { title: "Tv", url: "#", id: 6 },
   ];
-  const [currentCategory, setCurrentCategory] = React.useState([]);
-  const { categorytype } = useParams();
+  const [currentCategory, setCurrentCategory] = useState([]);
 
   useEffect(() => {
     setCurrentCategory(CategoryData);
   }, []);
 
-  function handleChange(id) {
-    console.log(categorytype);
-  }
+  function handleChange(id) {}
 
   let CatergoryElement = currentCategory.map((element) => {
     return (
       <li>
         <Category
-          className={false ? "current-cat" : "cat"}
+          className={"cat"}
           to={`/category/${element.title}`}
           onClick={() => handleChange(element.id)}
         >

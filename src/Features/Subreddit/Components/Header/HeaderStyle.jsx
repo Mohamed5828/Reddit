@@ -3,16 +3,17 @@ import styled from "styled-components";
 export const HeaderMarginDiv = styled.div`
   background-color: ${({theme})=>theme.background.primary};
   display: flex;
-  height: 96px;
   justify-content: center;
   padding: 0;
   width: 100%;
+  transition: 0.3s;
 `;
 
 
 export const HeaderDiv = styled.div`
+  transition: 0.3s;
   position: relative;
-  height: 96px;
+  min-height: 96px;
   width: 100%;
   max-width: 1200px;
   background-color: ${({theme})=>theme.background.primary};
@@ -21,9 +22,11 @@ export const HeaderDiv = styled.div`
   justify-content: center;
   margin: 0 24px;
   padding: 0 16px;
+  overflow-wrap: break-word;
 `;
 export const HeaderH3 = styled.h3`
   color: ${({theme})=>theme.color.primary};
+  transition: 0.3s;
   padding-bottom: 6px;
   font-size: 22px;
   font-weight: 500;
@@ -36,5 +39,6 @@ export const HeaderP = styled.p`
   font-weight: 400;
   line-height: 16px;
   color: ${({theme})=>theme.color.muted};
+  transition: 0.3s;
   margin: 0;
 `;

@@ -22,6 +22,7 @@ import { Button } from "react-bootstrap";
 import LeaderBoard from "./Features/Subreddit/Pages/Community Leaderboard/CommunityLeaderboard";
 import Index from "Features/Subreddit/Pages/Index Page/IndexPage";
 
+
 /**
  * The main app of our application it handles routing
  *
@@ -43,11 +44,11 @@ function App() {
     }
   };
   return (
-    <ThemeProvider theme={theme}>
-      <Button onClick={handleToggleTheme}>Toggle theme</Button>
-      {/* <Index /> */}
-      <LeaderBoard />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Button onClick={handleToggleTheme}>Toggle theme</Button>
+        {/* <Index /> */}
+        <LeaderBoard />
+      </ThemeProvider>
   );
 }
 

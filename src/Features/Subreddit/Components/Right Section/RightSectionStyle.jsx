@@ -77,10 +77,17 @@ export const LettersContainer = styled.div`
 
 export const Letters = styled.a`
   color: ${({theme})=>theme.color.secondary};
+  transition: 0.3s;
   display: inline-block;
   margin-right: 8px;
   text-decoration: none;
   text-transform: capitalize;
+
+  &:hover {
+    color: ${({theme})=>theme.color.secondary};
+    transition: 0.3s;
+    opacity: 0.7;
+  }
 `;
 
 export const BackTop = styled.div`
@@ -110,11 +117,13 @@ export const BackTopBtn = styled(RightSectionBtns)`
   border: 1px solid ${({theme})=>theme.color.secondary};
   color: ${({theme})=>theme.background.primary};
   background-color: ${({theme})=>theme.color.secondary};
+  transition: 0.3s;
   cursor: pointer;
   text-decoration: none;
   scroll-behavior: smooth;
 
   &:hover {
     color: ${({theme})=>theme.background.primary};
+    transition: 0.3s;
   }
 `;
