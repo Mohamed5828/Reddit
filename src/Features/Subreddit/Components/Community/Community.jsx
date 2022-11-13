@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "API/axios";
-import useFetch from "Hooks/useFetch"
+import useFetch from "Hooks/useFetch";
 import useFetchFunction from "Hooks/useFetchFunction";
 
 import {
@@ -42,34 +42,41 @@ import {
  * @param {number} props.rankChange - Subreddit Rank Change
  * @returns {React.Component}
  */
- const Community = ({isJoined, img, title, description, index, stats, rankChange}) => {
-
+const Community = ({
+  isJoined,
+  img,
+  title,
+  description,
+  index,
+  stats,
+  rankChange,
+}) => {
   const [isJoinedstate, setIsJoined] = useState(isJoined);
-  
+
   const [joinRes, errorJoin, joinLoading, fetchFunction] = useFetchFunction();
 
   const joinCommunity = () => {
     fetchFunction({
       axiosInstance: axios,
-      method: 'POST',
-      url: 'http://localhost:8000/Join',
+      method: "POST",
+      url: "http://localhost:8000/Join",
       requestConfig: {
         headers: {
           "Content-Language": "en-US",
         },
         data: {
-          "action" : isJoinedstate? "unsub": "sub",
-          "sr_name" : `${title}`
-        }
+          action: isJoinedstate ? "unsub" : "sub",
+          sr_name: `${title}`,
+        },
       },
     });
-  }
+  };
 
   function changeButton() {
-    
     joinCommunity();
     setIsJoined((prevJoined) => !prevJoined);
   }
+
   const isRising = isJoinedstate;
   return (
     <CommunityItem>

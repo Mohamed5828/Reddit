@@ -330,6 +330,83 @@
       },
       "signal": {},
       "id": 12
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "sub",
+        "sr_name": "r/mildlyinteresting"
+      },
+      "signal": {},
+      "id": 13
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "sub",
+        "sr_name": "r/mildlyinteresting"
+      },
+      "signal": {},
+      "id": 14
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "sub",
+        "sr_name": "r/space"
+      },
+      "signal": {},
+      "id": 15
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "unsub",
+        "sr_name": "r/mildlyinteresting"
+      },
+      "signal": {},
+      "id": 16
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "sub",
+        "sr_name": "r/mildlyinteresting"
+      },
+      "signal": {},
+      "id": 17
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "sub",
+        "sr_name": "r/mildlyinteresting"
+      },
+      "signal": {},
+      "id": 18
+    },
+    {
+      "headers": {
+        "Content-Language": "en-US"
+      },
+      "data": {
+        "action": "unsub",
+        "sr_name": "r/mildlyinteresting"
+      },
+      "signal": {},
+      "id": 19
     }
   ]
 }
