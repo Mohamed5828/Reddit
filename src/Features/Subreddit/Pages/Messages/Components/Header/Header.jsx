@@ -1,14 +1,16 @@
-import { HeadPrimary } from "./Header.style";
-import { HeadPrimaryMargin } from "./Header.style";
-import { HeadPrimaryUL } from "./Header.style";
-import { PrimaryLinks } from "./Header.style";
-import { PrimaryLI } from "./Header.style";
-import { HeadSecondary } from "./Header.style";
-import { HeadSecondaryMargin } from "./Header.style";
-import { HeadSecondaryUL } from "./Header.style";
-import { SecondaryLI } from "./Header.style";
-import { SecondaryLink } from "./Header.style";
-import { Body } from "./Header.style";
+import {
+  HeadPrimary,
+  HeadPrimaryMargin,
+  HeadPrimaryUL,
+  PrimaryLI,
+  PrimaryLinks,
+  HeadSecondary,
+  HeadSecondaryMargin,
+  HeadSecondaryUL,
+  SecondaryLI,
+  SecondaryLink,
+  Body,
+} from "./Header.style";
 
 function Header() {
   return (
