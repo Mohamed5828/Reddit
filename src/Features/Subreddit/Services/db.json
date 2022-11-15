@@ -1,22 +1,4 @@
 {
-  "indexed--Leaderboard": [
-    {
-      "title": "A24",
-      "id": 1
-    },
-    {
-      "title":"ALangeSohne",
-      "id": 2
-    },
-    {
-      "title":"AISJeddah",
-      "id": 3
-    },
-    {
-      "title":"AutoGlassStLouis",
-      "id": 4
-    }
-  ],
   "communities--LeaderBoard": [
     {
       "id": 1,

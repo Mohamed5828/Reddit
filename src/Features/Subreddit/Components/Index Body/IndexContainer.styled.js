@@ -56,7 +56,6 @@ export const ContentDiv = styled.div`
 
 export const ContentItem = styled.div`
   width: 25%;
-  margin-bottom: 5px;
 
   @media screen and (max-width: 768px) {
     width: auto;

@@ -1,4 +1,4 @@
-// import communityIndex from "../../Services/communityIndex";
+import communityIndex from "../../Services/communityIndex";
 import {
   CommunityContainer,
   AllCommunities,
@@ -8,8 +8,7 @@ import {
   ContentItem,
   ContentA,
 } from "./IndexContainer.styled";
-import axios from "API/axios";
-import useFetch from "Hooks/useFetch";
+
 
 /**
  * Component acts as a container for all communities of the Community Indexing Page
@@ -17,22 +16,10 @@ import useFetch from "Hooks/useFetch";
  * @returns {React.Component}
  */
 export default function IndexContainer() {
-
-  let [indexedList, error, loading, reload] = useFetch({
-    axiosInstance: axios,
-    method: "GET",
-    url: "http://localhost:8000/indexed--Leaderboard",
-    requestConfig: {
-      headers: {
-        "Content-Language": "en-US",
-      },
-    },
-  });
-
-  const communities = indexedList.map((community, index) => {
+  const communities = communityIndex.map((community, index) => {
     return (
-        <ContentItem key = {community.id}>
-          <ContentA>{community.title}</ContentA>
+        <ContentItem>
+          <ContentA>{community}</ContentA>
         </ContentItem>
     );
   });
