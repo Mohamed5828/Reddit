@@ -1,27 +1,39 @@
+/* eslint-disable no-unused-vars */
 // Import react and hooks
 import React, { useState } from "react";
 
-// Import Images
-import logo from "./logo.svg";
-
-// Import styled components
-import * as styles from "App.styled";
+// Import react router dom
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Import themes
 import darkTheme from "Theme/darkTheme";
-import lightTheme from "Theme/lightTheme";
 import defaultTheme from "Theme/defaultTheme";
+import lightTheme from "Theme/lightTheme";
 
 // Import theme provider from styled components
 import { ThemeProvider } from "styled-components";
 
-// Import bootstrap
+// Import bootstrap components
 import { Button } from "react-bootstrap";
 
-//Import Page
-import LeaderBoard from "./Features/Subreddit/Pages/Community Leaderboard/CommunityLeaderboard";
-import Index from "Features/Subreddit/Pages/Index Page/IndexPage";
+// Import pages
+import { SubReddit, CommunityLeaderBoard, IndexPage } from "Features/Subreddit";
+import { CreatePost } from "Features/Post";
+import {
+  ForgetPasswordPage,
+  ForgetUserNamePage,
+  LogInPage,
+  SignUpPage,
+  NewPasswordPage,
+} from "Features/Authentication";
+import Search from "Features/Search/Pages/Search/Search";
+import HomePage from "Pages/HomePage/HomePage";
 
+// Import contexts
+import { AuthProvider } from "Features/Authentication/Contexts/Authentication";
+
+// TODO: remove this dummy page
+import DummyPage from "Pages/DummyPage/DummyPage";
 
 /**
  * The main app of our application it handles routing
@@ -44,11 +56,36 @@ function App() {
     }
   };
   return (
-      <ThemeProvider theme={theme}>
-        <Button onClick={handleToggleTheme}>Toggle theme</Button>
-        {/* <Index /> */}
-        <LeaderBoard />
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  handleToggleTheme={handleToggleTheme}
+                  theme={theme.id}
+                />
+              }
+            />
+            <Route path="subreddit" element={<SubReddit />} />
+            <Route path="category/*" element={<CommunityLeaderBoard />} />
+            <Route path="index-page" element={<IndexPage />} />
+            <Route path="search/*" element={<Search/>}/>
+            <Route path="submit" element={<CreatePost />} />
+            <Route path="login" element={<LogInPage />} />
+            <Route path="register" element={<SignUpPage />} />
+            <Route path="forget-password" element={<ForgetPasswordPage />} />
+            <Route path="forget-username" element={<ForgetUserNamePage />} />
+            <Route
+              path="user/reset-password/:token"
+              element={<NewPasswordPage />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

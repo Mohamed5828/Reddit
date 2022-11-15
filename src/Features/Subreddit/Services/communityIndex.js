@@ -3,4 +3,5 @@ export default [
     'ALangeSohne',
     'AISJeddah',
     'AutoGlassStLouis',
+    'Atleti'
 ]

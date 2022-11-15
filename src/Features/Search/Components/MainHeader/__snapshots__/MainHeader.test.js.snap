@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`People Main Header this is a test for Main Header 1`] = `
+<styled.div>
+  <div
+    className="links"
+  >
+    <div
+      className="inner-links"
+    >
+      <NavLink
+        to="/search/posts"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Posts
+        </button>
+      </NavLink>
+      <NavLink
+        to="/search/comments"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Comments
+        </button>
+      </NavLink>
+      <NavLink
+        to="/search/communities"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Communities
+        </button>
+      </NavLink>
+      <NavLink
+        to="/search/people"
+      >
+        <button
+          onClick={[Function]}
+        >
+          People
+        </button>
+      </NavLink>
+    </div>
+    <ResponsiveNavbar
+      act="posts"
+    />
+    <SafeSearch />
+  </div>
+</styled.div>
+`;

@@ -11,17 +11,18 @@ import {
 
 /**
  * Component that contains the categories [left section] of the community leaderboard page
- *
+ *@Component
  * @returns {React.Component}
  */
 export default function Categories() {
   let CategoryData = [
-    { title: "All Communititles", url: "#", id: 1 },
+    { title: "All Communities", url: "#", id: 1 },
     { title: "Near You", url: "#", id: 2 },
     { title: "Gaming", url: "#", id: 3 },
     { title: "Sports", url: "#", id: 4 },
     { title: "News", url: "#", id: 5 },
     { title: "Tv", url: "#", id: 6 },
+    { title: "Books", url: "#", id: 7 },
   ];
   const [currentCategory, setCurrentCategory] = useState([]);
 
@@ -33,7 +34,7 @@ export default function Categories() {
 
   let CatergoryElement = currentCategory.map((element) => {
     return (
-      <li>
+      <li key = {element.id}>
         <Category
           className={"cat"}
           to={`/category/${element.title}`}
