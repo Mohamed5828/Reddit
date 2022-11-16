@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { DataContext } from "Features/Subreddit/Services/DataContext";
 
 import {
   AllCategories,
@@ -15,26 +16,25 @@ import {
  * @returns {React.Component}
  */
 export default function Categories() {
-  let CategoryData = [
-    { title: "All Communities", url: "#", id: 1 },
-    { title: "Near You", url: "#", id: 2 },
-    { title: "Gaming", url: "#", id: 3 },
-    { title: "Sports", url: "#", id: 4 },
-    { title: "News", url: "#", id: 5 },
-    { title: "Tv", url: "#", id: 6 },
-    { title: "Books", url: "#", id: 7 },
-  ];
-  const [currentCategory, setCurrentCategory] = useState([]);
-
+  const [showMore, setShowMore] = useState(false);
+  const { category, setCategory } = useContext(DataContext);
+  const [categoryData, setCategoryData] = useState(category);
   useEffect(() => {
-    setCurrentCategory(CategoryData);
-  }, []);
+    if (showMore === false) {
+      setCategoryData((e) => e.filter((item) => item.id < 10));
+    } else {
+      setCategoryData(category);
+    }
+  }, [showMore]);
 
   function handleChange(id) {}
+  function seeMoreBtn() {
+    setShowMore((e) => !e);
+  }
 
-  let CatergoryElement = currentCategory.map((element) => {
+  let CatergoryElement = categoryData.map((element) => {
     return (
-      <li key = {element.id}>
+      <li key={element.id}>
         <Category
           className={"cat"}
           to={`/category/${element.title}`}
@@ -53,7 +53,9 @@ export default function Categories() {
       </CategoryHeader>
       <div className="categories">
         <CategoryOl>{CatergoryElement}</CategoryOl>
-        <ShowMoreBtn>See More</ShowMoreBtn>
+        <ShowMoreBtn onClick={seeMoreBtn}>
+          {showMore ? "See Less" : "See More"}
+        </ShowMoreBtn>
       </div>
     </AllCategories>
   );

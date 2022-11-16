@@ -11,7 +11,9 @@ import {
 } from "./CommunityLeaderBoard.styled";
 import axios from "API/axios";
 import useFetch from "Hooks/useFetch";
-
+import { DataContext } from "../../Services/DataContext";
+import data from "../../Services/data.json";
+import { useState } from "react";
 /**
  * Component that contains the whole community leaderboard page
  *
@@ -46,17 +48,20 @@ function CommunityLeaderBoard() {
     },
   });
 
-  const useEffect = () => {};
+  const [category, setCategory] = useState(data);
+  const providedData = { category, setCategory };
 
   return (
     <LeaderBoardContainer>
       <LeaderBoardPage>
         <Header />
         <MainPadding>
-          <Categories />
-          <DropDown>
-            <CategoryDropDown />
-          </DropDown>
+          <DataContext.Provider value={providedData}>
+            <Categories />
+            <DropDown>
+              <CategoryDropDown />
+            </DropDown>
+          </DataContext.Provider>
           <Container com={communitiesList} subscribed={CommunitiesSub} />
           <RightSection />
         </MainPadding>
