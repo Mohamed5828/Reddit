@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -6,10 +7,31 @@ import "./SettingModalStyle.css";
 
 export default function SettingModal() {
   const [show, setShow] = useState(false);
+  const [valid, setValid] = useState(null);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleChange(event) {
+    const { email, password } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+  function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+  useEffect(() => {
+    setValid(validateEmail(formData.email));
+  }, [formData.email]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   return (
     <>
       <Button variant="primary" onClick={handleShow} className="change-btn">
@@ -58,9 +80,18 @@ export default function SettingModal() {
               <Form.Control
                 type="password"
                 placeholder="CURRENT PASSWORD"
+                onChange={handleChange}
                 autoFocus
+                value={formData.password}
+                name="password"
               />
-              <div class="password-correct">
+              <div
+                className={
+                  valid || formData.password == ""
+                    ? "password-correct"
+                    : "password-correct error-active"
+                }
+              >
                 <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <g>
                     <path
@@ -75,8 +106,21 @@ export default function SettingModal() {
               className="mb-4 input-field"
               controlId="exampleForm.ControlInput1"
             >
-              <Form.Control type="email" placeholder="NEW EMAIL" autoFocus />
-              <div class="enter-email-error">
+              <Form.Control
+                type="email"
+                placeholder="NEW EMAIL"
+                autoFocus
+                onChange={handleChange}
+                value={formData.email}
+                name="email"
+              />
+              <div
+                className={
+                  valid || formData.email == ""
+                    ? `enter-email-error`
+                    : ` enter-email-error error-active`
+                }
+              >
                 <svg
                   class="_3ppQRTaxPs0X9rsFYHfSdf"
                   viewBox="0 0 18 18"
@@ -91,7 +135,7 @@ export default function SettingModal() {
                   ></path>
                 </svg>
               </div>
-              <p className="enter-email">Please enter a valid email</p>
+              <p className="enter-email ">Please enter a valid email</p>
             </Form.Group>
           </Form>
         </Modal.Body>

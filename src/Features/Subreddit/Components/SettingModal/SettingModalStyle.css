@@ -157,6 +157,7 @@ circle {
   top: 16px;
   width: 20px;
   fill: #24a0ed;
+  display: none;
 }
 .enter-email-error {
   align-items: center;
@@ -168,6 +169,7 @@ circle {
   top: 16px;
   width: 20px;
   fill: #ea0027;
+  display: none;
 }
 
 .enter-email {
@@ -178,4 +180,9 @@ circle {
   left: 0;
   position: absolute;
   top: 100%;
+  display: none;
+}
+
+.error-active {
+  display: block;
 }
