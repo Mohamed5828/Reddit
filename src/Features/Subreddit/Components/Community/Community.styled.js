@@ -258,3 +258,9 @@ export const HoverButton = styled.button`
   border-radius: 30px;
   width: 90%;
 `;
+
+export const HoverDiv = styled.div`
+  &:hover .hover-card{
+    display: inline-block;
+  }
+`;

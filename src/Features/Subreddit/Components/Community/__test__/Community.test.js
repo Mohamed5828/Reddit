@@ -1,52 +1,20 @@
-// import { shallow } from "enzyme";
-// import CommunityCardItem from "./CommunityCardItem";
-// describe("Community CardI tem", () => {
-//   it("this is a test for Community Card Item", () => {
-//     expect(
-//       shallow(
-//         <CommunityCardItem
-//           communityIcon="CommunityImage.png"
-//           communityID={"t5_imagepro"}
-//           communityDescription={
-//             "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
-//           }
-//           communityName={"GermanWW2photos"}
-//           membersCount={10}
-//         />
-//       )
-//     ).toMatchSnapshot();
-//   });
-// });
-import { async } from "@firebase/util";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor  } from "@testing-library/react";
 
-import TestingComponent from "Features/Subreddit/TestingComponent";
+import TestingComponent from "Features/Subreddit/Utils/TestingComponent";
 import Community from "../Community";
 describe("CommunityCardItem component", () => {
-  // test('renders "Hello World" as a text', () => {
-  //   // Arrange
-  //   render(<CommunityCardItem />);
-
-  //   // Act
-  //   // ... nothing
-
-  //   // Assert
-  //   const helloWorldElement = screen.getByText("Hello World!");
-  //   expect(helloWorldElement).toBeInTheDocument();
-  // });
 
   it('renders "join" if the button was NOT clicked', () => {
     render(
       <TestingComponent>
         <Community
-          img="CommunityImage.png"
+          img="logo.svg"
           title = {"r/Gaming"}
           index = {1}
           communityID={"1"}
           description={
             "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
           }
-          communityName={"GermanWW2photos"}
           members={10}
           isJoined={false}
         />
@@ -57,80 +25,112 @@ describe("CommunityCardItem component", () => {
     expect(outputElement).toBeInTheDocument();
   });
 
-//   test('renders "Joined" if the button was clicked', async () => {
-//     // Arrange
-//     render(
-//       <TestingComponent>
-//         <Community
-//           img="CommunityImage.png"
-//           title = {"r/Gaming"}
-//           index = {1}
-//           communityID={"1"}
-//           description={
-//             "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
-//           }
-//           communityName={"GermanWW2photos"}
-//           members={10}
-//           isJoined={false}
-//         />
-//       </TestingComponent>
-//     );
+  it('renders "Joined" if the JoinState is True', async () => {
+    // Arrange
+    render(
+      <TestingComponent>
+        <Community
+          img="logo.svg"
+          title = {"r/Gaming"}
+          index = {1}
+          communityID={"1"}
+          description={
+            "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
+          }
+          members={10}
+          isJoined={true}
+        />
+      </TestingComponent>
+    );
+    // Assert
+    const outputElement = screen.getByText("Joined");
+    expect(outputElement).toBeInTheDocument();
+  });
 
-//     // Act
-//     const buttonElement = screen.getByRole("button");
-//     await fireEvent.click(buttonElement);
-//     // Assert
-//     // const outputElement = await screen.getByText("Joined");
-//     expect(buttonElement.textContent).toBe("Joined");
-//   });
+  it('does not render "Join" if the button was clicked, transition from false to true', () => {
+    // Arrange
+    render(
+      <TestingComponent>
+        <Community
+          img="logo.svg"
+          title = {"r/Gaming"}
+          index = {1}
+          communityID={"1"}
+          description={
+            "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
+          }
+          members={10}
+          isJoined={false}
+        />
+      </TestingComponent>
+    );
 
-  // test('renders "Leave" if the button was hovered', () => {
-  //   // Arrange
-  //   render(
-  //     <TestingComponent>
-  //       <CommunityCardItem
-  //         communityIcon="CommunityImage.png"
-  //         communityID={"t5_imagepro"}
-  //         communityDescription={
-  //           "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
-  //         }
-  //         communityName={"GermanWW2photos"}
-  //         membersCount={10}
-  //       />
-  //     </TestingComponent>
-  //   );
+    // Act
+    const buttonElement = screen.queryByRole("button");
+    fireEvent.click(buttonElement);
 
-  //   // Act
-  //   const buttonElement = screen.getByRole("button");
-  //   userEvent.hover(buttonElement);
+    // Assert
+    const outputElement = screen.queryByText("Join");
+    expect(outputElement).toBeNull();
+  });
 
-  //   // Assert
-  //   const outputElement = screen.getByText("Leave");
-  //   expect(outputElement).toBeInTheDocument();
-  // });
-  // test('does not render "Join" if the button was clicked', () => {
-  //   // Arrange
-  //   render(
-  //     <TestingComponent>
-  //       <CommunityCardItem
-  //         communityIcon="CommunityImage.png"
-  //         communityID={"t5_imagepro"}
-  //         communityDescription={
-  //           "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
-  //         }
-  //         communityName={"GermanWW2photos"}
-  //         membersCount={10}
-  //         isJoined={true}
-  //       />
-  //     </TestingComponent>
-  //   );
 
-  //   // Act
-  //   const buttonElement = screen.queryByRole("button");
-  //   userEvent.click(buttonElement);
+  it('does not render "Joined" if the button was clicked, transition from true to false', () => {
+    // Arrange
+    render(
+      <TestingComponent>
+        <Community
+          img="logo.svg"
+          title = {"r/Gaming"}
+          index = {1}
+          communityID={"1"}
+          description={
+            "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
+          }
+          members={10}
+          isJoined={true}
+        />
+      </TestingComponent>
+    );
 
-  //   // Assert
-  //   const outputElement = screen.queryByText("Join");
-  //   expect(outputElement).toBeNull();
-  // });
+    // Act
+    const buttonElement = screen.queryByRole("button");
+    fireEvent.click(buttonElement);
+
+    // Assert
+    const outputElement = screen.queryByText("Joined");
+    expect(outputElement).toBeNull();
+  });
+
+  it('Testing for Title according to passed Props', () => {
+    // Arrange
+    render(
+      <TestingComponent>
+        <Community
+          img="logo.svg"
+          title = {"r/Gaming"}
+          index = {1}
+          communityID={"1"}
+          description={
+            "A subreddit dedicated to German photos and portraits from the period of 1933-1946 (dates are flexible)"
+          }
+          members={10}
+          isJoined={true}
+        />
+      </TestingComponent>
+    );
+
+    // Assert
+    //Assertion for Titles
+    let outputElement = screen.getAllByText("r/Gaming");
+    expect(outputElement.length).toBe(2);
+    
+    //Assertion for Members Count
+    outputElement = screen.getByText("10");
+    expect(outputElement).toBeInTheDocument();
+    
+    //Assertion for Index
+    outputElement = screen.getByText("1");
+    expect(outputElement).toBeInTheDocument();
+  });
 });

@@ -1,6 +1,5 @@
 import Container from "../../Layouts/Communities Container/CommunitiesContainer";
 import Categories from "../../Components/Categories/Categories";
-import SettingModal from "../../Components/SettingModal/SettingModal";
 import Header from "../../Components/Header/Header";
 import { MainPadding } from "../../Layouts/Communities Container/CommunitiesContainer.styled";
 import RightSection from "../../Layouts/Right Section/RightSection";
@@ -10,56 +9,37 @@ import {
   LeaderBoardPage,
   DropDown,
 } from "./CommunityLeaderBoard.styled";
-import axios from "API/axios";
-import useFetch from "Hooks/useFetch";
 import useFetchFunction from "Hooks/useFetchFunction";
+import fetchSubbedCommunities from "Features/Subreddit/Services/fetchSubbedCommunities";
 import { DataContext } from "../../Services/DataContext";
 import data from "../../Services/data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "Features/Authentication/Contexts/Authentication";
 import { Route, Routes, useParams } from "react-router-dom";
-import { useEffect } from "react";
 /**
  * Component that contains the whole community leaderboard page
  *
  * @Component
  * @returns {React.Component}
  */
-function CommunityLeaderBoard() {
+const CommunityLeaderBoard = () => {
+  const [CommunitiesSub, errorSubCommunities, loadingSubCommunities, fetchSubCommunities ] = useFetchFunction();
+
   const {categoryType} = useParams();
-
-  let [communitiesList, error, loading, reload] = useFetch({
-    axiosInstance: axios,
-    method: "GET",
-    url: "http://localhost:8000/communities--Leaderboard",
-    requestConfig: {
-      headers: {
-        "Content-Language": "en-US",
-      },
-    },
-  });
+  const auth = useAuth();
   
+  useEffect(() => {
+    fetchSubbedCommunities(fetchSubCommunities, auth);
+  }, []); // Only re-run the effect if count changes
 
-  let [
-    CommunitiesSub,
-    errorSubCommunities,
-    loadingSubCommunities,
-    reloadSubCommunities,
-  ] = useFetch({
-    axiosInstance: axios,
-    method: "GET",
-    url: "http://localhost:8000/Subscribed--Leaderboard",
-    requestConfig: {
-      headers: {
-        "Content-Language": "en-US",
-      },
-    },
-  });
+
 
   const [category, setCategory] = useState(data);
   const providedData = { category, setCategory };
   return (
     <LeaderBoardContainer>
-      <LeaderBoardPage>
+      {!loadingSubCommunities &&
+        <LeaderBoardPage>
         <Header />
         <MainPadding>
         <DataContext.Provider value={providedData}>
@@ -68,7 +48,7 @@ function CommunityLeaderBoard() {
             <CategoryDropDown />
           </DropDown>
         </DataContext.Provider>
-        <Container com={communitiesList} subscribed={CommunitiesSub} />
+        <Container  subscribed={CommunitiesSub} />
         <RightSection />
         <Routes>
 
@@ -82,23 +62,15 @@ function CommunityLeaderBoard() {
                   <CategoryDropDown />
                 </DropDown>
               </DataContext.Provider>
-              <Container com={communitiesList} subscribed={CommunitiesSub} />
+              <Container  subscribed={CommunitiesSub} />
               <RightSection />
             </>
             } 
           />
         </Routes>
-          <SettingModal />
-          <DataContext.Provider value={providedData}>
-            <Categories />
-            <DropDown>
-              <CategoryDropDown />
-            </DropDown>
-          </DataContext.Provider>
-          <Container com={communitiesList} subscribed={CommunitiesSub} />
-          <RightSection />
         </MainPadding>
       </LeaderBoardPage>
+      }
     </LeaderBoardContainer>
   );
 }

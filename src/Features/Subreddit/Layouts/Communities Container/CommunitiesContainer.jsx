@@ -3,7 +3,9 @@
 import { useParams } from "react-router-dom";
 import Community from "../../Components/Community/Community";
 import { useEffect, useRef, useState } from "react";
-
+import fetchCommunities from "Features/Subreddit/Services/fetchCommunities";
+import useFetchFunction from "Hooks/useFetchFunction";
+import { useAuth } from "Features/Authentication/Contexts/Authentication";
 import {
   CommunityContainer,
   AllCommunities,
@@ -18,11 +20,12 @@ import {
  * Component acts as a container for all communities of the community leaderboard page
  *
  * @Component
- * @param {object} com - array that contains all the communities of current category
  * @param {object} subscribed - array that contains all the subscribed communities
  * @returns {React.Component}
  */
-export default function Container({ com, subscribed }) {
+ const Container = ({subscribed }) => {
+  const [communitiesList, error, loading, fetchFunction] = useFetchFunction();
+  const auth = useAuth();
   const {categoryType} = useParams();
   let initial = categoryType;
   if(categoryType==="All Communities") {
@@ -35,25 +38,43 @@ export default function Container({ com, subscribed }) {
     initial = "Local";
   }
   const [currCategory, setCurrCategory] = useState(categoryType==="*"? "Growing": initial);
-  console.log(`Currcactegory is: ${categoryType}`);
+  const [prevCategory, setPrevCategory] = useState();
 
   useEffect(()=> {
+    
     if(categoryType==="All Communities") {
       setCurrCategory("Growing");
+      if(currCategory!==prevCategory) {
+        setPrevCategory(currCategory);
+        fetchCommunities(fetchFunction, auth, currCategory);
+      }
+        
       return;
     }
     else if (categoryType==="*") {
       setCurrCategory("Growing");
+      if(currCategory!==prevCategory) {
+        setPrevCategory(currCategory);
+        fetchCommunities(fetchFunction, auth, currCategory);
+      }
       return;
     }
     else if (categoryType==="Near You") {
       setCurrCategory("Local");
+      if(currCategory!==prevCategory) {
+        setPrevCategory(currCategory);
+        fetchCommunities(fetchFunction, auth, currCategory);
+      }
       return; 
     }
     setCurrCategory(categoryType);
-  }, [categoryType])
+    if(currCategory!==prevCategory) {
+      setPrevCategory(currCategory);
+      fetchCommunities(fetchFunction, auth, currCategory);
+    }
+  }, [categoryType, currCategory])
   
-  const communities = com.map((community, index) => {
+  const communities = communitiesList.map((community, index) => {
     return (
       <li key={community.id.toString()}>
         <Community
@@ -64,7 +85,7 @@ export default function Container({ com, subscribed }) {
           isJoined={subscribed.find((element) => {
             return element.id === community.id;
           })}
-          stats={community.stats}
+          members={community.stats.members}
           description={community.description}
           rankChange={community.rankChange}
         />
@@ -82,3 +103,5 @@ export default function Container({ com, subscribed }) {
     </CommunityContainer>
   );
 }
+
+export default Container;
