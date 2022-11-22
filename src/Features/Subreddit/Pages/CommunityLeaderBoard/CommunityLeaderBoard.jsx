@@ -1,9 +1,9 @@
 import Container from "../../Layouts/Communities Container/CommunitiesContainer";
 import Categories from "../../Components/Categories/Categories";
+import SettingModal from "../../Components/SettingModal/SettingModal";
 import Header from "../../Components/Header/Header";
 import { MainPadding } from "../../Layouts/Communities Container/CommunitiesContainer.styled";
 import RightSection from "../../Layouts/Right Section/RightSection";
-import SettingModal from "../../Components/SettingModal/SettingModal";
 import CategoryDropDown from "../../Components/CategoryDropDown/CategoryDropDown";
 import {
   LeaderBoardContainer,
@@ -62,7 +62,6 @@ function CommunityLeaderBoard() {
       <LeaderBoardPage>
         <Header />
         <MainPadding>
-        <SettingModal />
         <DataContext.Provider value={providedData}>
           <Categories />
           <DropDown>
@@ -89,6 +88,15 @@ function CommunityLeaderBoard() {
             } 
           />
         </Routes>
+          <SettingModal />
+          <DataContext.Provider value={providedData}>
+            <Categories />
+            <DropDown>
+              <CategoryDropDown />
+            </DropDown>
+          </DataContext.Provider>
+          <Container com={communitiesList} subscribed={CommunitiesSub} />
+          <RightSection />
         </MainPadding>
       </LeaderBoardPage>
     </LeaderBoardContainer>
