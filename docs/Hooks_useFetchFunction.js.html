@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Theme/defaultTheme.js</title>
+    <title>JSDoc: Source: Hooks/useFetchFunction.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Theme/defaultTheme.js</h1>
+    <h1 class="page-title">Source: Hooks/useFetchFunction.js</h1>
 
     
 
@@ -26,18 +26,55 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * default theme colors which is the colors that is common between dark and light themes
+            <pre class="prettyprint source linenums"><code>// Import hooks
+import { useState, useEffect } from "react";
+
+/**
  *
+ * @returns {Array} - Array of response, error, loading, and axiosFetch
  */
-const defaultTheme = {
-    linecolor: {
-        //The color of Side Border
-        sideBorder:"#ccc"
+const useFetchFunction = () => {
+  // The response state
+  const [response, setResponse] = useState([]);
+  // The error state
+  const [error, setError] = useState("");
+  // The loading state (used to show something like a spinner)
+  const [loading, setLoading] = useState(false);
+  // The reloading state (used to trigger a reload of the data)
+  const [controller, setController] = useState();
+
+  /**
+   *  Used to fetch data from an API
+   */
+  const fetchData = async (configObj) => {
+    const { axiosInstance, method, url, requestConfig = {} } = configObj;
+
+    try {
+      setLoading(true);
+      const ctrl = new AbortController();
+      setController(ctrl);
+      const res = await axiosInstance[method.toLowerCase()](url, {
+        ...requestConfig,
+        signal: ctrl.signal,
+      });
+      setResponse(res.data);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
+  };
+
+  useEffect(() => {
+    // useEffect cleanup function
+    return () => controller &amp;&amp; controller.abort();
+  }, [controller]);
+
+  return [response, error, loading, fetchData];
 };
 
-export default defaultTheme;
+export default useFetchFunction;
 </code></pre>
         </article>
     </section>

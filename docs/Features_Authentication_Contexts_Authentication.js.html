@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Theme/defaultTheme.js</title>
+    <title>JSDoc: Source: Features/Authentication/Contexts/Authentication.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Theme/defaultTheme.js</h1>
+    <h1 class="page-title">Source: Features/Authentication/Contexts/Authentication.js</h1>
 
     
 
@@ -26,18 +26,83 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * default theme colors which is the colors that is common between dark and light themes
- *
+            <pre class="prettyprint source linenums"><code>import { createContext, useContext } from "react";
+
+import useLocalStorage from "./useLocalStorage";
+
+/* Creating a context object. */
+const AuthContext = createContext(null);
+
+/**
+ * The AuthProvider is a function that takes in a child component and returns a context provider that
+ * has a value of an object with the following properties: user, login, logout, getToken,
+ * getExpirationDate, isLoggedIn, getFullName.
+ * @returns The AuthContext.Provider is being returned.
  */
-const defaultTheme = {
-    linecolor: {
-        //The color of Side Border
-        sideBorder:"#ccc"
-    }
+const AuthProvider = ({ children }) => {
+  // Local storage for user information
+  const [user, setUser] = useLocalStorage("user", "null");
+
+  /**
+   * The login function takes a user object as an argument, and then sets the user state to the
+   * stringified version of the user object.
+   * @param user - The user object that is returned from the login function.
+   */
+  const login = async (user) => {
+    setUser(JSON.stringify(user));
+  };
+
+  // Handle logout
+  const logout = () => {
+    localStorage.clear();
+    setUser(null);
+  };
+
+  // Return user's full name
+  //   const getFullName = () => {
+  //     return JSON.parse(user).fullName;
+  //   };
+
+  // Return user's token
+  const getToken = () => {
+    return JSON.parse(user).accessToken;
+  };
+
+  // Return token's expiration date
+  const getExpirationDate = () => {
+    return JSON.parse(user).expiresIn;
+  };
+
+  // Is user logged in?
+  const isLoggedIn = () => {
+    return user !== "null";
+  };
+  return (
+    &lt;AuthContext.Provider
+      value={{
+        //user,
+        login,
+        logout,
+        getToken,
+        getExpirationDate,
+        isLoggedIn,
+        //getFullName,
+      }}
+    >
+      {children}
+    &lt;/AuthContext.Provider>
+  );
 };
 
-export default defaultTheme;
+/**
+ * It returns the value of the AuthContext object.
+ * @returns The AuthContext object.
+ */
+const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+export { useAuth, AuthProvider };
 </code></pre>
         </article>
     </section>

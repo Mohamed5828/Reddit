@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "API/axios";
-import useFetch from "Hooks/useFetch"
 import useFetchFunction from "Hooks/useFetchFunction";
 
 import {
@@ -22,7 +21,6 @@ import {
   HoverH4,
   HoverP,
   HoverButton,
-  CommunityRankChange,
   Arrow,
 } from "./Community.styled";
 
@@ -38,10 +36,9 @@ import {
  * @param {object} stats - Object containing Subreddit Stats (online, and members)
  * @param {number} stats.members - Subreddit Member count
  * @param {number} stats.online - Subreddit online members count
- * @param {number} rankChange - Subreddit Rank Change
  * @returns {React.Component}
  */
- const Community = ({isJoined, img, title, description, index, stats, rankChange}) => {
+ const Community = ({isJoined, img, title, description, index, members}) => {
 
   const [isJoinedstate, setIsJoined] = useState(
     isJoined !== undefined ? true : false
@@ -94,13 +91,9 @@ import {
               </ImgTitle>
               <MembersOnline>
                 <Members>
-                  <HoverH4>{stats.members}</HoverH4>
+                  <HoverH4>{members}</HoverH4>
                   <HoverP>Members</HoverP>
                 </Members>
-                <Online>
-                  <HoverH4>{stats.online}</HoverH4>
-                  <HoverP>Online</HoverP>
-                </Online>
               </MembersOnline>
               <HoverDescription>{description}</HoverDescription>
               <HoverButton>View Community</HoverButton>
@@ -114,7 +107,6 @@ import {
       >
         <span>{isJoinedstate ? "Joined" : "Join"}</span>
       </button>
-      <CommunityRankChange>{rankChange}</CommunityRankChange>
     </CommunityItem>
   );
 };

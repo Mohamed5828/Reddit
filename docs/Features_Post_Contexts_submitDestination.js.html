@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Theme/defaultTheme.js</title>
+    <title>JSDoc: Source: Features/Post/Contexts/submitDestination.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Theme/defaultTheme.js</h1>
+    <h1 class="page-title">Source: Features/Post/Contexts/submitDestination.js</h1>
 
     
 
@@ -26,18 +26,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * default theme colors which is the colors that is common between dark and light themes
+            <pre class="prettyprint source linenums"><code>import { createContext, useContext, useState } from "react";
+
+export const submitDestinationContext = createContext({});
+
+/**
+ * Context for post submit destination
  *
+ * @param {React.Component} children Who can access this context
+ * @returns {React.Component}
  */
-const defaultTheme = {
-    linecolor: {
-        //The color of Side Border
-        sideBorder:"#ccc"
-    }
+const SubmitDestinationProvider = ({ children }) => {
+  // Context that is used to share project info between project and workspace
+  const [submitDestination, setSubmitDestination] = useState(null);
+
+  return (
+    &lt;submitDestinationContext.Provider
+      value={{
+        submitDestination,
+        setSubmitDestination,
+      }}
+    >
+      {children}
+    &lt;/submitDestinationContext.Provider>
+  );
+};
+/**
+ * Custom hook used to provide post submit destination context
+ *
+ * @returns {React.Context}
+ */
+const useSubmitDestination = () => {
+  return useContext(submitDestinationContext);
 };
 
-export default defaultTheme;
+export { SubmitDestinationProvider, useSubmitDestination };
 </code></pre>
         </article>
     </section>

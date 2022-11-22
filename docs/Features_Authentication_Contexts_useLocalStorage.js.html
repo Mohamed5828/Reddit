@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Theme/defaultTheme.js</title>
+    <title>JSDoc: Source: Features/Authentication/Contexts/useLocalStorage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Theme/defaultTheme.js</h1>
+    <h1 class="page-title">Source: Features/Authentication/Contexts/useLocalStorage.js</h1>
 
     
 
@@ -26,18 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * default theme colors which is the colors that is common between dark and light themes
+            <pre class="prettyprint source linenums"><code>import { useState } from "react";
+
+/**
+ * Custom hook used to manage local storage using states
  *
+ * @param {string} keyName The key of local storage
+ * @param {string} defaultValue The default value for the local storage
+ * @returns {React.Component}
  */
-const defaultTheme = {
-    linecolor: {
-        //The color of Side Border
-        sideBorder:"#ccc"
+const useLocalStorage = (keyName, defaultValue) => {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const value = window.localStorage.getItem(keyName);
+      if (value) {
+        return value;
+      } else {
+        window.localStorage.setItem(keyName, defaultValue);
+        return defaultValue;
+      }
+    } catch (err) {
+      return defaultValue;
     }
+  });
+  const setValue = (newValue) => {
+    try {
+      window.localStorage.setItem(keyName, newValue);
+    } catch (err) {}
+    setStoredValue(newValue);
+  };
+  return [storedValue, setValue];
 };
 
-export default defaultTheme;
+export default useLocalStorage;
 </code></pre>
         </article>
     </section>

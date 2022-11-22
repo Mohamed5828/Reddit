@@ -26,29 +26,49 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Import react and hooks
+            <pre class="prettyprint source linenums"><code>/* eslint-disable no-unused-vars */
+// Import react and hooks
 import React, { useState } from "react";
 
-// Import Images
-import logo from "./logo.svg";
-
-// Import styled components
-import * as styles from "App.styled";
+// Import react router dom
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Import themes
 import darkTheme from "Theme/darkTheme";
-import lightTheme from "Theme/lightTheme";
 import defaultTheme from "Theme/defaultTheme";
+import lightTheme from "Theme/lightTheme";
 
 // Import theme provider from styled components
 import { ThemeProvider } from "styled-components";
 
-// Import bootstrap
+// Import bootstrap components
 import { Button } from "react-bootstrap";
 
-//Import Page
-import LeaderBoard from "./Features/Subreddit/Pages/Community Leaderboard/CommunityLeaderboard"
+// Import pages
+import { SubReddit, CommunityLeaderBoard, IndexPage } from "Features/Subreddit";
+import { CreatePost } from "Features/Post";
+import {
+  ForgetPasswordPage,
+  ForgetUserNamePage,
+  LogInPage,
+  SignUpPage,
+  NewPasswordPage,
+} from "Features/Authentication";
+import Search from "Features/Search/Pages/Search/Search";
+import HomePage from "Pages/HomePage/HomePage";
 
+// Import contexts
+import {
+  AuthProvider,
+  useAuth,
+} from "Features/Authentication/Contexts/Authentication";
+
+// TODO: remove this dummy page
+import Navigation from "./Layouts/Navigation/Navigation";
+import LogInVerticalModal from "Features/Authentication/Layouts/LogInVerticalModal/LogInVerticalModal";
+import SignUpVerticalModal from "Features/Authentication/Layouts/SignUpVerticalModal/SignUpVerticalModal";
+import AfterSignUp from "Features/Authentication/Layouts/AfterSignUp/AfterSignUp";
+import AfterSignUpModal from "Features/Authentication/Layouts/AfterSignUpModal/AfterSignUpModal";
 /**
  * The main app of our application it handles routing
  *
@@ -69,13 +89,155 @@ function App() {
       setTheme({ ...defaultTheme, ...darkTheme });
     }
   };
+
+  const [modalShowSignUp, setModalShowSignUp] = React.useState(false);
+  const [modalShowLogIn, setModalShowLogIn] = React.useState(false);
+  const [modalAfterSignUp, setModalAfterSignUp] = React.useState(false);
+
+  const auth = useAuth();
   return (
-    &lt;ThemeProvider theme={theme}>    
-      &lt;Button onClick={handleToggleTheme}>
-        Toggle theme
-      &lt;/Button>
-      &lt;LeaderBoard>&lt;/LeaderBoard>
-      
+    &lt;ThemeProvider theme={theme}>
+      &lt;AuthProvider>
+        &lt;BrowserRouter>
+          &lt;LogInVerticalModal
+            show={modalShowLogIn}
+            onHide={() => setModalShowLogIn(false)}
+            setModalShowLogIn={setModalShowLogIn}
+          />
+          &lt;SignUpVerticalModal
+            show={modalShowSignUp}
+            onHide={() => setModalShowSignUp(false)}
+            setModalShowSignUp={setModalShowSignUp}
+            setModalAfterSignUp={setModalAfterSignUp}
+          />
+          &lt;AfterSignUpModal
+            show={modalAfterSignUp}
+            setModalAfterSignUp={setModalAfterSignUp}
+            onHide={() => setModalAfterSignUp(false)}
+          />
+          &lt;Routes>
+            &lt;Route
+              path="/"
+              element={
+                &lt;>
+                  &lt;Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  &lt;HomePage
+                    handleToggleTheme={handleToggleTheme}
+                    theme={theme.id}
+                  />
+                &lt;/>
+              }
+            />
+            &lt;Route
+              path="subreddit"
+              element={
+                &lt;>
+                  &lt;Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  &lt;SubReddit />
+                &lt;/>
+              }
+            />
+            &lt;Route
+              path="category/*"
+              element={
+                &lt;>
+                  &lt;Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  &lt;CommunityLeaderBoard />
+                &lt;/>
+              }
+            />
+            &lt;Route
+              path="index-page"
+              element={
+                &lt;>
+                  &lt;Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  &lt;IndexPage />
+                &lt;/>
+              }
+            />
+            &lt;Route
+              path="search/*"
+              element={
+                &lt;>
+                  &lt;Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  &lt;Search />
+                &lt;/>
+              }
+            />
+            &lt;Route
+              path="submit"
+              element={
+                &lt;>
+                  &lt;Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  &lt;CreatePost />
+                &lt;/>
+              }
+            />
+            &lt;Route path="login" element={&lt;LogInPage />} />
+            &lt;Route path="register" element={&lt;SignUpPage />} />
+            &lt;Route path="forget-password" element={&lt;ForgetPasswordPage />} />
+            &lt;Route path="forget-username" element={&lt;ForgetUserNamePage />} />
+            &lt;Route
+              path="user/reset-password/:token"
+              element={&lt;NewPasswordPage />}
+            />
+          &lt;/Routes>
+        &lt;/BrowserRouter>
+      &lt;/AuthProvider>
     &lt;/ThemeProvider>
   );
 }
@@ -91,13 +253,13 @@ export default App;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#darkTheme">darkTheme</a></li><li><a href="global.html#defaultTheme">defaultTheme</a></li><li><a href="global.html#exports">exports</a></li><li><a href="global.html#LeaderBoard">LeaderBoard</a></li><li><a href="global.html#lightTheme">lightTheme</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthProvider">AuthProvider</a></li><li><a href="global.html#CreatePostAttachmentsProvider">CreatePostAttachmentsProvider</a></li><li><a href="global.html#CreatePostFlagsProvider">CreatePostFlagsProvider</a></li><li><a href="global.html#CreatePostFlairsProvider">CreatePostFlairsProvider</a></li><li><a href="global.html#CreatePostTextProvider">CreatePostTextProvider</a></li><li><a href="global.html#CreatePostTitleProvider">CreatePostTitleProvider</a></li><li><a href="global.html#darkTheme">darkTheme</a></li><li><a href="global.html#defaultTheme">defaultTheme</a></li><li><a href="global.html#forgetPasswordApi">forgetPasswordApi</a></li><li><a href="global.html#forgetUserNameApi">forgetUserNameApi</a></li><li><a href="global.html#GetPasswordStrength">GetPasswordStrength</a></li><li><a href="global.html#isUserNameAvailable">isUserNameAvailable</a></li><li><a href="global.html#isValidUrl">isValidUrl</a></li><li><a href="global.html#lightTheme">lightTheme</a></li><li><a href="global.html#loginApi">loginApi</a></li><li><a href="global.html#loginWithFacebook">loginWithFacebook</a></li><li><a href="global.html#loginWithGoogle">loginWithGoogle</a></li><li><a href="global.html#out">out</a></li><li><a href="global.html#resetForgottenPassword">resetForgottenPassword</a></li><li><a href="global.html#signupApi">signupApi</a></li><li><a href="global.html#signupWithFacebook">signupWithFacebook</a></li><li><a href="global.html#signupWithGoogle">signupWithGoogle</a></li><li><a href="global.html#SubmitDestinationProvider">SubmitDestinationProvider</a></li><li><a href="global.html#useAuth">useAuth</a></li><li><a href="global.html#useCreatePostAttachments">useCreatePostAttachments</a></li><li><a href="global.html#useCreatePostFlags">useCreatePostFlags</a></li><li><a href="global.html#useCreatePostFlairs">useCreatePostFlairs</a></li><li><a href="global.html#useCreatePostText">useCreatePostText</a></li><li><a href="global.html#useCreatePostTitle">useCreatePostTitle</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useFetchFunction">useFetchFunction</a></li><li><a href="global.html#useLink">useLink</a></li><li><a href="global.html#useLocalStorage">useLocalStorage</a></li><li><a href="global.html#useMedia">useMedia</a></li><li><a href="global.html#useSubmitDestination">useSubmitDestination</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Oct 28 2022 20:23:05 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Nov 15 2022 20:18:48 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

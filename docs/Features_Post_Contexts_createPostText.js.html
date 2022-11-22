@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Theme/defaultTheme.js</title>
+    <title>JSDoc: Source: Features/Post/Contexts/createPostText.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Theme/defaultTheme.js</h1>
+    <h1 class="page-title">Source: Features/Post/Contexts/createPostText.js</h1>
 
     
 
@@ -26,18 +26,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * default theme colors which is the colors that is common between dark and light themes
+            <pre class="prettyprint source linenums"><code>import { createContext, useContext, useState } from "react";
+
+const createPostTextContext = createContext({});
+
+/**
+ * Context for text of the post to be created
  *
+ * @param {React.Component} children Who can access this context
+ * @returns {React.Component}
  */
-const defaultTheme = {
-    linecolor: {
-        //The color of Side Border
-        sideBorder:"#ccc"
-    }
+const CreatePostTextProvider = ({ children }) => {
+  // Context that is used to share text of the post to be created
+  const [createPostText, setCreatePostText] = useState([]);
+
+  return (
+    &lt;createPostTextContext.Provider
+      value={{
+        createPostText,
+        setCreatePostText,
+      }}
+    >
+      {children}
+    &lt;/createPostTextContext.Provider>
+  );
+};
+/**
+ * Custom hook used to provide post text context
+ *
+ * @returns {React.Context}
+ */
+const useCreatePostText = () => {
+  return useContext(createPostTextContext);
 };
 
-export default defaultTheme;
+export { CreatePostTextProvider, useCreatePostText };
 </code></pre>
         </article>
     </section>

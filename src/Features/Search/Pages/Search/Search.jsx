@@ -10,6 +10,7 @@ import { Container } from "./Search.styled";
 import { useState } from "react";
 import useFetch from "Hooks/useFetch";
 import axios from "API/axios";
+
 /**
  * Component that contains the Search Page and the Main Links component and routes for the four pages Posts page, Comments page, Community page and People page.
  *

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Theme/defaultTheme.js</title>
+    <title>JSDoc: Source: Features/Subreddit/Components/SaveChangesModal/SaveChangesModal.test.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Theme/defaultTheme.js</h1>
+    <h1 class="page-title">Source: Features/Subreddit/Components/SaveChangesModal/SaveChangesModal.test.js</h1>
 
     
 
@@ -26,18 +26,37 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * default theme colors which is the colors that is common between dark and light themes
- *
- */
-const defaultTheme = {
-    linecolor: {
-        //The color of Side Border
-        sideBorder:"#ccc"
-    }
-};
+            <pre class="prettyprint source linenums"><code>import Adapter from "@zarconontol/enzyme-adapter-react-18";
+import Enzyme, { shallow } from "enzyme";
+import SaveChangesModal from "./SaveChangesModal";
 
-export default defaultTheme;
+/**
+ * @param {boolean} show - boolean to show modal
+ * @param {function} onDiscard - handle on click discard
+ * @param {function} onSave - handle on click save
+ * @param {function} onHide - handle on click x
+ * @param {boolean} showX - boolean to show x button or not
+ */
+function out() {
+  console.log("clicked");
+}
+
+Enzyme.configure({ adapter: new Adapter() });
+describe("modal to check unsaved changes", () => {
+  it("should render without crashing", () => {
+    expect(
+      shallow(
+        &lt;SaveChangesModal
+          show={true}
+          onDiscard={out}
+          onSave={out}
+          onHide={out}
+          showX={true}
+        />
+      )
+    ).toMatchSnapshot();
+  });
+});
 </code></pre>
         </article>
     </section>
