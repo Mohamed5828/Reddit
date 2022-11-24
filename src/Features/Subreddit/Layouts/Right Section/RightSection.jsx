@@ -24,7 +24,6 @@ import {Link} from 'react-router-dom';
 import useFetchFunction from "Hooks/useFetchFunction";
 import { useEffect } from "react";
 import fetchRandomCommunities from "Features/Subreddit/Services/fetchRandomCommunities";
-import { useAuth } from "Features/Authentication/Contexts/Authentication";
 
 
 /**
@@ -34,13 +33,12 @@ import { useAuth } from "Features/Authentication/Contexts/Authentication";
  * @returns {React.Component}
  */
  const RightSection = () => {
-  const auth = useAuth();
 
   // Fetch communities
   const [communityList, error, loading, fetchFunction] = useFetchFunction();
 
   useEffect(()=>{
-      fetchRandomCommunities(fetchFunction, auth);
+      fetchRandomCommunities(fetchFunction);
   },[])
 
   

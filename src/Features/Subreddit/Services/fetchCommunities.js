@@ -5,16 +5,16 @@ import axios from "API/axios";
  * @param {Function} fetchFunction Coming from useFetchFunction custom hook
  */
 
-const fetchCommunities = (fetchFunction, auth, category) => {
+const fetchCommunities = (fetchFunction, category) => {
     console.log(`Inside Function: ${category}`);
     fetchFunction({
       axiosInstance: axios,
       method: 'GET',
-      url: "http://localhost:8000/communities--Leaderboard",
+      url: `http://localhost:8000/communities--Leaderboard`,
       requestConfig: {
         headers: {
           "Content-Language": "en-US",
-          Authorization: `Bearer ${auth.getToken()}`,
+          // Authorization: `Bearer ${auth.getToken()}`,
         }
       },
     });
