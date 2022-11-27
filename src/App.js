@@ -18,6 +18,7 @@ import { Button } from "react-bootstrap";
 
 // Import pages
 import { SubReddit, CommunityLeaderBoard, IndexPage } from "Features/Subreddit";
+import Messages from "./Features/Subreddit/Pages/Messages/Messages";
 import { CreatePost } from "Features/Post";
 import {
   ForgetPasswordPage,
@@ -141,7 +142,7 @@ function App() {
                     modalAfterSignUp={modalAfterSignUp}
                     setModalAfterSignUp={setModalAfterSignUp}
                   />
-                  <CommunityLeaderBoard />
+                  <Messages />
                 </>
               }
             />

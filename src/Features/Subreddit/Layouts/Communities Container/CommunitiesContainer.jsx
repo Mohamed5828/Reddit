@@ -1,11 +1,8 @@
-
-
 import { useParams } from "react-router-dom";
 import Community from "../../Components/Community/Community";
 import { useEffect, useRef, useState } from "react";
 import fetchCommunities from "Features/Subreddit/Services/fetchCommunities";
 import useFetchFunction from "Hooks/useFetchFunction";
-import { useAuth } from "Features/Authentication/Contexts/Authentication";
 import {
   CommunityContainer,
   AllCommunities,
@@ -23,57 +20,43 @@ import {
  * @param {object} subscribed - array that contains all the subscribed communities
  * @returns {React.Component}
  */
- const Container = ({subscribed }) => {
+const Container = ({ subscribed }) => {
   const [communitiesList, error, loading, fetchFunction] = useFetchFunction();
-  const auth = useAuth();
-  const {categoryType} = useParams();
+  const { categoryType } = useParams();
   let initial = categoryType;
-  if(categoryType==="All Communities") {
+  if (categoryType === "All Communities" || categoryType === "*") {
     initial = "Growing";
-  }
-  else if (categoryType==="*") {
-    initial = "Growing";
-  }
-  else if (categoryType==="Near You") {
+  } else if (categoryType === "Near You") {
     initial = "Local";
   }
-  const [currCategory, setCurrCategory] = useState(categoryType==="*"? "Growing": initial);
+  const [currCategory, setCurrCategory] = useState(
+    categoryType === "*" ? "Growing" : initial
+  );
   const [prevCategory, setPrevCategory] = useState();
 
-  useEffect(()=> {
-    
-    if(categoryType==="All Communities") {
+  useEffect(() => {
+    if (categoryType === "All Communities" || categoryType === "*") {
       setCurrCategory("Growing");
-      if(currCategory!==prevCategory) {
+      if (currCategory !== prevCategory) {
         setPrevCategory(currCategory);
-        fetchCommunities(fetchFunction, auth, currCategory);
-      }
-        
-      return;
-    }
-    else if (categoryType==="*") {
-      setCurrCategory("Growing");
-      if(currCategory!==prevCategory) {
-        setPrevCategory(currCategory);
-        fetchCommunities(fetchFunction, auth, currCategory);
+        fetchCommunities(fetchFunction, currCategory);
       }
       return;
-    }
-    else if (categoryType==="Near You") {
+    } else if (categoryType === "Near You") {
       setCurrCategory("Local");
-      if(currCategory!==prevCategory) {
+      if (currCategory !== prevCategory) {
         setPrevCategory(currCategory);
-        fetchCommunities(fetchFunction, auth, currCategory);
+        fetchCommunities(fetchFunction, currCategory);
       }
-      return; 
+      return;
     }
     setCurrCategory(categoryType);
-    if(currCategory!==prevCategory) {
+    if (currCategory !== prevCategory) {
       setPrevCategory(currCategory);
-      fetchCommunities(fetchFunction, auth, currCategory);
+      fetchCommunities(fetchFunction, currCategory);
     }
-  }, [categoryType, currCategory])
-  
+  }, [categoryType, currCategory]);
+
   const communities = communitiesList.map((community, index) => {
     return (
       <li key={community.id.toString()}>
@@ -102,6 +85,6 @@ import {
       </AllCommunities>
     </CommunityContainer>
   );
-}
+};
 
 export default Container;
