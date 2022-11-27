@@ -5,7 +5,7 @@ import axios from "API/axios";
  * Function to fetch Communities with Random Categories
  * @param {Function} fetchFunction Coming from useFetchFunction custom hook
  */
-const fetchRandomCommunities = (fetchFunction, auth) => {
+const fetchRandomCommunities = (fetchFunction) => {
     
     fetchFunction({
       axiosInstance: axios,
@@ -14,7 +14,7 @@ const fetchRandomCommunities = (fetchFunction, auth) => {
       requestConfig: {
         headers: {
           "Content-Language": "en-US",
-          Authorization: `Bearer ${auth.getToken()}`,
+          // Authorization: `Bearer ${auth.getToken()}`,
         },
       },
     });

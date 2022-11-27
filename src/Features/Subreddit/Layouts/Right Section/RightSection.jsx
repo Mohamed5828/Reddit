@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 import useFetchFunction from "Hooks/useFetchFunction";
 import { useEffect } from "react";
 import fetchRandomCommunities from "Features/Subreddit/Services/fetchRandomCommunities";
+import { useAuth } from "Features/Authentication/Contexts/Authentication";
 
 /**
  * Component that contains the right section of the community leaderboard page
@@ -32,11 +33,13 @@ import fetchRandomCommunities from "Features/Subreddit/Services/fetchRandomCommu
  * @returns {React.Component}
  */
 const RightSection = () => {
+  const auth = useAuth();
+
   // Fetch communities
   const [communityList, error, loading, fetchFunction] = useFetchFunction();
 
   useEffect(() => {
-    fetchRandomCommunities(fetchFunction);
+    fetchRandomCommunities(fetchFunction, auth);
   }, []);
 
   return (

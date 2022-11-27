@@ -3,6 +3,7 @@ import Community from "../../Components/Community/Community";
 import { useEffect, useRef, useState } from "react";
 import fetchCommunities from "Features/Subreddit/Services/fetchCommunities";
 import useFetchFunction from "Hooks/useFetchFunction";
+import { useAuth } from "Features/Authentication/Contexts/Authentication";
 import {
   CommunityContainer,
   AllCommunities,
@@ -22,6 +23,7 @@ import {
  */
 const Container = ({ subscribed }) => {
   const [communitiesList, error, loading, fetchFunction] = useFetchFunction();
+  const auth = useAuth();
   const { categoryType } = useParams();
   let initial = categoryType;
   if (categoryType === "All Communities" || categoryType === "*") {
@@ -39,21 +41,29 @@ const Container = ({ subscribed }) => {
       setCurrCategory("Growing");
       if (currCategory !== prevCategory) {
         setPrevCategory(currCategory);
-        fetchCommunities(fetchFunction, currCategory);
+        fetchCommunities(fetchFunction, auth, currCategory);
+      }
+
+      return;
+    } else if (categoryType === "*") {
+      setCurrCategory("Growing");
+      if (currCategory !== prevCategory) {
+        setPrevCategory(currCategory);
+        fetchCommunities(fetchFunction, auth, currCategory);
       }
       return;
     } else if (categoryType === "Near You") {
       setCurrCategory("Local");
       if (currCategory !== prevCategory) {
         setPrevCategory(currCategory);
-        fetchCommunities(fetchFunction, currCategory);
+        fetchCommunities(fetchFunction, auth, currCategory);
       }
       return;
     }
     setCurrCategory(categoryType);
     if (currCategory !== prevCategory) {
       setPrevCategory(currCategory);
-      fetchCommunities(fetchFunction, currCategory);
+      fetchCommunities(fetchFunction, auth, currCategory);
     }
   }, [categoryType, currCategory]);
 

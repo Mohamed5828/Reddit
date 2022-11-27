@@ -14,6 +14,7 @@ import fetchSubbedCommunities from "Features/Subreddit/Services/fetchSubbedCommu
 import { DataContext } from "../../Services/DataContext";
 import data from "../../Services/data.json";
 import { useEffect, useState } from "react";
+import { useAuth } from "Features/Authentication/Contexts/Authentication";
 import { Route, Routes, useParams } from "react-router-dom";
 /**
  * Component that contains the whole community leaderboard page
@@ -30,9 +31,10 @@ const CommunityLeaderBoard = () => {
   ] = useFetchFunction();
 
   const { categoryType } = useParams();
+  const auth = useAuth();
 
   useEffect(() => {
-    fetchSubbedCommunities(fetchSubCommunities);
+    fetchSubbedCommunities(fetchSubCommunities, auth);
   }, []); // Only re-run the effect if count changes
 
   const [category, setCategory] = useState(data);
