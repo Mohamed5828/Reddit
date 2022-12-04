@@ -142,7 +142,7 @@ function App() {
                     modalAfterSignUp={modalAfterSignUp}
                     setModalAfterSignUp={setModalAfterSignUp}
                   />
-                  <Messages />
+                  <CommunityLeaderBoard />
                 </>
               }
             />
@@ -197,6 +197,24 @@ function App() {
                     setModalAfterSignUp={setModalAfterSignUp}
                   />
                   <CreatePost />
+                </>
+              }
+            />
+            <Route
+              path="message/*"
+              element={
+                <>
+                  <Navigation
+                    toggleMode={handleToggleTheme}
+                    theme={theme.id}
+                    modalShowLogIn={modalShowLogIn}
+                    setModalShowLogIn={setModalShowLogIn}
+                    modalShowSignUp={modalShowSignUp}
+                    setModalShowSignUp={setModalShowSignUp}
+                    modalAfterSignUp={modalAfterSignUp}
+                    setModalAfterSignUp={setModalAfterSignUp}
+                  />
+                  <Messages />
                 </>
               }
             />

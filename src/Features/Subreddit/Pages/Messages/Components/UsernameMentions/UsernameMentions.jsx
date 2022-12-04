@@ -21,7 +21,7 @@ import {
   Visted,
   AreYouSure,
   BtnWarning,
-} from "./MessageBannelStyle";
+} from "./UsernameMentionsStyle";
 import ReportModal from "../ReportModal/ReportModal";
 const messagesData = [
   {
@@ -49,7 +49,7 @@ const messagesData = [
     block: false,
   },
 ];
-function MessageItem() {
+function UserMentions() {
   let today = new Date();
   let msPerDay = 24 * 60 * 60 * 1000;
   const [eachMessage, setEachMessage] = useState(messagesData);
@@ -127,25 +127,7 @@ function MessageItem() {
           }}
         >
           <Subject>
-            <Frame>
-              <FrameText>{item.title}</FrameText>
-            </Frame>
-            <SubjectText>{item.title}:</SubjectText>
-            <br />
-            <ExpanCollap
-              onClick={() => {
-                expandAll(item.aurthor);
-              }}
-            >
-              expand all
-            </ExpanCollap>
-            <ExpanCollap
-              onClick={() => {
-                collapseAll(item.aurthor);
-              }}
-            >
-              collapse all
-            </ExpanCollap>
+            <SubjectText>username mention: {item.title}</SubjectText>
           </Subject>
           <Tagline>
             <ToggleExpan
@@ -169,29 +151,10 @@ function MessageItem() {
               <Msg>{item.msg}</Msg>
               <ListBtns>
                 <Btns>
-                  <BtnsLinks>Permalink</BtnsLinks>
+                  <BtnsLinks>Context</BtnsLinks>
                 </Btns>
                 <Btns>
-                  <BtnsLinks
-                    className={item.delete ? "active" : ""}
-                    onClick={() => {
-                      toggleDeleteWarning(item.id);
-                    }}
-                  >
-                    Delete
-                  </BtnsLinks>
-                  <AreYouSure className={item.delete ? "active" : ""}>
-                    <BtnWarning> Are You Sure </BtnWarning>
-                    <BtnsLinks>Yes</BtnsLinks>
-                    <BtnWarning> / </BtnWarning>
-                    <BtnsLinks
-                      onClick={() => {
-                        toggleDeleteWarning(item.id);
-                      }}
-                    >
-                      No
-                    </BtnsLinks>
-                  </AreYouSure>
+                  <BtnsLinks>Full Comments</BtnsLinks>
                 </Btns>
 
                 {!item.admin && (
@@ -255,4 +218,4 @@ function MessageItem() {
   );
 }
 
-export default MessageItem;
+export default UserMentions;

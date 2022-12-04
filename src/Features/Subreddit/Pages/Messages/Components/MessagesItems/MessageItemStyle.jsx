@@ -125,3 +125,22 @@ export const Expand = styled.a`
 export const MessageDetails = styled.div`
   padding: 10px 15px;
 `;
+export const AreYouSure = styled.div`
+  display: none;
+  &.active {
+    display: inline;
+  }
+`;
+
+export const BtnWarning = styled.span`
+  font-size: x-small;
+  color: red;
+`;
+export const Visted = styled.div`
+  &.read-before {
+    background-color: #edeff1;
+    border-color: #edeff1;
+    color: #373c3f;
+    width: 100%;
+  }
+`;
