@@ -34,13 +34,13 @@ function Header() {
         <HeadSecondaryMargin>
           <HeadSecondaryUL>
             <SecondaryLI>
-              <SecondaryLink>All</SecondaryLink>
+              <SecondaryLink to={`/message/inbox`}>All</SecondaryLink>
             </SecondaryLI>
             <SecondaryLI>
               <SecondaryLink>Unread</SecondaryLink>
             </SecondaryLI>
             <SecondaryLI>
-              <SecondaryLink>Messages</SecondaryLink>
+              <SecondaryLink to={`/message/messages`}>Messages</SecondaryLink>
             </SecondaryLI>
             <SecondaryLI>
               <SecondaryLink>Comment Replies</SecondaryLink>
@@ -49,7 +49,9 @@ function Header() {
               <SecondaryLink>Post Replies</SecondaryLink>
             </SecondaryLI>
             <SecondaryLI>
-              <SecondaryLink>Username Mentions</SecondaryLink>
+              <SecondaryLink to={`/message/mentions`}>
+                Username Mentions
+              </SecondaryLink>
             </SecondaryLI>
           </HeadSecondaryUL>
         </HeadSecondaryMargin>

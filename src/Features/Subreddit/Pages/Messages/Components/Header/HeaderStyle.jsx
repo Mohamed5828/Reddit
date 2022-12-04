@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Body = styled.div`
   font: normal x-small verdana, arial, helvetica, sans-serif;
@@ -27,7 +28,7 @@ export const HeadPrimaryUL = styled.ul`
   vertical-align: bottom;
 `;
 
-export const PrimaryLinks = styled.a`
+export const PrimaryLinks = styled(NavLink)`
   display: inline-block;
   padding: 0 10px;
   font-size: larger;
@@ -71,7 +72,7 @@ export const SecondaryLI = styled.li`
   display: inline;
   white-space: nowrap;
 `;
-export const SecondaryLink = styled.a`
+export const SecondaryLink = styled(NavLink)`
   display: inline-block;
   margin: 0 10px;
   padding: 0 10px 5px;
