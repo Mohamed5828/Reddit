@@ -16,6 +16,7 @@ import data from "../../Services/data.json";
 import { useEffect, useState } from "react";
 import { useAuth } from "Features/Authentication/Contexts/Authentication";
 import { Route, Routes, useParams } from "react-router-dom";
+import SettingModal from "Features/Subreddit/Components/SettingModal/SettingModal";
 /**
  * Component that contains the whole community leaderboard page
  *

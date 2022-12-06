@@ -122,16 +122,19 @@ export const StyledModal = styled(Modal)`
     letter-spacing: 0.05em;
     outline: none;
   }
-  .report {
-    color: #888;
-    font-weight: bold;
-    padding: 0 1px;
-    text-transform: capitalize;
-    text-decoration: none;
-    cursor: pointer;
-    line-height: 1.6em;
-  }
-  .report:hover {
+  
+`;
+
+export const Report = styled.a`
+  color: #888;
+  font-weight: bold;
+  padding: 0 1px;
+  text-transform: capitalize;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.6em;
+
+  &:hover {
     color: #888;
     text-decoration: underline;
   }

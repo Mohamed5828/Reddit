@@ -82,6 +82,7 @@ export const SubjectText = styled.span`
 export const Tagline = styled.p`
   width: 100%;
   margin-bottom: 5px;
+  margin-top: 9px;
   padding-left: 14px;
   float: left;
   color: #878a8c;
@@ -138,9 +139,11 @@ export const BtnWarning = styled.span`
 `;
 export const Visted = styled.div`
   &.read-before {
+    padding: 9px 14px;
     background-color: #edeff1;
     border-color: #edeff1;
     color: #373c3f;
     width: 100%;
+    
   }
 `;
