@@ -2,6 +2,7 @@ import Header from "./Components/Header/Header";
 import MessageItem from "./Components/MessagesItems/MessageItem";
 import MessageBannel from "./Components/MessagesBannel/MessageBannel";
 import UserMentions from "./Components/UsernameMentions/UsernameMentions";
+import SendAMessage from "./Components/SendMessage/SendMessage";
 import Footer from "../../../../Layouts/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 function Messages() {
@@ -32,6 +33,15 @@ function Messages() {
             <>
               <Header />
               <UserMentions />
+            </>
+          }
+        />
+        <Route
+          path="/compose"
+          element={
+            <>
+              <Header />
+              <SendAMessage />
             </>
           }
         />

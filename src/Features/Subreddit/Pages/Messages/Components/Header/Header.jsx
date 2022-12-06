@@ -19,10 +19,12 @@ function Header() {
         <HeadPrimaryMargin>
           <HeadPrimaryUL>
             <PrimaryLI>
-              <PrimaryLinks>Send A Private Message</PrimaryLinks>
+              <PrimaryLinks to={`/message/compose`}>
+                Send A Private Message
+              </PrimaryLinks>
             </PrimaryLI>
             <PrimaryLI>
-              <PrimaryLinks>Inbox</PrimaryLinks>
+              <PrimaryLinks to={`/message/inbox`}>Inbox</PrimaryLinks>
             </PrimaryLI>
             <PrimaryLI>
               <PrimaryLinks>Sent</PrimaryLinks>
