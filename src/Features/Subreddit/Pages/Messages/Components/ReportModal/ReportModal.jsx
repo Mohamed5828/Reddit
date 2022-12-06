@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import { StyledModal } from "./ReportModalStyle";
+import { StyledModal, Report } from "./ReportModalStyle";
+
 
 export default function ReportModal() {
   const [show, setShow] = useState(false);
@@ -13,9 +14,9 @@ export default function ReportModal() {
 
   return (
     <>
-      <a className="report" onClick={handleShow}>
+      <Report onClick={handleShow}>
         Report
-      </a>
+      </Report>
 
       <StyledModal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
