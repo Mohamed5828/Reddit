@@ -11,8 +11,25 @@ import {
   SecondaryLink,
   Body,
 } from "./Header.styled";
+import { useLocation } from 'react-router-dom'
+import { useState } from "react";
+import { useEffect } from "react";
 
 function Header() {
+  let location = useLocation();
+  let type = location.pathname.split('/')[2];
+  const [allHeader, setAllHeader] = useState(type==="sent"? false:true);
+
+  useEffect(() => {
+    if(location.pathname.split('/')[2]==="sent") {
+      setAllHeader(false);
+    }
+    else {
+      setAllHeader(true);
+    }
+}, [location])
+
+
   return (
     <Body>
       <HeadPrimary>
@@ -27,11 +44,12 @@ function Header() {
               <PrimaryLinks to={`/message/inbox`}>Inbox</PrimaryLinks>
             </PrimaryLI>
             <PrimaryLI>
-              <PrimaryLinks>Sent</PrimaryLinks>
+              <PrimaryLinks to={`/message/sent`}>Sent</PrimaryLinks>
             </PrimaryLI>
           </HeadPrimaryUL>
         </HeadPrimaryMargin>
       </HeadPrimary>
+      {allHeader &&
       <HeadSecondary>
         <HeadSecondaryMargin>
           <HeadSecondaryUL>
@@ -58,6 +76,7 @@ function Header() {
           </HeadSecondaryUL>
         </HeadSecondaryMargin>
       </HeadSecondary>
+      } 
     </Body>
   );
 }

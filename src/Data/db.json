@@ -188,7 +188,7 @@
       "cover": "https://styles.redditmedia.com/t5_2s4tv/styles/communityIcon_0ko72ea2dqu51.png?width=256&s=51dd34bcfb1e1b1ee7064b8bb8be14e40c15c6a5"
     }
   ],
-  "communities--LeaderBoard--News": [ 
+  "communities--LeaderBoard--News": [
     {
       "id": 1,
       "title": "r/mildlyinteresting",
@@ -924,6 +924,38 @@
       },
       "signal": {},
       "id": 44
+    },
+    {
+      "data": {
+        "action": "sub",
+        "sr_name": "r/funny"
+      },
+      "signal": {},
+      "id": 45
+    },
+    {
+      "data": {
+        "action": "unsub",
+        "sr_name": "r/funny"
+      },
+      "signal": {},
+      "id": 46
+    },
+    {
+      "data": {
+        "action": "sub",
+        "sr_name": "r/funny"
+      },
+      "signal": {},
+      "id": 47
+    },
+    {
+      "data": {
+        "action": "unsub",
+        "sr_name": "r/funny"
+      },
+      "signal": {},
+      "id": 48
     }
   ],
   "feedback--Leaderboard": [

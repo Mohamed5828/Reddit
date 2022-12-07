@@ -4,7 +4,7 @@
  * @param {String} urlString - The url input
  * @returns {Boolean} - Is url valid or not
  */
-const isValidUrl = (urlString) => {
+export const isValidUrl = (urlString) => {
   const pattern = new RegExp(
     "^([a-zA-Z]+:\\/\\/)?" + // protocol
       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
@@ -18,4 +18,3 @@ const isValidUrl = (urlString) => {
   return pattern.test(urlString);
 };
 
-export default isValidUrl;

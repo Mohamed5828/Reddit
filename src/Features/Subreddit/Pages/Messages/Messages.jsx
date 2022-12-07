@@ -3,17 +3,18 @@ import MessageItem from "./Components/MessagesItems/MessageItem";
 import MessageBannel from "./Components/MessagesBannel/MessageBannel";
 import UserMentions from "./Components/UsernameMentions/UsernameMentions";
 import SendAMessage from "./Components/SendMessage/SendMessage";
+import SentMessages from "./Layouts/SentMessages/SentMessages";
 import Footer from "../../../../Layouts/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 function Messages() {
   return (
     <>
+    <Header />
       <Routes>
         <Route
           path="/inbox"
           element={
             <>
-              <Header />
               <MessageItem />
             </>
           }
@@ -22,7 +23,6 @@ function Messages() {
           path="/messages"
           element={
             <>
-              <Header />
               <MessageBannel />
             </>
           }
@@ -31,7 +31,6 @@ function Messages() {
           path="/mentions"
           element={
             <>
-              <Header />
               <UserMentions />
             </>
           }
@@ -40,8 +39,15 @@ function Messages() {
           path="/compose"
           element={
             <>
-              <Header />
               <SendAMessage />
+            </>
+          }
+        />
+        <Route
+          path="/sent"
+          element={
+            <>
+              <SentMessages />
             </>
           }
         />
