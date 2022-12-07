@@ -15,17 +15,19 @@ import {
   Page,
   Margin,
   Error,
-} from "./SendMessageStyle";
+} from "./SendMessage.styled";
 import { useState } from "react";
+import { CgLayoutGrid } from "react-icons/cg";
 
 function SendAMessage() {
   const [formData, setFormData] = useState({
+    from: "",
     to: "",
     subject: "",
     message: "",
   });
   function handleChange(event) {
-    const { to, subject, message } = event.target;
+    const { from, to, subject, message } = event.target;
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
@@ -33,6 +35,13 @@ function SendAMessage() {
       };
     });
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.target.reset();
+    console.log(formData);
+  };
+
   return (
     <Page>
       <Margin>
@@ -40,14 +49,20 @@ function SendAMessage() {
           <Spacer>
             <Heading>Send A Private Message</Heading>
           </Spacer>
-          <FormField>
+          <FormField onSubmit={handleSubmit}>
             <Spacer>
               <FieldDiv>
                 <Title>From</Title>
                 <FieldContent>
-                  <FromSelection>
-                    <option value>mohamed</option>
-                    <option value>ahmed</option>
+                  <FromSelection
+                    onChange={handleChange}
+                    value={formData.from}
+                    name="from"
+                    required
+                  >
+                    <option value={"--Choose--"}>--Choose--</option>
+                    <option value={"mohamed"}>mohamed</option>
+                    <option value={"ahmed"}>ahmed</option>
                   </FromSelection>
                 </FieldContent>
               </FieldDiv>
@@ -63,6 +78,7 @@ function SendAMessage() {
                   onChange={handleChange}
                   value={formData.to}
                   name="to"
+                  required
                 />
                 <Error className={formData.to !== "" ? "" : "active"}>
                   please enter a username
@@ -78,6 +94,7 @@ function SendAMessage() {
                   onChange={handleChange}
                   value={formData.subject}
                   name="subject"
+                  required
                 />
                 <Error className={formData.subject !== "" ? "" : "active"}>
                   please enter a subject
@@ -93,6 +110,7 @@ function SendAMessage() {
                     onChange={handleChange}
                     value={formData.message}
                     name="message"
+                    required
                   />
                   <Error className={formData.message !== "" ? "" : "active"}>
                     we need something here
@@ -100,8 +118,8 @@ function SendAMessage() {
                 </MessageContainer>
               </FieldDiv>
             </Spacer>
+            <SendBtn>Send</SendBtn>
           </FormField>
-          <SendBtn type="submit">Send</SendBtn>
         </Content>
       </Margin>
     </Page>

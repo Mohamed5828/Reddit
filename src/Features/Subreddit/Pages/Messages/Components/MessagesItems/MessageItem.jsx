@@ -15,7 +15,7 @@ import {
   AreYouSure,
   BtnWarning,
   Visted,
-} from "./MessageItemStyle";
+} from "./MessageItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
 import { useState } from "react";
 

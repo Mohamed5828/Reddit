@@ -10,7 +10,7 @@ import {
   SecondaryLI,
   SecondaryLink,
   Body,
-} from "./HeaderStyle";
+} from "./Header.styled";
 
 function Header() {
   return (

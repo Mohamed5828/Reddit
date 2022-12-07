@@ -21,7 +21,7 @@ import {
   Visted,
   AreYouSure,
   BtnWarning,
-} from "./UsernameMentionsStyle";
+} from "./UsernameMentions.styled";
 import ReportModal from "../ReportModal/ReportModal";
 const messagesData = [
   {
