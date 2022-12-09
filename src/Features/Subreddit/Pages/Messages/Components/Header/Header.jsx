@@ -11,24 +11,22 @@ import {
   SecondaryLink,
   Body,
 } from "./Header.styled";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
 function Header() {
   let location = useLocation();
-  let type = location.pathname.split('/')[2];
-  const [allHeader, setAllHeader] = useState(type==="sent"? false:true);
+  let type = location.pathname.split("/")[2];
+  const [allHeader, setAllHeader] = useState(type === "sent" ? false : true);
 
   useEffect(() => {
-    if(location.pathname.split('/')[2]==="sent") {
+    if (location.pathname.split("/")[2] === "sent") {
       setAllHeader(false);
-    }
-    else {
+    } else {
       setAllHeader(true);
     }
-}, [location])
-
+  }, [location]);
 
   return (
     <Body>
@@ -49,34 +47,33 @@ function Header() {
           </HeadPrimaryUL>
         </HeadPrimaryMargin>
       </HeadPrimary>
-      {allHeader &&
-      <HeadSecondary>
-        <HeadSecondaryMargin>
-          <HeadSecondaryUL>
-            <SecondaryLI>
-              <SecondaryLink to={`/message/inbox`}>All</SecondaryLink>
-            </SecondaryLI>
-            <SecondaryLI>
-              <SecondaryLink>Unread</SecondaryLink>
-            </SecondaryLI>
-            <SecondaryLI>
-              <SecondaryLink to={`/message/messages`}>Messages</SecondaryLink>
-            </SecondaryLI>
-            <SecondaryLI>
-              <SecondaryLink>Comment Replies</SecondaryLink>
-            </SecondaryLI>
-            <SecondaryLI>
-              <SecondaryLink>Post Replies</SecondaryLink>
-            </SecondaryLI>
-            <SecondaryLI>
-              <SecondaryLink to={`/message/mentions`}>
-                Username Mentions
-              </SecondaryLink>
-            </SecondaryLI>
-          </HeadSecondaryUL>
-        </HeadSecondaryMargin>
-      </HeadSecondary>
-      } 
+      {allHeader && (
+        <HeadSecondary>
+          <HeadSecondaryMargin>
+            <HeadSecondaryUL>
+              <SecondaryLI>
+                <SecondaryLink to={`/message/inbox`}>All</SecondaryLink>
+              </SecondaryLI>
+              <SecondaryLI>
+                <SecondaryLink to={`/message/unread`}>Unread</SecondaryLink>
+              </SecondaryLI>
+              <SecondaryLI>
+                <SecondaryLink to={`/message/messages`}>Messages</SecondaryLink>
+              </SecondaryLI>
+              <SecondaryLI>
+                <SecondaryLink to={`/message/selfreply`}>
+                  Post Replies
+                </SecondaryLink>
+              </SecondaryLI>
+              <SecondaryLI>
+                <SecondaryLink to={`/message/mentions`}>
+                  Username Mentions
+                </SecondaryLink>
+              </SecondaryLI>
+            </HeadSecondaryUL>
+          </HeadSecondaryMargin>
+        </HeadSecondary>
+      )}
     </Body>
   );
 }

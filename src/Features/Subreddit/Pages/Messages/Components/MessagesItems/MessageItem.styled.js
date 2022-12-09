@@ -91,13 +91,14 @@ export const Tagline = styled.p`
 export const TimeTag = styled(Tagline)`
   display: inline;
   float: none;
-  &::before {
+  margin: 0 5px;
+
+  &.active&::before {
     content: " [A]";
-    color: #ff0011;
     margin: 0 5px;
+    color: #ff0011;
   }
 `;
-
 export const Author = styled.a`
   margin-right: -15px;
   text-decoration: none;
@@ -139,11 +140,9 @@ export const BtnWarning = styled.span`
 `;
 export const Visted = styled.div`
   &.read-before {
-    padding: 9px 14px;
     background-color: #edeff1;
     border-color: #edeff1;
     color: #373c3f;
     width: 100%;
-    
   }
 `;

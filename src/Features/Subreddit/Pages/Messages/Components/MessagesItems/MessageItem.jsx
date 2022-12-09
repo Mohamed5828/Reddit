@@ -45,8 +45,6 @@ const messagesData = [
 ];
 
 function MessageItem() {
-  let today = new Date();
-  let msPerDay = 24 * 60 * 60 * 1000;
   const [eachMessage, setEachMessage] = useState(messagesData);
 
   function markUnread(id) {
@@ -96,8 +94,11 @@ function MessageItem() {
             <SubjectText>{item.title}:</SubjectText>
           </Subject>
           <Tagline>
-            from <Author className="admin visted">{item.aurthor}</Author>
-            <TimeTag>
+            from{" "}
+            <Author className={item.admin ? "admin" : ""}>
+              {item.aurthor}
+            </Author>
+            <TimeTag className={item.admin ? "active" : ""}>
               <time dateTime="20/10/2022">{item.time.toDateString()} </time>
             </TimeTag>
           </Tagline>

@@ -6,10 +6,11 @@ import SendAMessage from "./Components/SendMessage/SendMessage";
 import SentMessages from "./Layouts/SentMessages/SentMessages";
 import Footer from "../../../../Layouts/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
+import PostReplay from "./Components/PostReplay/PostReplay";
 function Messages() {
   return (
     <>
-    <Header />
+      <Header />
       <Routes>
         <Route
           path="/inbox"
@@ -40,6 +41,14 @@ function Messages() {
           element={
             <>
               <SendAMessage />
+            </>
+          }
+        />
+        <Route
+          path="/selfreply"
+          element={
+            <>
+              <PostReplay />
             </>
           }
         />

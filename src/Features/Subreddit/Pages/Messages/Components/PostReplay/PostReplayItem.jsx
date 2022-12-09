@@ -21,8 +21,9 @@ import {
   ArrowUp,
   ArrowDown,
   MessageWithAu,
-} from "./UsernameMentions.styled";
+} from "./PostReplay.styled";
 import ReportModal from "../ReportModal/ReportModal";
+
 const messagesData = [
   {
     aurthor: "Mohamed",
@@ -47,9 +48,19 @@ const messagesData = [
     block: false,
   },
 ];
-function UserMentions() {
-  const [eachMessage, setEachMessage] = useState(messagesData);
 
+export function PostReplayItem(
+  aurthor,
+  title,
+  time,
+  msg,
+  upvote,
+  admin,
+  read,
+  id,
+  block
+) {
+  const [eachMessage, setEachMessage] = useState(messagesData);
   function markUnread(id) {
     setEachMessage((message) => {
       return message.map((prevState) => {
@@ -111,7 +122,7 @@ function UserMentions() {
           }}
         >
           <Subject>
-            <SubjectText>username mention: {item.title}</SubjectText>
+            <SubjectText>post replies: {item.title}</SubjectText>
           </Subject>
           <ArrowsDiv>
             <ArrowUp
@@ -201,12 +212,6 @@ function UserMentions() {
       </OddItems>
     );
   });
-
-  return (
-    <EmbeddedPage>
-      <PageContainer>{Message}</PageContainer>
-    </EmbeddedPage>
-  );
 }
-
-export default UserMentions;
+export const PostRMessage = PostReplayItem.eachMessage;
+console.log(PostRMessage);

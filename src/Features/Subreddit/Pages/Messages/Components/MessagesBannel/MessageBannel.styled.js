@@ -172,10 +172,12 @@ export const Tagline = styled.p`
 export const TimeTag = styled(Tagline)`
   display: inline;
   float: none;
-  &::before {
+  margin: 0 5px;
+
+  &.active&::before {
     content: " [A]";
-    color: #ff0011;
     margin: 0 5px;
+    color: #ff0011;
   }
 `;
 

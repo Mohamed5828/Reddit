@@ -50,8 +50,6 @@ const messagesData = [
   },
 ];
 function MessageItem() {
-  let today = new Date();
-  let msPerDay = 24 * 60 * 60 * 1000;
   const [eachMessage, setEachMessage] = useState(messagesData);
 
   function collapseAll(name) {
@@ -155,11 +153,12 @@ function MessageItem() {
             >
               {item.expanded ? `[-]` : `[+]`}
             </ToggleExpan>
-            from <Author className="admin visted">{item.aurthor}</Author>
-            <TimeTag>
-              <time dateTime="20/10/2022">
-                {Math.round((item.time.getTime() - today.getTime()) / msPerDay)}
-              </time>
+            from{" "}
+            <Author className={item.admin ? "admin" : ""}>
+              {item.aurthor}
+            </Author>
+            <TimeTag className={item.admin ? "active" : ""}>
+              <time dateTime="20/10/2022">{item.time.toDateString()}</time>
             </TimeTag>
           </Tagline>
           <MessagesWithBtns
