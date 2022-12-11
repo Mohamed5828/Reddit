@@ -137,9 +137,6 @@ const MessageBannelItem = ({
             <Msg>{msg}</Msg>
             <ListBtns>
               <Btns>
-                <BtnsLinks>Permalink</BtnsLinks>
-              </Btns>
-              <Btns>
                 <BtnsLinks
                   className={deleted ? "active" : ""}
                   onClick={() => {
@@ -206,7 +203,7 @@ const MessageBannelItem = ({
                 </Btns>
               )}
               <Btns>
-                <BtnsLinks>Replay</BtnsLinks>
+                <BtnsLinks>Reply</BtnsLinks>
               </Btns>
             </ListBtns>
           </Visted>

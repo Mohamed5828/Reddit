@@ -29,11 +29,6 @@ const SentMessageItem = ({id, subject, author, msg, time})=>{
               </TimeTag>
             </Tagline>
               <Msg>{msg}</Msg>
-              <ListBtns>
-                <Btns>
-                  <BtnsLinks>Permalink</BtnsLinks>
-                </Btns>
-              </ListBtns>
           </MessageDetails>
         </OddItems>
       );

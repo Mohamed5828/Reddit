@@ -135,7 +135,7 @@ const PostReplayItem = ({
                   </Btns>
                 )}
                 <Btns>
-                  <BtnsLinks>Replay</BtnsLinks>
+                  <BtnsLinks>Reply</BtnsLinks>
                 </Btns>
               </ListBtns>
             </Visted>
