@@ -15,6 +15,8 @@ import {
   Visted,
 } from "./MessageItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
+import markUnread from "../../Utils/MarkUnread";
+import readed from "../../Utils/Read";
 
 const NormalMessageAll = ({
   changeMessage,
@@ -28,21 +30,7 @@ const NormalMessageAll = ({
   deleted,
   block,
 }) => {
-  function markUnread(id) {
-    changeMessage((message) => {
-      return message.map((prevState) => {
-        return prevState.id === id ? { ...prevState, read: false } : prevState;
-      });
-    });
-  }
-
-  function readed(id) {
-    changeMessage((message) => {
-      return message.map((prevState) => {
-        return prevState.id === id ? { ...prevState, read: true } : prevState;
-      });
-    });
-  }
+  
 
   function toggleDeleteWarning(id) {
     changeMessage((message) => {
@@ -67,7 +55,7 @@ const NormalMessageAll = ({
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
       <MessageDetails
         onClick={() => {
-          readed(id);
+          readed(id, changeMessage, read);
         }}
       >
         <Subject>
@@ -144,7 +132,7 @@ const NormalMessageAll = ({
                 <BtnsLinks
                   onClick={(e) => {
                     e.stopPropagation();
-                    markUnread(id);
+                    markUnread(id, changeMessage, read);
                   }}
                 >
                   Mark Unread

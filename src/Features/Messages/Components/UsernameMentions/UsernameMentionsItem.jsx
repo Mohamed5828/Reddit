@@ -22,6 +22,8 @@ import {
 import ReportModal from "../ReportModal/ReportModal";
 import upVote from "../../Utils/Upvote";
 import downVote from "../../Utils/Downvote";
+import markUnread from "../../Utils/MarkUnread";
+import readed from "../../Utils/Read";
 
 const UsernameMentionItem = ({
   changeMessage,
@@ -35,21 +37,6 @@ const UsernameMentionItem = ({
   id,
   block,
 }) => {
-  function markUnread(id) {
-    changeMessage((message) => {
-      return message.map((prevState) => {
-        return prevState.id === id ? { ...prevState, read: false } : prevState;
-      });
-    });
-  }
-
-  function readed(id) {
-    changeMessage((message) => {
-      return message.map((prevState) => {
-        return prevState.id === id ? { ...prevState, read: true } : prevState;
-      });
-    });
-  }
 
   function toggleBlockWarning(id) {
     changeMessage((message) => {
@@ -68,7 +55,7 @@ const UsernameMentionItem = ({
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
       <MessageDetails
         onClick={() => {
-          readed(id);
+          readed(id, changeMessage, read);
         }}
       >
         <Subject>
@@ -142,7 +129,7 @@ const UsernameMentionItem = ({
                     <BtnsLinks
                       onClick={(e) => {
                         e.stopPropagation();
-                        markUnread(id);
+                        markUnread(id, changeMessage, read);
                       }}
                     >
                       Mark Unread
