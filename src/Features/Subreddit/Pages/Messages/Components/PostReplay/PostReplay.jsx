@@ -1,6 +1,6 @@
 import { useState } from "react";
-import UsernameMentionItem from "./UsernameMentionsItem";
-import { PageContainer, EmbeddedPage } from "./UsernameMentions.styled";
+import PostReplayItem from "./PostReplayItem";
+import { PageContainer, EmbeddedPage } from "./PostReplay.styled";
 
 const messagesData = [
   {
@@ -26,11 +26,11 @@ const messagesData = [
     block: false,
   },
 ];
-function UsernameMentions() {
+function PostReplay() {
   const [eachMessage, setEachMessage] = useState(messagesData);
   const Message = eachMessage.map((item) => {
     return (
-      <UsernameMentionItem
+      <PostReplayItem
         changeMessage={setEachMessage}
         aurthor={item.aurthor}
         title={item.title}
@@ -52,4 +52,4 @@ function UsernameMentions() {
   );
 }
 
-export default UsernameMentions;
+export default PostReplay;

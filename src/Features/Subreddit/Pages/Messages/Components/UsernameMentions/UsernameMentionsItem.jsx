@@ -18,10 +18,10 @@ import {
   ArrowUp,
   ArrowDown,
   MessageWithAu,
-} from "./PostReply.styled";
+} from "./UsernameMentions.styled";
 import ReportModal from "../ReportModal/ReportModal";
 
-const PostReplayItem = ({
+const UsernameMentionItem = ({
   changeMessage,
   aurthor,
   title,
@@ -84,7 +84,7 @@ const PostReplayItem = ({
         }}
       >
         <Subject>
-          <SubjectText>post replies: {title}</SubjectText>
+          <SubjectText>username mention: {title}</SubjectText>
         </Subject>
         <ArrowsDiv>
           <ArrowUp
@@ -172,4 +172,4 @@ const PostReplayItem = ({
     </OddItems>
   );
 };
-export default PostReplayItem;
+export default UsernameMentionItem;
