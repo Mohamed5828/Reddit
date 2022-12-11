@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UsernameMentionItem from "./UsernameMentionsItem";
+import UsernameMentionItem from "../../Components/UsernameMentions/UsernameMentionsItem";
 import { PageContainer, EmbeddedPage } from "./UsernameMentions.styled";
 
 const messagesData = [

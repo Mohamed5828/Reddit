@@ -1,5 +1,4 @@
 import {
-  PageContainer,
   OddItems,
   ListBtns,
   Btns,
@@ -10,7 +9,6 @@ import {
   Tagline,
   Author,
   MessageDetails,
-  EmbeddedPage,
   TimeTag,
   Frame,
   FrameText,
@@ -20,7 +18,7 @@ import {
   Visted,
   AreYouSure,
   BtnWarning,
-} from "./MessagePanel.styled";
+} from "./MessagePanelItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
 
 const MessageBannelItem = ({

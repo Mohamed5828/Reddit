@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     OddItems,
     ListBtns,
@@ -11,7 +10,7 @@ import {
     Author,
     MessageDetails,
     TimeTag,
-  } from "../MessagesItems/MessageItem.styled";
+  } from "./SentMessageItem.styled";
 
 const SentMessageItem = ({id, subject, author, msg, time})=>{
 

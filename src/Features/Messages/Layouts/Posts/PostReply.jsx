@@ -1,40 +1,17 @@
 import { useState } from "react";
-import {
-  PageContainer,
-  OddItems,
-  ListBtns,
-  Btns,
-  BtnsLinks,
-  Subject,
-  SubjectText,
-  Msg,
-  Tagline,
-  Author,
-  MessageDetails,
-  EmbeddedPage,
-  TimeTag,
-  Frame,
-  FrameText,
-  ExpanCollap,
-  MessagesWithBtns,
-  ToggleExpan,
-  Visted,
-  AreYouSure,
-  BtnWarning,
-} from "./MessagePanel.styled";
-import ReportModal from "../ReportModal/ReportModal";
-import MessageBannelItem from "./MessageBannelItem";
+import PostReplayItem from "../../Components/PostReply/PostReplyItem";
+import { PageContainer, EmbeddedPage } from "./PostReply.styled";
+
 const messagesData = [
   {
     aurthor: "Mohamed",
     title: "Greeting",
-    time: "new Date(2022, 11, 30)",
+    time: "10",
     msg: "Hello Hello",
-    expanded: true,
+    upvote: "neutral",
     admin: true,
     read: false,
     id: 1,
-    delete: false,
     block: false,
   },
   {
@@ -42,36 +19,32 @@ const messagesData = [
     title: "Mod",
     time: "new Date(2022, 11, 29)",
     msg: "You are Mod",
-    expanded: true,
+    upvote: "neutral",
     admin: false,
     read: false,
     id: 2,
-    delete: false,
     block: false,
   },
 ];
-function MessageBannel() {
+function PostReplay() {
   const [eachMessage, setEachMessage] = useState(messagesData);
-
   const Message = eachMessage.map((item) => {
     return (
-      <MessageBannelItem
+      <PostReplayItem
         changeMessage={setEachMessage}
         aurthor={item.aurthor}
         title={item.title}
         time={item.time}
         msg={item.msg}
-        expanded={item.expanded}
+        upvote={item.upvote}
         admin={item.admin}
         read={item.read}
         id={item.id}
-        deleted={item.delete}
         block={item.block}
         key={item.id}
       />
     );
   });
-
   return (
     <EmbeddedPage>
       <PageContainer>{Message}</PageContainer>
@@ -79,4 +52,4 @@ function MessageBannel() {
   );
 }
 
-export default MessageBannel;
+export default PostReplay;

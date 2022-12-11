@@ -18,7 +18,7 @@ import {
   ArrowUp,
   ArrowDown,
   MessageWithAu,
-} from "./UsernameMentions.styled";
+} from "./UsernameMentionsItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
 import upVote from "../../Utils/Upvote";
 import downVote from "../../Utils/Downvote";

@@ -16,8 +16,8 @@ import {
   BtnWarning,
   ArrowsDiv,
   MessageWithAu,
-} from "./PostReply.styled";
-import { ArrowUp, ArrowDown } from "../UsernameMentions/UsernameMentions.styled";
+} from "./PostReplyItem.styled";
+import { ArrowUp, ArrowDown } from "../UsernameMentions/UsernameMentionsItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
 import upVote from "../../Utils/Upvote";
 import downVote from "../../Utils/Downvote";

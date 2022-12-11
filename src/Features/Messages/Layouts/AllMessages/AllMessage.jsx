@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { PageContainer, EmbeddedPage } from "./MessageItem.styled";
-import NormalMessageAll from "./AllMessageItem";
-import PostReplayItem from "../PostReply/PostReplyItem";
-import UsernameMentionItem from "../UsernameMentions/UsernameMentionsItem";
+import { PageContainer, EmbeddedPage } from "./AllMessage.styled";
+import NormalMessageAll from "../../Components/MessagesItems/AllMessageItem";
+import PostReplayItem from "../../Components/PostReply/PostReplyItem";
+import UsernameMentionItem from "../../Components/UsernameMentions/UsernameMentionsItem";
 
 const messagesData = [
   {

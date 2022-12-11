@@ -1,24 +1,25 @@
 import styled from "styled-components";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { GoArrowUp, GoArrowDown } from "react-icons/go";
+
 export const MessageWithAu = styled.div`
   padding-left: 35px;
 `;
 
-// export const ArrowUp = styled(FaArrowUp)`
-//   margin: 2px 0px 0px 0px;
-//   width: 100%;
-//   height: 14px;
-//   display: block;
-//   cursor: pointer;
-//   width: 15px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   outline: none;
-//   &.active {
-//     color: #ff8b60;
-//   }
-// `;
-
+export const ArrowUp = styled(GoArrowUp)`
+  color: #aaa;
+  margin: 2px 0 -12px 0;
+  width: 100%;
+  height: 30px;
+  display: block;
+  cursor: pointer;
+  width: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: none;
+  &.active {
+    color: #ff8b60;
+  }
+`;
 
 export const ArrowsDiv = styled.div`
   float: left;
@@ -27,37 +28,20 @@ export const ArrowsDiv = styled.div`
   background: transparent;
   overflow: hidden;
 `;
-// export const ArrowDown = styled(FaArrowDown)`
-//   margin: 2px 0px 0px 0px;
-//   width: 100%;
-//   height: 14px;
-//   display: block;
-//   cursor: pointer;
-//   width: 15px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   outline: none;
-//   &.active {
-//     color: #9494ff;
-//   }
-// `;
-
-export const EmbeddedPage = styled.div`
-  margin: 0;
-  background: none;
-  z-index: 1;
-  min-height: 700px;
-  background: #edeff1;
-  color: #373c3f;
-  padding: 1px;
-`;
-
-export const PageContainer = styled.div`
-  margin: 20px auto;
-  width: 70%;
-  min-width: 700px;
-  background: #edeff1;
-  font: normal x-small verdana, arial, helvetica, sans-serif;
+export const ArrowDown = styled(GoArrowDown)`
+  color: #aaa;
+  margin: 2px 0 0 0;
+  width: 100%;
+  height: 30px;
+  display: block;
+  cursor: pointer;
+  width: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: none;
+  &.active {
+    color: #9494ff;
+  }
 `;
 
 export const OddItems = styled.div`

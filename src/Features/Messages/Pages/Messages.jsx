@@ -1,13 +1,13 @@
 import Header from "../Components/Header/Header";
-import MessageItem from "../Components/MessagesItems/AllMessage";
-import MessageBannel from "../Components/MessagesPanel/MessagePanel";
-import UserMentions from "../Components/UsernameMentions/UsernameMentions";
+import MessageItem from "../Layouts/AllMessages/AllMessage";
+import MessageBannel from "../Layouts/Panel/MessagePanel";
+import UserMentions from "../Layouts/Mentions/UsernameMentions";
 import SendAMessage from "../Components/SendMessage/SendMessage";
 import SentMessages from "../Layouts/SentMessages/SentMessages";
 import Unread from "../Layouts/Unread/Unread";
 import Footer from "Layouts/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
-import PostReplay from "../Components/PostReply/PostReply";
+import PostReplay from "../Layouts/Posts/PostReply";
 function Messages() {
   return (
     <>
