@@ -21,43 +21,20 @@ function Messages() {
             </>
           }
         />
-        <Route
-          path="/inbox"
-          element={
-            <>
-              <MessageItem />
-            </>
-          }
-        />
-        <Route
-          path="/messages"
-          element={
-            <>
-              <MessageBannel />
-            </>
-          }
-        />
-        <Route
-          path="/mentions"
-          element={
-            <>
-              <UserMentions />
-            </>
-          }
-        />
+        
+        <Route path="/inbox" element={ <MessageItem /> }>
+          <Route path="/inbox/all" element={<MessageItem /> }/>
+          <Route path="/inbox/messages" element={<MessageBannel /> }/>
+          <Route path="/inbox/mentions"element={ <UserMentions /> } />
+          <Route path="/inbox/unread" element={ <Unread /> }/>
+          <Route path="/inbox/selfreply" element={  <PostReplay /> }/>
+        </Route>
+
         <Route
           path="/compose"
           element={
             <>
               <SendAMessage />
-            </>
-          }
-        />
-        <Route
-          path="/selfreply"
-          element={
-            <>
-              <PostReplay />
             </>
           }
         />
@@ -69,14 +46,7 @@ function Messages() {
             </>
           }
         />
-        <Route
-          path="/unread"
-          element={
-            <>
-              <Unread />
-            </>
-          }
-        />
+        
 
         {/* <Footer /> */}
       </Routes>

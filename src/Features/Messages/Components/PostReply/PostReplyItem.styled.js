@@ -13,17 +13,20 @@ export const ArrowsDiv = styled.div`
 `;
 
 export const OddItems = styled.div`
-  background-color: #f6f7f8;
+  background-color: ${({ theme }) => theme.background.lightMuted};
+  transition: 0.3s;
   margin: 0;
   padding: 10px 15px;
   &.even {
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.background.primary};
   }
 `;
+
 export const MessagesWithBtns = styled.div`
-  color: #373c3f;
+  color: ${({ theme }) => theme.color.primary};
   margin-left: 10px;
-  border-left: 2px dashed #e7e7e7;
+  border-left: 2px dashed ${({ theme }) => theme.color.initialBorderColor};
+  transition: 0.3s;
   padding-bottom: 10px;
   width: 100%;
   &.expanded {
@@ -33,11 +36,13 @@ export const MessagesWithBtns = styled.div`
     display: none;
   }
 `;
+
 export const Visted = styled.div`
   &.read-before {
-    background-color: #edeff1;
-    border-color: #edeff1;
-    color: #373c3f;
+    background-color: ${({ theme }) => theme.lineColor.primary};
+    border-color: ${({ theme }) => theme.lineColor.primary};
+    color: ${({ theme }) => theme.color.primary};
+    transition: 0.3s;
     width: 100%;
   }
 `;
@@ -57,7 +62,8 @@ export const BtnWarning = styled.span`
 export const ToggleExpan = styled.a`
   text-decoration: none;
   margin-right: 3px;
-  color: #0079d3;
+  color: ${({ theme }) => theme.color.frame};
+  transition: 0.3s;
   cursor: pointer;
 `;
 
@@ -115,7 +121,8 @@ export const Subject = styled.div`
 export const SubjectText = styled.span`
   font-weight: bold;
   font-size: larger;
-  color: #373c3f;
+  color: ${({ theme }) => theme.color.primary};
+  transition: 0.3s;
 `;
 
 export const Tagline = styled.p`
@@ -123,7 +130,8 @@ export const Tagline = styled.p`
   margin-bottom: 5px;
   padding-left: 14px;
   float: left;
-  color: #878a8c;
+  color: ${({ theme }) => theme.borderColor.primary};
+  transition: 0.3s;
   font-weight: inherit;
 `;
 export const TimeTag = styled(Tagline)`
@@ -141,16 +149,16 @@ export const Author = styled.a`
   margin-right: -15px;
   text-decoration: none;
   cursor: pointer;
-  color: #0079d3;
+  color: ${({ theme }) => theme.color.frame};
+  transition: 0.3s;
   &:hover {
+    color: ${({ theme }) => theme.color.frame};
     text-decoration: underline;
   }
   &.admin {
     color: #ff0011;
   }
-  &.visted {
-    color: #80bce9;
-  }
+
   &::before {
     content: "/u/";
   }

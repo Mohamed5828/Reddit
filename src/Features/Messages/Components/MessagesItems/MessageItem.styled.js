@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const OddItems = styled.div`
-  background-color: #f6f7f8;
+  background-color: ${({ theme }) => theme.background.lightMuted};
+  transition: 0.3s;
   margin: 0;
   padding: 10px 15px;
   &.even {
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.background.primary};
   }
 `;
+
 export const Msg = styled.div`
   display: block;
   margin: 5px 0 5px 15px;
@@ -55,10 +57,12 @@ export const Subject = styled.div`
   font-weight: bold;
   font-size: larger;
 `;
+
 export const SubjectText = styled.span`
   font-weight: bold;
   font-size: larger;
-  color: #373c3f;
+  color: ${({ theme }) => theme.color.primary};
+  transition: 0.3s;
 `;
 
 export const Tagline = styled.p`
@@ -67,15 +71,17 @@ export const Tagline = styled.p`
   margin-top: 9px;
   padding-left: 14px;
   float: left;
-  color: #878a8c;
+  color: ${({ theme }) => theme.borderColor.primary};
+  transition: 0.3s;
   font-weight: inherit;
 `;
+
 export const TimeTag = styled(Tagline)`
   display: inline;
   float: none;
   margin: 0 5px;
 
-  &.active&::before {
+  &.active &::before {
     content: " [A]";
     margin: 0 5px;
     color: #ff0011;
@@ -85,18 +91,17 @@ export const Author = styled.a`
   margin-right: -15px;
   text-decoration: none;
   cursor: pointer;
+  color: ${({ theme }) => theme.lineColor.frame};
+  transition: 0.3s;
   &:hover {
+    color: ${({ theme }) => theme.lineColor.frame};
     text-decoration: underline;
   }
-  &.page {
-    color: #0079d3;
-  }
+  
   &.admin {
     color: #ff0011;
   }
-  &.visted {
-    color: #80bce9;
-  }
+  
   &::before {
     content: "/u/";
   }
@@ -122,9 +127,10 @@ export const BtnWarning = styled.span`
 `;
 export const Visted = styled.div`
   &.read-before {
-    background-color: #edeff1;
-    border-color: #edeff1;
-    color: #373c3f;
+    background-color: ${({ theme }) => theme.lineColor.primary};
+    border-color: ${({ theme }) => theme.lineColor.primary};
+    color: ${({ theme }) => theme.color.primary};
     width: 100%;
+    transition: 0.3s;
   }
 `;

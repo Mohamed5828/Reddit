@@ -6,7 +6,8 @@ export const MessageWithAu = styled.div`
 `;
 
 export const ArrowUp = styled(GoArrowUp)`
-  color: #aaa;
+  transition: 0.3s;
+  color: ${({ theme }) => theme.arrowColor.arrow};
   margin: 2px 0 -12px 0;
   width: 100%;
   height: 30px;
@@ -17,7 +18,7 @@ export const ArrowUp = styled(GoArrowUp)`
   margin-right: auto;
   outline: none;
   &.active {
-    color: #ff8b60;
+    color: ${({ theme }) => theme.arrowColor.upvoted};
   }
 `;
 
@@ -29,7 +30,7 @@ export const ArrowsDiv = styled.div`
   overflow: hidden;
 `;
 export const ArrowDown = styled(GoArrowDown)`
-  color: #aaa;
+  color: ${({ theme }) => theme.arrowColor.arrow};
   margin: 2px 0 0 0;
   width: 100%;
   height: 30px;
@@ -39,23 +40,27 @@ export const ArrowDown = styled(GoArrowDown)`
   margin-left: auto;
   margin-right: auto;
   outline: none;
+  transition: 0.3s;
   &.active {
-    color: #9494ff;
+    color: ${({ theme }) => theme.arrowColor.downvoted};
   }
 `;
 
 export const OddItems = styled.div`
-  background-color: #f6f7f8;
+  transition: 0.3s;
+  background-color: ${({ theme }) => theme.background.lightMuted};
   margin: 0;
   padding: 10px 15px;
   &.even {
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.background.primary};
   }
 `;
+
 export const MessagesWithBtns = styled.div`
-  color: #373c3f;
+  color: ${({ theme }) => theme.color.primary};
+  transition: 0.3s;
   margin-left: 10px;
-  border-left: 2px dashed #e7e7e7;
+  border-left: 2px dashed ${({ theme }) => theme.color.initialBorderColor};
   padding-bottom: 10px;
   width: 100%;
   &.expanded {
@@ -67,9 +72,10 @@ export const MessagesWithBtns = styled.div`
 `;
 export const Visted = styled.div`
   &.read-before {
-    background-color: #edeff1;
-    border-color: #edeff1;
-    color: #373c3f;
+    background-color: ${({ theme }) => theme.lineColor.primary};
+    border-color: ${({ theme }) => theme.lineColor.primary};
+    color: ${({ theme }) => theme.color.primary};
+    transition: 0.3s;
     width: 100%;
   }
 `;
@@ -89,7 +95,8 @@ export const BtnWarning = styled.span`
 export const ToggleExpan = styled.a`
   text-decoration: none;
   margin-right: 3px;
-  color: #0079d3;
+  color: ${({ theme }) => theme.color.frame};
+  transition: 0.3s;
   cursor: pointer;
 `;
 
@@ -147,7 +154,8 @@ export const Subject = styled.div`
 export const SubjectText = styled.span`
   font-weight: bold;
   font-size: larger;
-  color: #373c3f;
+  color: ${({ theme }) => theme.color.primary};
+  transition: 0.3s;
 `;
 
 export const Tagline = styled.p`
@@ -155,14 +163,16 @@ export const Tagline = styled.p`
   margin-bottom: 5px;
   padding-left: 14px;
   float: left;
-  color: #878a8c;
+  color: ${({ theme }) => theme.borderColor.primary};
+  transition: 0.3s;
   font-weight: inherit;
 `;
+
 export const TimeTag = styled(Tagline)`
   display: inline;
   float: none;
   margin: 0 5px;
-  &.active&::before {
+  &.active &::before {
     content: " [A]";
     margin: 0 5px;
     color: #ff0011;
@@ -173,16 +183,16 @@ export const Author = styled.a`
   margin-right: -15px;
   text-decoration: none;
   cursor: pointer;
-  color: #0079d3;
+  color: ${({ theme }) => theme.color.frame};
+  transition: 0.3s;
   &:hover {
+    color: ${({ theme }) => theme.color.frame};
     text-decoration: underline;
   }
   &.admin {
     color: #ff0011;
   }
-  &.visted {
-    color: #80bce9;
-  }
+
   &::before {
     content: "/u/";
   }

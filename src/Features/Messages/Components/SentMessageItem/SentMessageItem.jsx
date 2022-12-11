@@ -23,7 +23,7 @@ const SentMessageItem = ({id, subject, author, msg, time})=>{
               <SubjectText>{subject}:</SubjectText>
             </Subject>
             <Tagline>
-              from <Author className="admin visted">{author}</Author>
+              to <Author>{author}</Author>
               <TimeTag>
                 <time dateTime="20/10/2022">{time.toDateString()} </time>
               </TimeTag>

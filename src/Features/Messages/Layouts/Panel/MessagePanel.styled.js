@@ -5,8 +5,9 @@ export const EmbeddedPage = styled.div`
   background: none;
   z-index: 1;
   min-height: 700px;
-  background: #edeff1;
-  color: #373c3f;
+  background: ${({ theme }) => theme.canvas};
+  color: ${({ theme }) => theme.color.primary};
+  transition: 0.3s;
   padding: 1px;
 `;
 
@@ -14,6 +15,7 @@ export const PageContainer = styled.div`
   margin: 20px auto;
   width: 70%;
   min-width: 700px;
-  background: #edeff1;
+  transition: 0.3s;
+  background: ${({ theme }) => theme.canvas};
   font: normal x-small verdana, arial, helvetica, sans-serif;
 `;
