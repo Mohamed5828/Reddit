@@ -1,5 +1,5 @@
 import Header from "./Components/Header/Header";
-import MessageItem from "./Components/MessagesItems/MessageItem";
+import MessageItem from "./Components/MessagesItems/AllMessage";
 import MessageBannel from "./Components/MessagesBannel/MessageBannel";
 import UserMentions from "./Components/UsernameMentions/UsernameMentions";
 import SendAMessage from "./Components/SendMessage/SendMessage";
