@@ -1,13 +1,12 @@
 import { useState } from "react";
 import PostReplayItem from "./PostReplyItem";
 import { PageContainer, EmbeddedPage } from "./PostReply.styled";
-// import { PostRMessage } from "./PostReplyItem";
 
 const messagesData = [
   {
     aurthor: "Mohamed",
     title: "Greeting",
-    time: new Date(2022, 11, 30),
+    time: "10",
     msg: "Hello Hello",
     upvote: "neutral",
     admin: true,
@@ -18,7 +17,7 @@ const messagesData = [
   {
     aurthor: "Ahmed",
     title: "Mod",
-    time: new Date(2022, 11, 29),
+    time: "new Date(2022, 11, 29)",
     msg: "You are Mod",
     upvote: "neutral",
     admin: false,
@@ -27,13 +26,13 @@ const messagesData = [
     block: false,
   },
 ];
-
 function PostReplay() {
-  const Message = messagesData.map((item) => {
+  const [eachMessage, setEachMessage] = useState(messagesData);
+  const Message = eachMessage.map((item) => {
     return (
       <PostReplayItem
-        key = {item.id.toString()}
-        aurthor={item.author}
+        changeMessage={setEachMessage}
+        aurthor={item.aurthor}
         title={item.title}
         time={item.time}
         msg={item.msg}
@@ -42,6 +41,7 @@ function PostReplay() {
         read={item.read}
         id={item.id}
         block={item.block}
+        key={item.id}
       />
     );
   });

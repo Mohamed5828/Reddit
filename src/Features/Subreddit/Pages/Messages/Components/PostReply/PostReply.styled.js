@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-
 export const MessageWithAu = styled.div`
   padding-left: 35px;
 `;
 
-export const ArrowUp = styled(FaArrowUp)`
-  margin: 2px 0px 0px 0px;
-  width: 100%;
-  height: 14px;
-  display: block;
-  cursor: pointer;
-  width: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  outline: none;
-  &.active {
-    color: #ff8b60;
-  }
-`;
+// export const ArrowUp = styled(FaArrowUp)`
+//   margin: 2px 0px 0px 0px;
+//   width: 100%;
+//   height: 14px;
+//   display: block;
+//   cursor: pointer;
+//   width: 15px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   outline: none;
+//   &.active {
+//     color: #ff8b60;
+//   }
+// `;
+
 
 export const ArrowsDiv = styled.div`
   float: left;
@@ -27,20 +27,20 @@ export const ArrowsDiv = styled.div`
   background: transparent;
   overflow: hidden;
 `;
-export const ArrowDown = styled(FaArrowDown)`
-  margin: 2px 0px 0px 0px;
-  width: 100%;
-  height: 14px;
-  display: block;
-  cursor: pointer;
-  width: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  outline: none;
-  &.active {
-    color: #9494ff;
-  }
-`;
+// export const ArrowDown = styled(FaArrowDown)`
+//   margin: 2px 0px 0px 0px;
+//   width: 100%;
+//   height: 14px;
+//   display: block;
+//   cursor: pointer;
+//   width: 15px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   outline: none;
+//   &.active {
+//     color: #9494ff;
+//   }
+// `;
 
 export const EmbeddedPage = styled.div`
   margin: 0;

@@ -1,5 +1,4 @@
 import {
-  PageContainer,
   OddItems,
   ListBtns,
   Btns,
@@ -10,7 +9,6 @@ import {
   Tagline,
   Author,
   MessageDetails,
-  EmbeddedPage,
   TimeTag,
   AreYouSure,
   BtnWarning,
@@ -64,6 +62,7 @@ const NormalMessageAll = ({
       });
     });
   }
+
   return (
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
       <MessageDetails

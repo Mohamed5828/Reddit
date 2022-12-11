@@ -20,7 +20,7 @@ import {
   Visted,
   AreYouSure,
   BtnWarning,
-} from "./MessageBannel.styled";
+} from "./MessagePanel.styled";
 import ReportModal from "../ReportModal/ReportModal";
 
 const MessageBannelItem = ({
@@ -81,6 +81,7 @@ const MessageBannelItem = ({
       });
     });
   }
+
   function toggleDeleteWarning(id) {
     changeMessage((message) => {
       return message.map((prevState) => {
@@ -90,6 +91,7 @@ const MessageBannelItem = ({
       });
     });
   }
+
   function toggleBlockWarning(id) {
     changeMessage((message) => {
       return message.map((prevState) => {
@@ -99,6 +101,7 @@ const MessageBannelItem = ({
       });
     });
   }
+  
   return (
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
       <MessageDetails

@@ -15,12 +15,12 @@ import {
   AreYouSure,
   BtnWarning,
   ArrowsDiv,
-  ArrowUp,
-  ArrowDown,
   MessageWithAu,
 } from "./PostReply.styled";
+import { ArrowUp, ArrowDown } from "../UsernameMentions/UsernameMentions.styled";
 import ReportModal from "../ReportModal/ReportModal";
-
+import upVote from "../../Utils/Upvote";
+import downVote from "../../Utils/Downvote";
 const PostReplayItem = ({
   changeMessage,
   aurthor,
@@ -59,22 +59,6 @@ const PostReplayItem = ({
     });
   }
 
-  function downVote(id) {
-    changeMessage((message) => {
-      return message.map((prevState) => {
-        return prevState.id === id
-          ? { ...prevState, upvote: "down" }
-          : prevState;
-      });
-    });
-  }
-  function upVote(id) {
-    changeMessage((message) => {
-      return message.map((prevState) => {
-        return prevState.id === id ? { ...prevState, upvote: "up" } : prevState;
-      });
-    });
-  }
 
   return (
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
@@ -89,13 +73,13 @@ const PostReplayItem = ({
         <ArrowsDiv>
           <ArrowUp
             onClick={() => {
-              upVote(id);
+              upVote(id, changeMessage, upvote);
             }}
             className={upvote === "up" ? "active" : ""}
           />
           <ArrowDown
             onClick={() => {
-              downVote(id);
+              downVote(id, changeMessage, upvote);
             }}
             className={upvote === "down" ? "active" : ""}
           />

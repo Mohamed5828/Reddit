@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PageContainer, EmbeddedPage } from "./MessageItem.styled";
 import NormalMessageAll from "./AllMessageItem";
-import PostReplayItem from "../PostReplay/PostReplayItem";
+import PostReplayItem from "../PostReply/PostReplyItem";
 import UsernameMentionItem from "../UsernameMentions/UsernameMentionsItem";
 
 const messagesData = [
@@ -11,6 +11,7 @@ const messagesData = [
     type: "usernameMention",
     time: "new Date(2022, 11, 30)",
     msg: "Hello Hello",
+    upvote: "neutral",
     admin: true,
     read: false,
     id: 1,
@@ -23,6 +24,7 @@ const messagesData = [
     type: "usernameMention",
     time: "new Date(2022, 11, 29)",
     msg: "You are Mod",
+    upvote: "neutral",
     admin: false,
     read: false,
     id: 2,
@@ -35,6 +37,7 @@ const messagesData = [
     type: "postReplay",
     time: "new Date(2022, 11, 30)",
     msg: "Hello Hello",
+    upvote: "neutral",
     admin: true,
     read: false,
     id: 3,

@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { GoArrowUp, GoArrowDown } from "react-icons/go";
 
 export const MessageWithAu = styled.div`
   padding-left: 35px;
 `;
 
-export const ArrowUp = styled(FaArrowUp)`
-  margin: 2px 0px 0px 0px;
+export const ArrowUp = styled(GoArrowUp)`
+  color: #aaa;
+  margin: 2px 0 -12px 0;
   width: 100%;
-  height: 14px;
+  height: 30px;
   display: block;
   cursor: pointer;
   width: 15px;
@@ -27,10 +28,11 @@ export const ArrowsDiv = styled.div`
   background: transparent;
   overflow: hidden;
 `;
-export const ArrowDown = styled(FaArrowDown)`
-  margin: 2px 0px 0px 0px;
+export const ArrowDown = styled(GoArrowDown)`
+  color: #aaa;
+  margin: 2px 0 0 0;
   width: 100%;
-  height: 14px;
+  height: 30px;
   display: block;
   cursor: pointer;
   width: 15px;

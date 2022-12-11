@@ -1,9 +1,10 @@
 import Header from "./Components/Header/Header";
-import MessageItem from "./Components/MessagesItems/MessageItem";
+import MessageItem from "./Components/MessagesItems/AllMessage";
 import MessageBannel from "./Components/MessagesPanel/MessagePanel";
 import UserMentions from "./Components/UsernameMentions/UsernameMentions";
 import SendAMessage from "./Components/SendMessage/SendMessage";
 import SentMessages from "./Layouts/SentMessages/SentMessages";
+import Unread from "./Layouts/Unread/Unread";
 import Footer from "../../../../Layouts/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import PostReplay from "./Components/PostReply/PostReply";
@@ -12,6 +13,14 @@ function Messages() {
     <>
       <Header />
       <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <MessageItem />
+            </>
+          }
+        />
         <Route
           path="/inbox"
           element={
@@ -57,6 +66,14 @@ function Messages() {
           element={
             <>
               <SentMessages />
+            </>
+          }
+        />
+        <Route
+          path="/unread"
+          element={
+            <>
+              <Unread />
             </>
           }
         />

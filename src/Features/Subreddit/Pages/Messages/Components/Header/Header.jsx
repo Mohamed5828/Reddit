@@ -18,10 +18,11 @@ import { useEffect } from "react";
 function Header() {
   let location = useLocation();
   let type = location.pathname.split("/")[2];
-  const [allHeader, setAllHeader] = useState(type === "sent" ? false : true);
+  const [allHeader, setAllHeader] = useState(type === "sent" || type === "compose" ? false : true);
 
   useEffect(() => {
-    if (location.pathname.split("/")[2] === "sent") {
+    type = location.pathname.split("/")[2];
+    if (type === "sent" || type === "compose") {
       setAllHeader(false);
     } else {
       setAllHeader(true);
