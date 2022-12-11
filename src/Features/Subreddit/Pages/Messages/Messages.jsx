@@ -1,12 +1,12 @@
 import Header from "./Components/Header/Header";
 import MessageItem from "./Components/MessagesItems/MessageItem";
-import MessageBannel from "./Components/MessagesBannel/MessageBannel";
+import MessageBannel from "./Components/MessagesPanel/MessagePanel";
 import UserMentions from "./Components/UsernameMentions/UsernameMentions";
 import SendAMessage from "./Components/SendMessage/SendMessage";
 import SentMessages from "./Layouts/SentMessages/SentMessages";
 import Footer from "../../../../Layouts/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
-import PostReplay from "./Components/PostReplay/PostReplay";
+import PostReplay from "./Components/PostReply/PostReply";
 function Messages() {
   return (
     <>

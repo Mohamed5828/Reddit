@@ -11,35 +11,9 @@ import {
     Author,
     MessageDetails,
     TimeTag,
-    Visted,
   } from "../MessagesItems/MessageItem.styled";
 
-const messagesData = [
-    {
-      aurthor: "Mohamed",
-      title: "Greeting",
-      time: new Date(2022, 11, 30),
-      msg: "Hello Hello",
-      admin: true,
-      read: false,
-      id: 1,
-      delete: false,
-      block: false,
-    },
-    {
-      aurthor: "Ahmed",
-      title: "Mod",
-      time: new Date(2022, 11, 29),
-      msg: "You are Mod",
-      admin: false,
-      read: false,
-      id: 2,
-      delete: false,
-      block: false,
-    },
-];
-
-const SentMessageItem = ({id, subject, author, msg, read, time})=>{
+const SentMessageItem = ({id, subject, author, msg, time})=>{
 
 
     return (
@@ -64,8 +38,6 @@ const SentMessageItem = ({id, subject, author, msg, read, time})=>{
           </MessageDetails>
         </OddItems>
       );
-
-
 }
 
 

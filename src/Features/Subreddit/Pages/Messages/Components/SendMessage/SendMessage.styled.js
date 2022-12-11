@@ -34,6 +34,8 @@ export const FieldDiv = styled.div`
   border-radius: 0;
   width: unset;
   font-size: large;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Title = styled.span`

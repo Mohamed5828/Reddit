@@ -21,7 +21,7 @@ import {
   ArrowUp,
   ArrowDown,
   MessageWithAu,
-} from "./PostReplay.styled";
+} from "./PostReply.styled";
 import ReportModal from "../ReportModal/ReportModal";
 
 const messagesData = [
@@ -30,10 +30,11 @@ const messagesData = [
     title: "Greeting",
     time: new Date(2022, 11, 30),
     msg: "Hello Hello",
-    upvote: "neutral",
+    expanded: true,
     admin: true,
     read: false,
     id: 1,
+    delete: false,
     block: false,
   },
   {
@@ -41,25 +42,17 @@ const messagesData = [
     title: "Mod",
     time: new Date(2022, 11, 29),
     msg: "You are Mod",
-    upvote: "neutral",
+    expanded: true,
     admin: false,
     read: false,
     id: 2,
+    delete: false,
     block: false,
   },
 ];
 
-export function PostReplayItem(
-  aurthor,
-  title,
-  time,
-  msg,
-  upvote,
-  admin,
-  read,
-  id,
-  block
-) {
+ const PostReplayItem = ({aurthor, title, time, msg, upvote, admin, read, id, block}) =>{
+
   const [eachMessage, setEachMessage] = useState(messagesData);
   function markUnread(id) {
     setEachMessage((message) => {
@@ -115,41 +108,41 @@ export function PostReplayItem(
 
   const Message = eachMessage.map((item) => {
     return (
-      <OddItems className={item.id % 2 === 0 ? "even" : ""} key={item.id}>
+      <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
         <MessageDetails
           onClick={() => {
-            readed(item.id);
+            readed(id);
           }}
         >
           <Subject>
-            <SubjectText>post replies: {item.title}</SubjectText>
+            <SubjectText>post replies: {title}</SubjectText>
           </Subject>
           <ArrowsDiv>
             <ArrowUp
               onClick={() => {
-                upVote(item.id);
+                upVote(id);
               }}
-              className={item.upvote === "up" ? "active" : ""}
+              className={upvote === "up" ? "active" : ""}
             />
             <ArrowDown
               onClick={() => {
-                downVote(item.id);
+                downVote(id);
               }}
-              className={item.upvote === "down" ? "active" : ""}
+              className={upvote === "down" ? "active" : ""}
             />
           </ArrowsDiv>
           <MessageWithAu>
             <Tagline>
-              <Author className={item.admin ? "admin" : ""}>
-                {item.aurthor}
+              <Author className={admin ? "admin" : ""}>
+                {aurthor}
               </Author>
-              <TimeTag className={item.admin ? "active" : ""}>
-                <time dateTime="20/10/2022">{item.time.toDateString()}</time>
+              <TimeTag className={admin ? "active" : ""}>
+                <time dateTime="20/10/2022">{time.toDateString()}</time>
               </TimeTag>
             </Tagline>
             <MessagesWithBtns>
-              <Visted className={item.read ? "" : "read-before"}>
-                <Msg>{item.msg}</Msg>
+              <Visted className={read ? "" : "read-before"}>
+                <Msg>{msg}</Msg>
                 <ListBtns>
                   <Btns>
                     <BtnsLinks>Context</BtnsLinks>
@@ -158,30 +151,30 @@ export function PostReplayItem(
                     <BtnsLinks>Full Comments</BtnsLinks>
                   </Btns>
 
-                  {!item.admin && (
+                  {!admin && (
                     <Btns>
                       <BtnsLinks>
                         <ReportModal />
                       </BtnsLinks>
                     </Btns>
                   )}
-                  {!item.admin && (
+                  {!admin && (
                     <Btns>
                       <BtnsLinks
-                        className={item.block ? "active" : ""}
+                        className={block ? "active" : ""}
                         onClick={() => {
-                          toggleBlockWarning(item.id);
+                          toggleBlockWarning(id);
                         }}
                       >
                         Block User
                       </BtnsLinks>
-                      <AreYouSure className={item.block ? "active" : ""}>
+                      <AreYouSure className={block ? "active" : ""}>
                         <BtnWarning> Are You Sure </BtnWarning>
                         <BtnsLinks>Yes</BtnsLinks>
                         <BtnWarning> / </BtnWarning>
                         <BtnsLinks
                           onClick={() => {
-                            toggleBlockWarning(item.id);
+                            toggleBlockWarning(id);
                           }}
                         >
                           No
@@ -189,12 +182,12 @@ export function PostReplayItem(
                       </AreYouSure>
                     </Btns>
                   )}
-                  {item.read && (
+                  {read && (
                     <Btns>
                       <BtnsLinks
                         onClick={(e) => {
                           e.stopPropagation();
-                          markUnread(item.id);
+                          markUnread(id);
                         }}
                       >
                         Mark Unread
@@ -213,5 +206,6 @@ export function PostReplayItem(
     );
   });
 }
-export const PostRMessage = PostReplayItem.eachMessage;
-console.log(PostRMessage);
+export default PostReplayItem;
+// export const PostRMessage = PostReplayItem.eachMessage;
+// console.log(PostRMessage);

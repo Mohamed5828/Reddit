@@ -21,7 +21,7 @@ import {
   Visted,
   AreYouSure,
   BtnWarning,
-} from "./MessageBannel.styled";
+} from "./MessagePanel.styled";
 import ReportModal from "../ReportModal/ReportModal";
 const messagesData = [
   {

@@ -69,10 +69,12 @@ function SendAMessage() {
             </Spacer>
             <Spacer>
               <FieldDiv>
-                <Title>To </Title>
-                <TitleDescription>
-                  (username, or /r/name for that subreddit's moderators)
-                </TitleDescription>
+                <Title>to
+                  <TitleDescription>
+                    (username, or /r/name for that subreddit's moderators)
+                  </TitleDescription>
+                </Title>
+                
                 <Inputs
                   type="text"
                   onChange={handleChange}
@@ -88,7 +90,6 @@ function SendAMessage() {
             <Spacer>
               <FieldDiv>
                 <Title>Subject</Title>
-                <br />
                 <Inputs
                   type="text"
                   onChange={handleChange}

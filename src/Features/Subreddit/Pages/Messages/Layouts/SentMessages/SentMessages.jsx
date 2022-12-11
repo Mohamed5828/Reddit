@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SentMessageItem from "../../Components/SentMessageItem/SentMessageItem";
-import { EmbeddedPage, PageContainer } from "../../Components/MessagesBannel/MessageBannel.styled";
+import { EmbeddedPage, PageContainer } from "../../Components/MessagesPanel/MessagePanel.styled";
 const messagesData = [
     {
       author: "Mohamed",
@@ -50,11 +50,11 @@ const [eachMessage, setEachMessage] = useState(messagesData);
 const Message = eachMessage.map((item) => {
   return(
     <SentMessageItem
+      key = {item.id.toString()}
       id = {item.id}
       author = {item.author}
       subject = {item.title}
       time = {item.time}
-      read = {item.read}
       msg = {item.text}
     />
   )
