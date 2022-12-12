@@ -46,6 +46,9 @@ export const BtnsLinks = styled.a`
   text-decoration: none;
   cursor: pointer;
   line-height: 1.6em;
+  &.active {
+    display: none;
+  }
   &:hover {
     color: #888;
     text-decoration: underline;
@@ -97,11 +100,11 @@ export const Author = styled.a`
     color: ${({ theme }) => theme.lineColor.frame};
     text-decoration: underline;
   }
-  
+
   &.admin {
     color: #ff0011;
   }
-  
+
   &::before {
     content: "/u/";
   }

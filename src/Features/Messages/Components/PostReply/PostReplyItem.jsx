@@ -17,7 +17,10 @@ import {
   ArrowsDiv,
   MessageWithAu,
 } from "./PostReplyItem.styled";
-import { ArrowUp, ArrowDown } from "../UsernameMentions/UsernameMentionsItem.styled";
+import {
+  ArrowUp,
+  ArrowDown,
+} from "../UsernameMentions/UsernameMentionsItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
 import upVote from "../../Utils/Upvote";
 import downVote from "../../Utils/Downvote";
@@ -36,8 +39,14 @@ const PostReplayItem = ({
   id,
   block,
 }) => {
-  
-
+  function compareDate(str1) {
+    // str1 format should be dd/mm/yyyy. Separator can be anything e.g. / or -. It wont effect
+    var dt1 = parseInt(str1.substring(0, 2));
+    var mon1 = parseInt(str1.substring(3, 5));
+    var yr1 = parseInt(str1.substring(6, 10));
+    var date1 = new Date(yr1, mon1 - 1, dt1);
+    return date1;
+  }
   function toggleBlockWarning(id) {
     changeMessage((message) => {
       return message.map((prevState) => {
@@ -47,7 +56,6 @@ const PostReplayItem = ({
       });
     });
   }
-
 
   return (
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
@@ -77,7 +85,7 @@ const PostReplayItem = ({
           <Tagline>
             <Author className={admin ? "admin" : ""}>{aurthor}</Author>
             <TimeTag className={admin ? "active" : ""}>
-              <time dateTime="20/10/2022">{time}</time>
+              <time dateTime={time}>{compareDate(time).toDateString()}</time>
             </TimeTag>
           </Tagline>
           <MessagesWithBtns>

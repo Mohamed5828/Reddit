@@ -1,14 +1,11 @@
 import { useState } from "react";
-import {
-  PageContainer,
-  EmbeddedPage,
-} from "./MessagePanel.styled";
+import { PageContainer, EmbeddedPage } from "./MessagePanel.styled";
 import MessageBannelItem from "../../Components/MessagesPanel/MessagePanelItem";
 const messagesData = [
   {
     aurthor: "Mohamed",
     title: "Greeting",
-    time: "new Date(2022, 11, 30)",
+    time: "04/02/2022",
     msg: "Hello Hello",
     expanded: true,
     admin: true,
@@ -20,7 +17,7 @@ const messagesData = [
   {
     aurthor: "Ahmed",
     title: "Mod",
-    time: "new Date(2022, 11, 29)",
+    time: "04/02/2022",
     msg: "You are Mod",
     expanded: true,
     admin: false,
