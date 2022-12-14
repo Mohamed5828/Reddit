@@ -1,12 +1,11 @@
 import { useState } from "react";
 import UsernameMentionItem from "../../Components/UsernameMentions/UsernameMentionsItem";
 import { PageContainer, EmbeddedPage } from "./UsernameMentions.styled";
-
 const messagesData = [
   {
     aurthor: "Mohamed",
     title: "Greeting",
-    time: "10",
+    time: "2022, 11, 29",
     msg: "Hello Hello",
     upvote: "neutral",
     admin: true,
@@ -17,7 +16,7 @@ const messagesData = [
   {
     aurthor: "Ahmed",
     title: "Mod",
-    time: "new Date(2022, 11, 29)",
+    time: "2022, 11, 29",
     msg: "You are Mod",
     upvote: "neutral",
     admin: false,
@@ -26,8 +25,17 @@ const messagesData = [
     block: false,
   },
 ];
-function UsernameMentions() {
+
+/**
+ * Component that contains the Username Mention Panel
+ *
+ * @Component
+ * @returns {React.Component}
+ */
+function UsernameMentions({mentions}) {
   const [eachMessage, setEachMessage] = useState(messagesData);
+
+
   const Message = eachMessage.map((item) => {
     return (
       <UsernameMentionItem
@@ -45,10 +53,11 @@ function UsernameMentions() {
       />
     );
   });
-  return (
+  return ( 
     <EmbeddedPage>
       <PageContainer>{Message}</PageContainer>
     </EmbeddedPage>
+   
   );
 }
 

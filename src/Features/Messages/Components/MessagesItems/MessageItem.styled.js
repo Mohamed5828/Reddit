@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
 export const OddItems = styled.div`
-  background-color: ${({ theme }) => theme.background.lightMuted};
+  /* background-color: ${({ theme }) => theme.background.lightMuted}; */
   transition: 0.3s;
   margin: 0;
   padding: 10px 15px;
-  &.even {
+  /* &.even {
+    background-color: ${({ theme }) => theme.background.primary};
+  } */
+
+  &:nth-child(odd){
+    background-color: ${({ theme }) => theme.background.lightMuted};
+  }
+
+  &:nth-child(even){
     background-color: ${({ theme }) => theme.background.primary};
   }
 `;
@@ -46,9 +54,6 @@ export const BtnsLinks = styled.a`
   text-decoration: none;
   cursor: pointer;
   line-height: 1.6em;
-  &.active {
-    display: none;
-  }
   &:hover {
     color: #888;
     text-decoration: underline;
@@ -100,11 +105,11 @@ export const Author = styled.a`
     color: ${({ theme }) => theme.lineColor.frame};
     text-decoration: underline;
   }
-
+  
   &.admin {
     color: #ff0011;
   }
-
+  
   &::before {
     content: "/u/";
   }

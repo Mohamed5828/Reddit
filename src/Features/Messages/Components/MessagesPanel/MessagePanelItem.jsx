@@ -19,10 +19,39 @@ import {
   AreYouSure,
   BtnWarning,
 } from "./MessagePanelItem.styled";
+
+import { 
+  ReplyDiv,
+  TextAreaDiv,
+  MesssageDiv,
+  TextAreaElement,
+  ButtonsDiv,
+  SaveButton,
+} from "../PostReply/PostReplyItem.styled";
+
 import ReportModal from "../ReportModal/ReportModal";
 import markUnread from "../../Utils/MarkUnread";
 import readed from "../../Utils/Read";
+import compareDate from "../../Utils/ParseDate";
+import { useState } from "react";
 
+/**
+ * Component that contains the message item of Message Panel
+ *
+ * @Component
+ * @param {Function} changeMessage - Function that changes the contents of the current message
+ * @param {string} aurthor - Message Sender
+ * @param {string} title - Message Title
+ * @param {Date} time - Time the message was sent
+ * @param {string} msg - The Message Text
+ * @param {boolean} admin - Whether the message was sent by an admin
+ * @param {boolean} read - Whether the message was read or not
+ * @param {boolean} deleted - Whether the message was deleted or not
+ * @param {boolean} expanded - Whether the message is expanded or not
+ * @param {boolean} block - Whether the message was sent by a blocked user
+ * @param {number} id - Id of the message
+ * @returns {React.Component}
+ */
 const MessageBannelItem = ({
   changeMessage,
   aurthor,
@@ -36,14 +65,8 @@ const MessageBannelItem = ({
   deleted,
   block,
 }) => {
-  function compareDate(str1) {
-    // str1 format should be dd/mm/yyyy. Separator can be anything e.g. / or -. It wont effect
-    var dt1 = parseInt(str1.substring(0, 2));
-    var mon1 = parseInt(str1.substring(3, 5));
-    var yr1 = parseInt(str1.substring(6, 10));
-    var date1 = new Date(yr1, mon1 - 1, dt1);
-    return date1;
-  }
+  const [deletePrompt, setDeletePrompt] = useState(false);
+  const [replyPrompt, setReplyPrompt] = useState(false);
   function collapseAll(name) {
     changeMessage((message) => {
       return message.map((prevState) => {
@@ -64,6 +87,7 @@ const MessageBannelItem = ({
     });
   }
 
+
   function handleClick(id) {
     changeMessage((message) => {
       return message.map((prevState) => {
@@ -74,7 +98,12 @@ const MessageBannelItem = ({
     });
   }
 
-  function toggleDeleteWarning(id) {
+  
+  function toggleDeleteWarning() {
+    setDeletePrompt((prev)=>!prev);
+  }
+
+  function Delete(id) {
     changeMessage((message) => {
       return message.map((prevState) => {
         return prevState.id === id
@@ -94,15 +123,19 @@ const MessageBannelItem = ({
     });
   }
 
-  if (deleted) {
-    return;
+  function toggleReplyOn() {
+    setReplyPrompt(true);
+  }
+
+  function toggleReplyOff() {
+    setReplyPrompt(false);
   }
 
   return (
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
       <MessageDetails
         onClick={() => {
-          readed(id, changeMessage, read);
+          readed(id, changeMessage);
         }}
       >
         <Subject>
@@ -136,7 +169,7 @@ const MessageBannelItem = ({
           </ToggleExpan>
           from <Author className={admin ? "admin" : ""}>{aurthor}</Author>
           <TimeTag className={admin ? "active" : ""}>
-            <time dateTime={time}>{compareDate(time).toDateString()}</time>
+            <time dateTime="20/10/2022">{compareDate(time).toDateString()}</time>
           </TimeTag>
         </Tagline>
         <MessagesWithBtns className={expanded ? "expanded" : "collapsed"}>
@@ -147,18 +180,22 @@ const MessageBannelItem = ({
                 <BtnsLinks
                   className={deleted ? "active" : ""}
                   onClick={() => {
-                    toggleDeleteWarning(id);
+                    toggleDeleteWarning();
                   }}
                 >
                   Delete
                 </BtnsLinks>
-                <AreYouSure className={deleted ? "active" : ""}>
+                <AreYouSure className={deletePrompt ? "active" : ""}>
                   <BtnWarning> Are You Sure </BtnWarning>
-                  <BtnsLinks>Yes</BtnsLinks>
+                  <BtnsLinks
+                      onClick={() => {
+                        Delete(id);
+                      }}              
+                  >Yes</BtnsLinks>
                   <BtnWarning> / </BtnWarning>
                   <BtnsLinks
                     onClick={() => {
-                      toggleDeleteWarning(id);
+                      toggleDeleteWarning();
                     }}
                   >
                     No
@@ -202,7 +239,7 @@ const MessageBannelItem = ({
                   <BtnsLinks
                     onClick={(e) => {
                       e.stopPropagation();
-                      markUnread(id, changeMessage, read);
+                      markUnread(id, changeMessage);
                     }}
                   >
                     Mark Unread
@@ -210,12 +247,28 @@ const MessageBannelItem = ({
                 </Btns>
               )}
               <Btns>
-                <BtnsLinks>Reply</BtnsLinks>
+                <BtnsLinks
+                  onClick={toggleReplyOn}
+                >Reply</BtnsLinks>
               </Btns>
             </ListBtns>
           </Visted>
         </MessagesWithBtns>
       </MessageDetails>
+      <ReplyDiv className={replyPrompt?"active": ""}>
+        <TextAreaDiv>
+          <MesssageDiv>
+            <TextAreaElement />
+          </MesssageDiv>
+          <ButtonsDiv>
+            <SaveButton>Save</SaveButton>
+            <SaveButton
+              onClick={toggleReplyOff}
+            >
+              Cancel</SaveButton>
+          </ButtonsDiv>
+        </TextAreaDiv>
+      </ReplyDiv>
     </OddItems>
   );
 };

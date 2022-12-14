@@ -16,17 +16,37 @@ import {
   BtnWarning,
   ArrowsDiv,
   MessageWithAu,
+  ReplyDiv,
+  TextAreaDiv,
+  MesssageDiv,
+  TextAreaElement,
+  ButtonsDiv,
+  SaveButton,
 } from "./PostReplyItem.styled";
-import {
-  ArrowUp,
-  ArrowDown,
-} from "../UsernameMentions/UsernameMentionsItem.styled";
+import { ArrowUp, ArrowDown } from "../UsernameMentions/UsernameMentionsItem.styled";
 import ReportModal from "../ReportModal/ReportModal";
 import upVote from "../../Utils/Upvote";
 import downVote from "../../Utils/Downvote";
 import markUnread from "../../Utils/MarkUnread";
 import readed from "../../Utils/Read";
-
+import compareDate from "../../Utils/ParseDate";
+import { useState } from "react";
+/**
+ * Component that contains the Post Reply item
+ *
+ * @Component
+ * @param {Function} changeMessage - Function that changes the contents of the current message
+ * @param {string} aurthor - Message Sender
+ * @param {string} title - Message Title
+ * @param {Date} time - Time the message was sent
+ * @param {string} msg - The Message Text
+ * @param {boolean} admin - Whether the message was sent by an admin
+ * @param {boolean} read - Whether the message was read or not
+ * @param {string} upvote - Indicates Upvote status of the comment
+ * @param {boolean} block - Whether the message was sent by a blocked user
+ * @param {number} id - Id of the message
+ * @returns {React.Component}
+ */
 const PostReplayItem = ({
   changeMessage,
   aurthor,
@@ -39,15 +59,16 @@ const PostReplayItem = ({
   id,
   block,
 }) => {
-  function compareDate(str1) {
-    // str1 format should be dd/mm/yyyy. Separator can be anything e.g. / or -. It wont effect
-    var dt1 = parseInt(str1.substring(0, 2));
-    var mon1 = parseInt(str1.substring(3, 5));
-    var yr1 = parseInt(str1.substring(6, 10));
-    var date1 = new Date(yr1, mon1 - 1, dt1);
-    return date1;
+  
+
+  const [blockPrompt, setBlockPrompt] = useState(false);
+  const [replyPrompt, setReplyPrompt] = useState(false);
+
+  function toggleBlockWarning() {
+    setBlockPrompt((prev)=>!prev);
   }
-  function toggleBlockWarning(id) {
+
+  function Block(id) {
     changeMessage((message) => {
       return message.map((prevState) => {
         return prevState.id === id
@@ -57,11 +78,19 @@ const PostReplayItem = ({
     });
   }
 
+  function toggleReplyOn() {
+    setReplyPrompt(true);
+  }
+
+  function toggleReplyOff() {
+    setReplyPrompt(false);
+  }
+
   return (
     <OddItems className={id % 2 === 0 ? "even" : ""} key={id}>
       <MessageDetails
         onClick={() => {
-          readed(id, changeMessage, read);
+          readed(id, changeMessage);
         }}
       >
         <Subject>
@@ -85,7 +114,7 @@ const PostReplayItem = ({
           <Tagline>
             <Author className={admin ? "admin" : ""}>{aurthor}</Author>
             <TimeTag className={admin ? "active" : ""}>
-              <time dateTime={time}>{compareDate(time).toDateString()}</time>
+              <time dateTime="20/10/2022">{compareDate(time).toDateString()}</time>
             </TimeTag>
           </Tagline>
           <MessagesWithBtns>
@@ -111,18 +140,23 @@ const PostReplayItem = ({
                     <BtnsLinks
                       className={block ? "active" : ""}
                       onClick={() => {
-                        toggleBlockWarning(id);
+                        toggleBlockWarning();
                       }}
                     >
                       Block User
                     </BtnsLinks>
-                    <AreYouSure className={block ? "active" : ""}>
+                    <AreYouSure className={blockPrompt ? "active" : ""}>
                       <BtnWarning> Are You Sure </BtnWarning>
-                      <BtnsLinks>Yes</BtnsLinks>
+                      <BtnsLinks
+                        onClick={()=>{
+                          Block(id);
+                        }}
+                      >
+                        Yes</BtnsLinks>
                       <BtnWarning> / </BtnWarning>
                       <BtnsLinks
                         onClick={() => {
-                          toggleBlockWarning(id);
+                          toggleBlockWarning();
                         }}
                       >
                         No
@@ -135,7 +169,7 @@ const PostReplayItem = ({
                     <BtnsLinks
                       onClick={(e) => {
                         e.stopPropagation();
-                        markUnread(id, changeMessage, read);
+                        markUnread(id, changeMessage);
                       }}
                     >
                       Mark Unread
@@ -143,13 +177,29 @@ const PostReplayItem = ({
                   </Btns>
                 )}
                 <Btns>
-                  <BtnsLinks>Reply</BtnsLinks>
+                  <BtnsLinks
+                    onClick = {toggleReplyOn}
+                  >Reply</BtnsLinks>
                 </Btns>
               </ListBtns>
             </Visted>
           </MessagesWithBtns>
         </MessageWithAu>
       </MessageDetails>
+      <ReplyDiv className={replyPrompt?"active": ""}>
+        <TextAreaDiv>
+          <MesssageDiv>
+            <TextAreaElement />
+          </MesssageDiv>
+          <ButtonsDiv>
+            <SaveButton>Save</SaveButton>
+            <SaveButton
+              onClick={toggleReplyOff}
+            >
+              Cancel</SaveButton>
+          </ButtonsDiv>
+        </TextAreaDiv>
+      </ReplyDiv>
     </OddItems>
   );
 };
