@@ -53,7 +53,7 @@ const lightTheme = {
     // The color of the side Bar Header [Useful For Gradient]
     sideBarHeader: "#fff",
     // color of paragraphs on the website
-    gray: "#7c7c7c"
+    gray: "#7c7c7c",
   },
   // The colors of the backgrounds in the website
   background: {
@@ -143,6 +143,10 @@ const lightTheme = {
   categoryColor: {
     text: "#1c1c1c",
     hover: "#f6f7f8",
+  },
+  reportModalExp: {
+    text: "#9fa1a3",
+    headline: "#1c1c1c",
   },
   //To change Linear Gradient Degree according to theme
   degree: {

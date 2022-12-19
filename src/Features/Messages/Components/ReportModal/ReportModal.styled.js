@@ -131,6 +131,20 @@ export const StyledModal = styled(Modal)`
     letter-spacing: 0.05em;
     outline: none;
   }
+  .exp {
+    margin-left: 20px;
+  }
+  .exp-headline {
+    font-size: 18px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: ${({ theme }) => theme.reportModalExp.headline};
+  }
+  .exp-paragraph {
+    font-size: 14px;
+    color: ${({ theme }) => theme.reportModalExp.text};
+  }
 `;
 
 export const Report = styled.a`
