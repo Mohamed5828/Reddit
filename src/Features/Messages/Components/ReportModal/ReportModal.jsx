@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { StyledModal, Report } from "./ReportModal.styled";
 
-
 /**
  * Report Modal for Messages
  *
@@ -34,43 +33,148 @@ const ReportModal = () => {
           </p>
           <div className="btn-container">
             <div className="btn-div">
-              <label className="btn-label">Harassment</label>
+              <input
+                id="HARASSMENT"
+                style={{ backgroundImage: "none" }}
+                value="HARASSMENT"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="HARASSMENT">
+                Harassment
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Threating violence</label>
+              <input
+                id="VIOLLENCE"
+                style={{ backgroundImage: "none" }}
+                value="VIOLLENCE"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="VIOLLENCE">
+                Threating violence
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Hate</label>
+              <input
+                id="HATE"
+                style={{ backgroundImage: "none" }}
+                value="HATE"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="HATE">
+                Hate
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Sexualization of minors</label>
+              <input
+                id="MINOR_S"
+                style={{ backgroundImage: "none" }}
+                value="MINOR_S"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="MINOR_S">
+                Sexualization of minors
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Sharing personal information</label>
+              <input
+                id="PII"
+                style={{ backgroundImage: "none" }}
+                value="PII"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="PII">
+                Sharing personal information
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Non-consensual intimate media</label>
+              <input
+                id="PROHIBITED_SALES"
+                style={{ backgroundImage: "none" }}
+                value="PROHIBITED_SALES"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="PROHIBITED_SALES">
+                Prohibited transaction
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Prohibited transaction</label>
+              <input
+                id="IMPEROSNATION"
+                style={{ backgroundImage: "none" }}
+                value="IMPEROSNATION"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="IMPEROSNATION">
+                Imperosnation
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Imperosnation</label>
+              <input
+                id="COPYRIGHT"
+                style={{ backgroundImage: "none" }}
+                value="COPYRIGHT"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="COPYRIGHT">
+                Copyright violation
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Copyright violation</label>
+              <input
+                id="TRADEMARK"
+                style={{ backgroundImage: "none" }}
+                value="TRADEMARK"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="TRADEMARK">
+                Trademark violation
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Trademark violation</label>
+              <input
+                id="SUICIDE"
+                style={{ backgroundImage: "none" }}
+                value="SUICIDE"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="SUICIDE">
+                Self-harm or suicide
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Self-harm or suicide</label>
+              <input
+                id="SPAM"
+                style={{ backgroundImage: "none" }}
+                value="SPAM"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="SPAM">
+                Spam
+              </label>
             </div>
             <div className="btn-div">
-              <label className="btn-label">Spam</label>
-            </div>
-            <div className="btn-div">
-              <label className="btn-label">Misinforamtion</label>
+              <input
+                id="MISINFORMATION"
+                style={{ backgroundImage: "none" }}
+                value="MISINFORMATION"
+                type="radio"
+                name="categoryOrRule"
+              />
+              <label className="btn-label" htmlFor="MISINFORMATION">
+                Misinformation
+              </label>
             </div>
           </div>
         </Modal.Body>
@@ -97,5 +201,5 @@ const ReportModal = () => {
       </StyledModal>
     </>
   );
-}
+};
 export default ReportModal;

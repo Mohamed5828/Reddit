@@ -69,12 +69,14 @@ export const StyledModal = styled(Modal)`
     font: inherit;
     vertical-align: baseline;
   }
-
+  .btn-div input {
+    display: none;
+  }
   .btn-div:hover {
     color: ${({ theme }) => theme.btnColor.text};
     background-color: #42adf0;
   }
-  .btn-div:active {
+  .btn-div input:checked + label {
     color: ${({ theme }) => theme.btnColor.text};
     background-color: #42adf0;
   }
@@ -129,7 +131,6 @@ export const StyledModal = styled(Modal)`
     letter-spacing: 0.05em;
     outline: none;
   }
-  
 `;
 
 export const Report = styled.a`

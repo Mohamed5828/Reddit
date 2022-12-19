@@ -23,59 +23,78 @@ import fetchAllMessages from "../Services/fetchallMessages";
  * @returns {React.Component}
  */
 function Messages() {
-  const auth = useAuth();
-  const [mentions, errorMentions, loadingMentions, fetchMentions ] = useFetchFunction();
-  const [replies, errorReplies, loadingReplies, fetchReplies ] = useFetchFunction();
-  const [messages, errorMessages, loadingMessages, fetchMessagesData ] = useFetchFunction();
-  const [messagesAll, errorMessagesAll, loadingMessagesAll, fetchMessagesAll ] = useFetchFunction();
+  // const auth = useAuth();
+  const [mentions, errorMentions, loadingMentions, fetchMentions] =
+    useFetchFunction();
+  const [replies, errorReplies, loadingReplies, fetchReplies] =
+    useFetchFunction();
+  const [messages, errorMessages, loadingMessages, fetchMessagesData] =
+    useFetchFunction();
+  const [messagesAll, errorMessagesAll, loadingMessagesAll, fetchMessagesAll] =
+    useFetchFunction();
 
-
-  useEffect(()=>{
-    fetchUsernameMentions(fetchMentions, auth);
-    fetchPostReplies(fetchReplies, auth);
+  useEffect(() => {
+    // fetchUsernameMentions(fetchMentions, auth);
+    // fetchPostReplies(fetchReplies, auth);
     fetchMessages(fetchMessagesData);
-    fetchAllMessages(fetchMessagesAll)
+    fetchAllMessages(fetchMessagesAll);
   }, []);
 
-  const unread =[]
+  const unread = [];
   // console.log(`All is: `);
   // console.log(messagesAll);
   const mapping = messagesAll.map((item) => {
-    if(item.read===false) {
+    if (item.read === false) {
       unread.push(item);
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   });
-
 
   return (
     <>
       <MessagesHeader />
       <Routes>
-        {!loadingMessagesAll &&
-        <Route
-          path="/"
-          element={
-              <MessageItem messages={messagesAll}/>
-          }
-        />
-        }
-        
-        <Route path="/inbox" >
-          <Route path="/inbox" element={<MessageItem messages={messagesAll}/> } />
-          {!loadingMessagesAll &&
-          <Route path="/inbox/all" element={<MessageItem messages={messagesAll}/> }/>}
-          {!loadingMessages &&
-          <Route path="/inbox/messages" element={<MessageBannel messages={messages}/> }/>}
-          {!loadingMentions && 
-          <Route path="/inbox/mentions"element={ <UserMentions mentions={mentions}/> } />}
-          {!loadingMessagesAll &&
-          <Route path="/inbox/unread" element={ <Unread messages={unread}/> }/>}
-          {!loadingReplies &&
-          <Route path="/inbox/selfreply" element={<PostReplay replies={replies}/> }/>}
+        {!loadingMessagesAll && (
+          <Route path="/" element={<MessageItem messages={messagesAll} />} />
+        )}
+
+        <Route path="/inbox">
+          <Route
+            path="/inbox"
+            element={<MessageItem messages={messagesAll} />}
+          />
+          {!loadingMessagesAll && (
+            <Route
+              path="/inbox/all"
+              element={<MessageItem messages={messagesAll} />}
+            />
+          )}
+          {!loadingMessages && (
+            <Route
+              path="/inbox/messages"
+              element={<MessageBannel messages={messages} />}
+            />
+          )}
+          {!loadingMentions && (
+            <Route
+              path="/inbox/mentions"
+              element={<UserMentions mentions={mentions} />}
+            />
+          )}
+          {!loadingMessagesAll && (
+            <Route
+              path="/inbox/unread"
+              element={<Unread messages={unread} />}
+            />
+          )}
+          {!loadingReplies && (
+            <Route
+              path="/inbox/selfreply"
+              element={<PostReplay replies={replies} />}
+            />
+          )}
         </Route>
 
         <Route
@@ -94,7 +113,6 @@ function Messages() {
             </>
           }
         />
-        
 
         {/* <Footer /> */}
       </Routes>
