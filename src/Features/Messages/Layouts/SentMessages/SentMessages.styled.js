@@ -19,11 +19,20 @@ export const PageContainer = styled.div`
   transition: 0.3s;
   font: normal x-small verdana, arial, helvetica, sans-serif;
 
-  &:nth-child(odd){
+  &:nth-child(odd) {
     background-color: ${({ theme }) => theme.background.lightMuted};
   }
 
-  &:nth-child(even){
+  &:nth-child(even) {
     background-color: ${({ theme }) => theme.background.primary};
+  }
+  @media screen and (max-width: 850px) {
+    min-width: unset;
+    width: 90%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 `;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Page = styled.div`
-  background:  ${({ theme }) => theme.lineColor.primary};
-  color:  ${({ theme }) => theme.color.primary};
+  background: ${({ theme }) => theme.lineColor.primary};
+  color: ${({ theme }) => theme.color.primary};
   transition: 0.3s;
   font: normal x-small verdana, arial, helvetica, sans-serif;
   z-index: 1;
@@ -14,12 +14,21 @@ export const Margin = styled.div`
 `;
 export const Content = styled.div`
   padding: 10px 20px;
-  margin: 00px auto;
+  margin: 0px auto;
   width: 70%;
   min-width: 700px;
   background: ${({ theme }) => theme.background.primary};
-  color:  ${({ theme }) => theme.color.primary};
+  color: ${({ theme }) => theme.color.primary};
   transition: 0.3s;
+  @media screen and (max-width: 850px) {
+    min-width: unset;
+    width: 90%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `;
 
 export const Spacer = styled.div`
@@ -75,7 +84,7 @@ export const Inputs = styled.input`
 
 export const MessageContainer = styled.div`
   width: 500px;
-  color:  ${({ theme }) => theme.color.primary};
+  color: ${({ theme }) => theme.color.primary};
   transition: 0.3s;
 `;
 
@@ -90,7 +99,7 @@ export const SendBtn = styled.button`
   border-radius: 4px;
   transition: 0.3s;
   background-color: ${({ theme }) => theme.color.secondary};
-  border-color:  ${({ theme }) => theme.color.secondary};
+  border-color: ${({ theme }) => theme.color.secondary};
   padding: 6px 16px 4px;
   color: ${({ theme }) => theme.btnColor.text};
   text-transform: uppercase;
@@ -107,7 +116,7 @@ export const Heading = styled.h1`
 `;
 export const Error = styled.span`
   display: none;
-  color:  ${({ theme }) => theme.color.danger};
+  color: ${({ theme }) => theme.color.danger};
   transition: 0.3s;
   font-size: 11px;
   margin-top: -8px;

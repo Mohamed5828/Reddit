@@ -18,4 +18,13 @@ export const PageContainer = styled.div`
   transition: 0.3s;
   background: ${({ theme }) => theme.canvas};
   font: normal x-small verdana, arial, helvetica, sans-serif;
+  @media screen and (max-width: 850px) {
+    min-width: unset;
+    width: 90%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `;
