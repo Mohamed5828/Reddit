@@ -1,7 +1,3 @@
-<div align="center">
-<img height="300" src="./Images/Artboard 1-transparent.png">
-<h1/>
-</div>
 
 <div align="center">
     <h1 align='center'>⚡️<i>Reddit clone</i>⚡️</h1>
